@@ -1,0 +1,163 @@
+name: SAP S/4HANA APIs
+description: Collection of SAP S/4HANA Cloud and On-Premise APIs for enterprise resource planning
+image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+created: '2024-01-15'
+modified: '2024-01-15'
+specificationVersion: '0.18'
+url: https://api.sap.com/apis.json
+apis:
+- name: SAP S/4HANA Business Partner API
+  description: API for creating, reading, updating, and deleting business partner master data
+  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+  humanUrl: https://api.sap.com/api/API_BUSINESS_PARTNER/overview
+  baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
+  tags:
+  - Business Partner
+  - Master Data
+  - Customer
+  - Supplier
+  - ERP
+  properties:
+  - type: OpenAPI
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/overview
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/873c58e32fa642eea4ffb53d80819fa3.html
+  - type: API Console
+    url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
+  - type: Authentication
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/26f2b5aa3f3a4019b7d08978095b9e6a.html
+  contact:
+  - type: Support
+    url: https://support.sap.com
+- name: SAP S/4HANA Sales Order API
+  description: API for managing sales orders including creation, updates, and status changes
+  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+  humanUrl: https://api.sap.com/api/API_SALES_ORDER_SRV/overview
+  baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV
+  tags:
+  - Sales Order
+  - Sales
+  - Order Management
+  - ERP
+  properties:
+  - type: OpenAPI
+    url: https://api.sap.com/api/API_SALES_ORDER_SRV/overview
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/cd99a61e5e3f45789c954055c1e31de0/46e2b3e1e0d44419b86e4f0f6e90a0c9.html
+  - type: API Console
+    url: https://api.sap.com/api/API_SALES_ORDER_SRV/tryout
+  contact:
+  - type: Support
+    url: https://support.sap.com
+- name: SAP S/4HANA Purchase Order API
+  description: API for creating and managing purchase orders in procurement processes
+  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+  humanUrl: https://api.sap.com/api/API_PURCHASEORDER_PROCESS_SRV/overview
+  baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PURCHASEORDER_PROCESS_SRV
+  tags:
+  - Purchase Order
+  - Procurement
+  - Purchasing
+  - ERP
+  properties:
+  - type: OpenAPI
+    url: https://api.sap.com/api/API_PURCHASEORDER_PROCESS_SRV/overview
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/68bf513d4c6742ddb5c0268d46b48b7c/7e0da70d14b44e0cac79c2a29c21b695.html
+  - type: API Console
+    url: https://api.sap.com/api/API_PURCHASEORDER_PROCESS_SRV/tryout
+  contact:
+  - type: Support
+    url: https://support.sap.com
+- name: SAP S/4HANA Material Document API
+  description: API for posting goods movements and managing inventory transactions
+  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+  humanUrl: https://api.sap.com/api/API_MATERIAL_DOCUMENT_SRV/overview
+  baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_MATERIAL_DOCUMENT_SRV
+  tags:
+  - Material Document
+  - Inventory
+  - Goods Movement
+  - Warehouse
+  - ERP
+  properties:
+  - type: OpenAPI
+    url: https://api.sap.com/api/API_MATERIAL_DOCUMENT_SRV/overview
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/0dd0e7f348b04fc7b4e6e63bc9e1db9f/e5ced76872764cbbb8d78e81e21e7f35.html
+  - type: API Console
+    url: https://api.sap.com/api/API_MATERIAL_DOCUMENT_SRV/tryout
+  contact:
+  - type: Support
+    url: https://support.sap.com
+- name: SAP S/4HANA Product Master API
+  description: API for managing product and material master data
+  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+  humanUrl: https://api.sap.com/api/API_PRODUCT_SRV/overview
+  baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCT_SRV
+  tags:
+  - Product
+  - Material
+  - Master Data
+  - ERP
+  properties:
+  - type: OpenAPI
+    url: https://api.sap.com/api/API_PRODUCT_SRV/overview
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/48a7b615c24444a9b3a6f2810f88db71.html
+  - type: API Console
+    url: https://api.sap.com/api/API_PRODUCT_SRV/tryout
+  contact:
+  - type: Support
+    url: https://support.sap.com
+- name: SAP S/4HANA Journal Entry API
+  description: API for creating and managing financial journal entries
+  image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
+  humanUrl: https://api.sap.com/api/API_JOURNALENTRY_SRV/overview
+  baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_JOURNALENTRY_SRV
+  tags:
+  - Finance
+  - Accounting
+  - Journal Entry
+  - General Ledger
+  - ERP
+  properties:
+  - type: OpenAPI
+    url: https://api.sap.com/api/API_JOURNALENTRY_SRV/overview
+  - type: Documentation
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/b8c083f8f1614da6bf6f7a6e06c4f9be/e0f6c2e84e214c8c8d77a24b40a11ae8.html
+  - type: API Console
+    url: https://api.sap.com/api/API_JOURNALENTRY_SRV/tryout
+  contact:
+  - type: Support
+    url: https://support.sap.com
+common:
+- type: Portal
+  url: https://api.sap.com
+- type: Getting Started
+  url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/1e45cfd73e814aa6b1a1118e2c1d3cec.html
+- type: Authentication
+  url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/26f2b5aa3f3a4019b7d08978095b9e6a.html
+- type: Change Log
+  url: https://api.sap.com/releasenotes
+- type: Support
+  url: https://support.sap.com
+- type: Terms of Service
+  url: https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html
+- type: Privacy Policy
+  url: https://www.sap.com/about/legal/privacy.html
+maintainers:
+- name: SAP SE
+  email: support@sap.com
+  url: https://www.sap.com
+tags:
+- ERP
+- Enterprise Resource Planning
+- SAP
+- S/4HANA
+- Cloud
+- Business Applications
+- Finance
+- Sales
+- Procurement
+- Inventory
