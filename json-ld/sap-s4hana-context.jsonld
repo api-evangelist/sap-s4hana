@@ -1,0 +1,516 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "sap": "https://api.sap.com/ns/s4hana/",
+    "schema": "https://schema.org/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "gr": "http://purl.org/goodrelations/v1#",
+
+    "@vocab": "https://api.sap.com/ns/s4hana/",
+
+    "SalesOrder": {
+      "@id": "sap:SalesOrder",
+      "@type": "@id",
+      "@context": {
+        "SalesOrder": {
+          "@id": "schema:orderNumber",
+          "@type": "xsd:string"
+        },
+        "SalesOrderType": {
+          "@id": "sap:salesOrderType",
+          "@type": "xsd:string"
+        },
+        "SalesOrganization": {
+          "@id": "sap:salesOrganization",
+          "@type": "xsd:string"
+        },
+        "DistributionChannel": {
+          "@id": "sap:distributionChannel",
+          "@type": "xsd:string"
+        },
+        "OrganizationDivision": {
+          "@id": "sap:organizationDivision",
+          "@type": "xsd:string"
+        },
+        "SalesGroup": {
+          "@id": "sap:salesGroup",
+          "@type": "xsd:string"
+        },
+        "SalesOffice": {
+          "@id": "sap:salesOffice",
+          "@type": "xsd:string"
+        },
+        "SalesDistrict": {
+          "@id": "sap:salesDistrict",
+          "@type": "xsd:string"
+        },
+        "SoldToParty": {
+          "@id": "schema:customer",
+          "@type": "xsd:string"
+        },
+        "CreationDate": {
+          "@id": "schema:dateCreated",
+          "@type": "xsd:date"
+        },
+        "CreatedByUser": {
+          "@id": "schema:creator",
+          "@type": "xsd:string"
+        },
+        "LastChangeDate": {
+          "@id": "schema:dateModified",
+          "@type": "xsd:date"
+        },
+        "LastChangeDateTime": {
+          "@id": "dcterms:modified",
+          "@type": "xsd:dateTime"
+        },
+        "PurchaseOrderByCustomer": {
+          "@id": "sap:customerPurchaseOrder",
+          "@type": "xsd:string"
+        },
+        "CustomerPurchaseOrderType": {
+          "@id": "sap:customerPurchaseOrderType",
+          "@type": "xsd:string"
+        },
+        "CustomerPurchaseOrderDate": {
+          "@id": "sap:customerPurchaseOrderDate",
+          "@type": "xsd:date"
+        },
+        "SalesOrderDate": {
+          "@id": "schema:orderDate",
+          "@type": "xsd:date"
+        },
+        "TotalNetAmount": {
+          "@id": "schema:totalPrice",
+          "@type": "xsd:decimal"
+        },
+        "TransactionCurrency": {
+          "@id": "schema:priceCurrency",
+          "@type": "xsd:string"
+        },
+        "SDDocumentReason": {
+          "@id": "sap:documentReason",
+          "@type": "xsd:string"
+        },
+        "PricingDate": {
+          "@id": "sap:pricingDate",
+          "@type": "xsd:date"
+        },
+        "RequestedDeliveryDate": {
+          "@id": "sap:requestedDeliveryDate",
+          "@type": "xsd:date"
+        },
+        "ShippingCondition": {
+          "@id": "sap:shippingCondition",
+          "@type": "xsd:string"
+        },
+        "CompleteDeliveryIsDefined": {
+          "@id": "sap:completeDeliveryRequired",
+          "@type": "xsd:boolean"
+        },
+        "ShippingType": {
+          "@id": "sap:shippingType",
+          "@type": "xsd:string"
+        },
+        "HeaderBillingBlockReason": {
+          "@id": "sap:billingBlockReason",
+          "@type": "xsd:string"
+        },
+        "DeliveryBlockReason": {
+          "@id": "sap:deliveryBlockReason",
+          "@type": "xsd:string"
+        },
+        "IncotermsClassification": {
+          "@id": "sap:incotermsClassification",
+          "@type": "xsd:string"
+        },
+        "IncotermsTransferLocation": {
+          "@id": "sap:incotermsLocation",
+          "@type": "xsd:string"
+        },
+        "IncotermsVersion": {
+          "@id": "sap:incotermsVersion",
+          "@type": "xsd:string"
+        },
+        "CustomerPaymentTerms": {
+          "@id": "schema:paymentDueDate",
+          "@type": "xsd:string"
+        },
+        "PaymentMethod": {
+          "@id": "schema:paymentMethod",
+          "@type": "xsd:string"
+        },
+        "ReferenceSDDocument": {
+          "@id": "sap:referenceDocument",
+          "@type": "xsd:string"
+        },
+        "OverallSDProcessStatus": {
+          "@id": "schema:orderStatus",
+          "@type": "xsd:string"
+        },
+        "TotalCreditCheckStatus": {
+          "@id": "sap:creditCheckStatus",
+          "@type": "xsd:string"
+        },
+        "OverallTotalDeliveryStatus": {
+          "@id": "sap:deliveryStatus",
+          "@type": "xsd:string"
+        },
+        "OverallSDDocumentRejectionSts": {
+          "@id": "sap:rejectionStatus",
+          "@type": "xsd:string"
+        },
+        "BillingDocumentDate": {
+          "@id": "sap:billingDate",
+          "@type": "xsd:date"
+        },
+        "to_Item": {
+          "@id": "schema:orderedItem",
+          "@container": "@set"
+        },
+        "to_Partner": {
+          "@id": "sap:headerPartners",
+          "@container": "@set"
+        },
+        "to_PricingElement": {
+          "@id": "sap:headerPricingElements",
+          "@container": "@set"
+        },
+        "to_Text": {
+          "@id": "sap:headerTexts",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "SalesOrderItem": {
+      "@id": "sap:SalesOrderItem",
+      "@type": "@id",
+      "@context": {
+        "SalesOrder": {
+          "@id": "schema:orderNumber",
+          "@type": "xsd:string"
+        },
+        "SalesOrderItem": {
+          "@id": "sap:salesOrderItemNumber",
+          "@type": "xsd:string"
+        },
+        "HigherLevelItem": {
+          "@id": "sap:higherLevelItem",
+          "@type": "xsd:string"
+        },
+        "SalesOrderItemCategory": {
+          "@id": "sap:itemCategory",
+          "@type": "xsd:string"
+        },
+        "SalesOrderItemText": {
+          "@id": "schema:description",
+          "@type": "xsd:string"
+        },
+        "Material": {
+          "@id": "schema:productID",
+          "@type": "xsd:string"
+        },
+        "MaterialByCustomer": {
+          "@id": "sap:customerMaterialNumber",
+          "@type": "xsd:string"
+        },
+        "RequestedQuantity": {
+          "@id": "schema:orderQuantity",
+          "@type": "xsd:decimal"
+        },
+        "RequestedQuantityUnit": {
+          "@id": "sap:orderQuantityUnit",
+          "@type": "xsd:string"
+        },
+        "NetAmount": {
+          "@id": "schema:price",
+          "@type": "xsd:decimal"
+        },
+        "TransactionCurrency": {
+          "@id": "schema:priceCurrency",
+          "@type": "xsd:string"
+        },
+        "Plant": {
+          "@id": "sap:deliveringPlant",
+          "@type": "xsd:string"
+        },
+        "ProductionPlant": {
+          "@id": "sap:productionPlant",
+          "@type": "xsd:string"
+        },
+        "StorageLocation": {
+          "@id": "sap:storageLocation",
+          "@type": "xsd:string"
+        },
+        "Batch": {
+          "@id": "sap:batchNumber",
+          "@type": "xsd:string"
+        },
+        "MaterialGroup": {
+          "@id": "sap:materialGroup",
+          "@type": "xsd:string"
+        },
+        "ShippingPoint": {
+          "@id": "sap:shippingPoint",
+          "@type": "xsd:string"
+        },
+        "DeliveryPriority": {
+          "@id": "sap:deliveryPriority",
+          "@type": "xsd:string"
+        },
+        "ItemGrossWeight": {
+          "@id": "schema:weight",
+          "@type": "xsd:decimal"
+        },
+        "ItemNetWeight": {
+          "@id": "sap:netWeight",
+          "@type": "xsd:decimal"
+        },
+        "ItemWeightUnit": {
+          "@id": "sap:weightUnit",
+          "@type": "xsd:string"
+        },
+        "ProfitCenter": {
+          "@id": "sap:profitCenter",
+          "@type": "xsd:string"
+        },
+        "CostCenter": {
+          "@id": "sap:costCenter",
+          "@type": "xsd:string"
+        },
+        "WBSElement": {
+          "@id": "sap:wbsElement",
+          "@type": "xsd:string"
+        },
+        "SDProcessStatus": {
+          "@id": "sap:processingStatus",
+          "@type": "xsd:string"
+        },
+        "DeliveryStatus": {
+          "@id": "sap:deliveryStatus",
+          "@type": "xsd:string"
+        },
+        "OrderRelatedBillingStatus": {
+          "@id": "sap:billingStatus",
+          "@type": "xsd:string"
+        },
+        "SalesDocumentRjcnReason": {
+          "@id": "sap:rejectionReason",
+          "@type": "xsd:string"
+        },
+        "ItemBillingBlockReason": {
+          "@id": "sap:itemBillingBlock",
+          "@type": "xsd:string"
+        },
+        "to_PricingElement": {
+          "@id": "sap:itemPricingElements",
+          "@container": "@set"
+        },
+        "to_ScheduleLine": {
+          "@id": "sap:scheduleLines",
+          "@container": "@set"
+        },
+        "to_Partner": {
+          "@id": "sap:itemPartners",
+          "@container": "@set"
+        },
+        "to_Text": {
+          "@id": "sap:itemTexts",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "SalesOrderPartner": {
+      "@id": "sap:SalesOrderPartner",
+      "@type": "@id",
+      "@context": {
+        "PartnerFunction": {
+          "@id": "sap:partnerFunction",
+          "@type": "xsd:string"
+        },
+        "Customer": {
+          "@id": "schema:customer",
+          "@type": "xsd:string"
+        },
+        "Supplier": {
+          "@id": "sap:supplier",
+          "@type": "xsd:string"
+        },
+        "Personnel": {
+          "@id": "sap:personnel",
+          "@type": "xsd:string"
+        },
+        "ContactPerson": {
+          "@id": "sap:contactPerson",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "SalesOrderPricingElement": {
+      "@id": "sap:SalesOrderPricingElement",
+      "@type": "@id",
+      "@context": {
+        "PricingProcedureStep": {
+          "@id": "sap:pricingStep",
+          "@type": "xsd:string"
+        },
+        "PricingProcedureCounter": {
+          "@id": "sap:pricingCounter",
+          "@type": "xsd:string"
+        },
+        "ConditionType": {
+          "@id": "sap:conditionType",
+          "@type": "xsd:string"
+        },
+        "ConditionRateValue": {
+          "@id": "gr:hasCurrencyValue",
+          "@type": "xsd:decimal"
+        },
+        "ConditionCurrency": {
+          "@id": "gr:hasCurrency",
+          "@type": "xsd:string"
+        },
+        "ConditionQuantity": {
+          "@id": "sap:conditionQuantity",
+          "@type": "xsd:decimal"
+        },
+        "ConditionQuantityUnit": {
+          "@id": "sap:conditionQuantityUnit",
+          "@type": "xsd:string"
+        },
+        "ConditionAmount": {
+          "@id": "sap:conditionAmount",
+          "@type": "xsd:decimal"
+        },
+        "TransactionCurrency": {
+          "@id": "schema:priceCurrency",
+          "@type": "xsd:string"
+        },
+        "ConditionIsForStatistics": {
+          "@id": "sap:isStatistical",
+          "@type": "xsd:boolean"
+        },
+        "ConditionOrigin": {
+          "@id": "sap:conditionOrigin",
+          "@type": "xsd:string"
+        },
+        "ConditionClass": {
+          "@id": "sap:conditionClass",
+          "@type": "xsd:string"
+        },
+        "ConditionIsManuallyChanged": {
+          "@id": "sap:isManuallyChanged",
+          "@type": "xsd:boolean"
+        }
+      }
+    },
+
+    "SalesOrderScheduleLine": {
+      "@id": "sap:SalesOrderScheduleLine",
+      "@type": "@id",
+      "@context": {
+        "ScheduleLine": {
+          "@id": "sap:scheduleLineNumber",
+          "@type": "xsd:string"
+        },
+        "RequestedDeliveryDate": {
+          "@id": "sap:requestedDeliveryDate",
+          "@type": "xsd:date"
+        },
+        "ConfirmedDeliveryDate": {
+          "@id": "sap:confirmedDeliveryDate",
+          "@type": "xsd:date"
+        },
+        "ScheduleLineOrderQuantity": {
+          "@id": "sap:orderedQuantity",
+          "@type": "xsd:decimal"
+        },
+        "ConfdOrderQtyByMatlAvailCheck": {
+          "@id": "sap:confirmedQuantity",
+          "@type": "xsd:decimal"
+        },
+        "DeliveredQtyInOrderQtyUnit": {
+          "@id": "sap:deliveredQuantity",
+          "@type": "xsd:decimal"
+        },
+        "OpenConfdDelivQtyInOrdQtyUnit": {
+          "@id": "sap:openDeliveryQuantity",
+          "@type": "xsd:decimal"
+        },
+        "OrderQuantityUnit": {
+          "@id": "sap:orderQuantityUnit",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "SalesOrderTextRecord": {
+      "@id": "sap:SalesOrderTextRecord",
+      "@type": "@id",
+      "@context": {
+        "Language": {
+          "@id": "schema:inLanguage",
+          "@type": "xsd:string"
+        },
+        "LongTextID": {
+          "@id": "sap:textId",
+          "@type": "xsd:string"
+        },
+        "LongText": {
+          "@id": "schema:text",
+          "@type": "xsd:string"
+        }
+      }
+    },
+
+    "Order": "schema:Order",
+    "OrderItem": "schema:OrderItem",
+    "Organization": "schema:Organization",
+    "Product": "schema:Product",
+    "PriceSpecification": "gr:PriceSpecification",
+
+    "name": "schema:name",
+    "description": "schema:description",
+    "url": {
+      "@id": "schema:url",
+      "@type": "xsd:anyURI"
+    },
+    "identifier": "schema:identifier",
+    "dateCreated": {
+      "@id": "schema:dateCreated",
+      "@type": "xsd:date"
+    },
+    "dateModified": {
+      "@id": "schema:dateModified",
+      "@type": "xsd:date"
+    },
+    "orderNumber": {
+      "@id": "schema:orderNumber",
+      "@type": "xsd:string"
+    },
+    "orderDate": {
+      "@id": "schema:orderDate",
+      "@type": "xsd:date"
+    },
+    "orderStatus": {
+      "@id": "schema:orderStatus",
+      "@type": "xsd:string"
+    },
+    "totalPrice": {
+      "@id": "schema:totalPrice",
+      "@type": "xsd:decimal"
+    },
+    "priceCurrency": {
+      "@id": "schema:priceCurrency",
+      "@type": "xsd:string"
+    },
+    "customer": "schema:customer",
+    "orderedItem": "schema:orderedItem"
+  }
+}

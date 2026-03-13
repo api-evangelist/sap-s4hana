@@ -1,0 +1,942 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api.sap.com/ns/s4hana/schemas/sales-order",
+  "title": "SAP S/4HANA Sales Order",
+  "description": "Schema for SAP S/4HANA Sales Order documents managed through the API_SALES_ORDER_SRV OData service. Covers the complete sales order structure including header data, line items, pricing elements, schedule lines, partner functions, and text records. Sales orders represent a customer's request for goods or services and drive downstream logistics, billing, and accounting processes.",
+  "type": "object",
+  "$defs": {
+    "SalesOrder": {
+      "type": "object",
+      "description": "Sales order header record (A_SalesOrder) containing organizational data, customer references, pricing totals, delivery requirements, and overall processing status for the sales document.",
+      "properties": {
+        "SalesOrder": {
+          "type": "string",
+          "maxLength": 10,
+          "pattern": "^[0-9]{1,10}$",
+          "description": "Sales order number, a unique 10-digit identifier assigned by the system",
+          "examples": ["0000000001"]
+        },
+        "SalesOrderType": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Sales document type controlling the document's behavior (e.g., OR=Standard Order, RE=Returns, CR=Credit Memo Request, DR=Debit Memo Request, BV=Cash Sale, SO=Rush Order)",
+          "examples": ["OR", "RE", "CR"]
+        },
+        "SalesOrganization": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Sales organization responsible for the sale, determining pricing, output, and partner determination procedures",
+          "examples": ["1710", "1010"]
+        },
+        "DistributionChannel": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Distribution channel representing the path through which goods or services reach the customer (e.g., 10=Direct Sales, 12=Online)",
+          "examples": ["10"]
+        },
+        "OrganizationDivision": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Division for grouping materials and services within the sales organization",
+          "examples": ["00"]
+        },
+        "SalesGroup": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Sales group within the sales organization responsible for the order"
+        },
+        "SalesOffice": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Physical sales office location"
+        },
+        "SalesDistrict": {
+          "type": "string",
+          "maxLength": 6,
+          "description": "Geographic sales district for reporting and analysis"
+        },
+        "SoldToParty": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Customer number of the sold-to party who places the order",
+          "examples": ["10100001"]
+        },
+        "CreationDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Date when the sales order was created in the system"
+        },
+        "CreatedByUser": {
+          "type": "string",
+          "maxLength": 12,
+          "description": "SAP user ID of the person who created the sales order"
+        },
+        "LastChangeDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of the most recent change to the sales order"
+        },
+        "LastChangeDateTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "UTC timestamp of the most recent change"
+        },
+        "PurchaseOrderByCustomer": {
+          "type": "string",
+          "maxLength": 35,
+          "description": "Customer's purchase order number for reference and matching"
+        },
+        "CustomerPurchaseOrderType": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Type of the customer's purchase order"
+        },
+        "CustomerPurchaseOrderDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Date of the customer's purchase order"
+        },
+        "SalesOrderDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Document date of the sales order"
+        },
+        "TotalNetAmount": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Total net value of all items in the sales order expressed in document currency",
+          "examples": ["15000.00"]
+        },
+        "TransactionCurrency": {
+          "type": "string",
+          "maxLength": 5,
+          "description": "ISO 4217 currency code for the sales order",
+          "examples": ["USD", "EUR", "GBP"]
+        },
+        "SDDocumentReason": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Reason code for the order (e.g., reason for return or credit memo)"
+        },
+        "PricingDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Date used to determine valid pricing conditions"
+        },
+        "RequestedDeliveryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Customer-requested delivery date for the entire order"
+        },
+        "ShippingCondition": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Shipping condition code determining the shipping point and route"
+        },
+        "CompleteDeliveryIsDefined": {
+          "type": "boolean",
+          "description": "If true, all items must be delivered together in a single delivery"
+        },
+        "ShippingType": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Shipping type code (e.g., rail, truck, air)"
+        },
+        "HeaderBillingBlockReason": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Billing block reason preventing invoice creation at header level"
+        },
+        "DeliveryBlockReason": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Delivery block reason preventing delivery creation"
+        },
+        "IncotermsClassification": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Incoterms classification code defining responsibilities for transport costs and risk (e.g., EXW, FOB, CIF, DDP)",
+          "examples": ["EXW", "FOB", "CIF"]
+        },
+        "IncotermsTransferLocation": {
+          "type": "string",
+          "maxLength": 28,
+          "description": "Named place for Incoterms (e.g., port or destination city)"
+        },
+        "IncotermsLocation1": {
+          "type": "string",
+          "maxLength": 70,
+          "description": "Incoterms location 1"
+        },
+        "IncotermsLocation2": {
+          "type": "string",
+          "maxLength": 70,
+          "description": "Incoterms location 2"
+        },
+        "IncotermsVersion": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Version year of the Incoterms used (e.g., 2020)"
+        },
+        "CustomerPaymentTerms": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Payment terms key determining payment due dates and cash discount periods",
+          "examples": ["0001", "NT30"]
+        },
+        "PaymentMethod": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Payment method code"
+        },
+        "AssignmentReference": {
+          "type": "string",
+          "maxLength": 18,
+          "description": "Reference number for accounting document assignment"
+        },
+        "ReferenceSDDocument": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Reference sales document number (e.g., preceding quotation or contract)"
+        },
+        "ReferenceSDDocumentCategory": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Category of the reference sales document"
+        },
+        "AccountingExchangeRate": {
+          "type": "string",
+          "description": "Exchange rate used for converting to local currency in accounting"
+        },
+        "OverallSDProcessStatus": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Overall processing status (A=Not yet processed, B=Partially processed, C=Completely processed)",
+          "enum": ["", "A", "B", "C"]
+        },
+        "TotalCreditCheckStatus": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Overall credit check status across all items"
+        },
+        "OverallTotalDeliveryStatus": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Overall delivery status (A=Not yet processed, B=Partially delivered, C=Completely delivered)"
+        },
+        "OverallSDDocumentRejectionSts": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Overall rejection status of the sales document"
+        },
+        "BillingDocumentDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Date for billing document creation"
+        },
+        "CustomerTaxClassification1": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Tax classification 1 for customer"
+        },
+        "CustomerAccountGroup": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Customer account group"
+        },
+        "to_Item": {
+          "type": "array",
+          "description": "Line items belonging to this sales order",
+          "items": {
+            "$ref": "#/$defs/SalesOrderItem"
+          }
+        },
+        "to_Partner": {
+          "type": "array",
+          "description": "Header-level partner function assignments",
+          "items": {
+            "$ref": "#/$defs/SalesOrderHeaderPartner"
+          }
+        },
+        "to_PricingElement": {
+          "type": "array",
+          "description": "Header-level pricing conditions",
+          "items": {
+            "$ref": "#/$defs/SalesOrderHeaderPrcgElmnt"
+          }
+        },
+        "to_Text": {
+          "type": "array",
+          "description": "Header-level text records",
+          "items": {
+            "$ref": "#/$defs/SalesOrderText"
+          }
+        }
+      },
+      "required": ["SalesOrderType", "SalesOrganization", "DistributionChannel", "OrganizationDivision"],
+      "additionalProperties": true
+    },
+    "SalesOrderItem": {
+      "type": "object",
+      "description": "Sales order line item (A_SalesOrderItem) representing a single material or service line within a sales order, including quantity, pricing, plant assignment, and item-level status.",
+      "properties": {
+        "SalesOrder": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Sales order number the item belongs to"
+        },
+        "SalesOrderItem": {
+          "type": "string",
+          "maxLength": 6,
+          "pattern": "^[0-9]{1,6}$",
+          "description": "Item number within the sales order, typically in increments of 10",
+          "examples": ["000010", "000020"]
+        },
+        "HigherLevelItem": {
+          "type": "string",
+          "maxLength": 6,
+          "description": "Higher-level item in a bill of materials (BOM) hierarchy"
+        },
+        "SalesOrderItemCategory": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Item category controlling the item's processing (e.g., TAN=Standard, TANN=Free-of-charge, TAD=Service)",
+          "examples": ["TAN", "TANN"]
+        },
+        "SalesOrderItemText": {
+          "type": "string",
+          "maxLength": 40,
+          "description": "Short text description of the item"
+        },
+        "PurchaseOrderByCustomer": {
+          "type": "string",
+          "maxLength": 35,
+          "description": "Customer purchase order number at item level"
+        },
+        "Material": {
+          "type": "string",
+          "maxLength": 40,
+          "description": "Material number from the SAP material master",
+          "examples": ["TG11", "MZ-FG-R200"]
+        },
+        "MaterialByCustomer": {
+          "type": "string",
+          "maxLength": 35,
+          "description": "Material number as known by the customer"
+        },
+        "PricingDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Date used for pricing condition determination at item level"
+        },
+        "BillingPlan": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Billing plan number for periodic or milestone billing"
+        },
+        "RequestedQuantity": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Quantity requested by the customer",
+          "examples": ["10", "100.000"]
+        },
+        "RequestedQuantityUnit": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "ISO unit of measure for the requested quantity",
+          "examples": ["EA", "PC", "KG"]
+        },
+        "RequestedQuantitySAPUnit": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "SAP internal unit of measure code"
+        },
+        "RequestedQuantityIsFixed": {
+          "type": "boolean",
+          "description": "Indicator that the requested quantity cannot be changed by ATP"
+        },
+        "ItemGrossWeight": {
+          "type": "string",
+          "description": "Gross weight of the item"
+        },
+        "ItemNetWeight": {
+          "type": "string",
+          "description": "Net weight of the item"
+        },
+        "ItemWeightUnit": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Unit of measure for weight (e.g., KG, LB)"
+        },
+        "ItemVolume": {
+          "type": "string",
+          "description": "Volume of the item"
+        },
+        "ItemVolumeUnit": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Unit of measure for volume"
+        },
+        "TransactionCurrency": {
+          "type": "string",
+          "maxLength": 5,
+          "description": "ISO 4217 currency code at item level"
+        },
+        "NetAmount": {
+          "type": "string",
+          "pattern": "^-?[0-9]+(\\.[0-9]+)?$",
+          "description": "Net value of the item in document currency",
+          "examples": ["1500.00"]
+        },
+        "TotalSDAmount": {
+          "type": "string",
+          "description": "Total SD amount for the item"
+        },
+        "MaterialGroup": {
+          "type": "string",
+          "maxLength": 9,
+          "description": "Material group for grouping materials"
+        },
+        "MaterialPricingGroup": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Material pricing group for condition determination"
+        },
+        "Batch": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Batch number for batch-managed materials"
+        },
+        "Plant": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Delivering plant for the item",
+          "examples": ["1710"]
+        },
+        "ProductionPlant": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Production plant if different from delivering plant"
+        },
+        "StorageLocation": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Storage location within the plant"
+        },
+        "DeliveryGroup": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Delivery group for grouping items into deliveries"
+        },
+        "ShippingPoint": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Shipping point responsible for organizing outbound delivery"
+        },
+        "ShippingType": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Shipping type at item level"
+        },
+        "DeliveryPriority": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Delivery priority (01=High, 02=Normal, 03=Low)"
+        },
+        "IncotermsClassification": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Incoterms at item level, overrides header if specified"
+        },
+        "IncotermsTransferLocation": {
+          "type": "string",
+          "maxLength": 28,
+          "description": "Incoterms location at item level"
+        },
+        "CustomerPaymentTerms": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Payment terms at item level, overrides header if specified"
+        },
+        "ProductTaxClassification1": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Tax classification for the material"
+        },
+        "SalesDocumentRjcnReason": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Reason for rejecting the sales order item"
+        },
+        "ItemBillingBlockReason": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Billing block reason at item level"
+        },
+        "WBSElement": {
+          "type": "string",
+          "maxLength": 24,
+          "description": "Work breakdown structure element for project assignment"
+        },
+        "ProfitCenter": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Profit center for management accounting"
+        },
+        "OrderID": {
+          "type": "string",
+          "maxLength": 12,
+          "description": "Internal order number for cost assignment"
+        },
+        "CostCenter": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Cost center for overhead cost assignment"
+        },
+        "ReferenceSDDocument": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Reference sales document number (e.g., quotation)"
+        },
+        "ReferenceSDDocumentItem": {
+          "type": "string",
+          "maxLength": 6,
+          "description": "Reference sales document item number"
+        },
+        "SDProcessStatus": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Processing status at item level"
+        },
+        "DeliveryStatus": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Delivery status (A=Not delivered, B=Partially delivered, C=Completely delivered)"
+        },
+        "OrderRelatedBillingStatus": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Billing status for the item"
+        },
+        "WarehouseNumber": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Warehouse number for warehouse management"
+        },
+        "CustomerGroup": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Customer group for pricing and statistics"
+        },
+        "SalesDistrict": {
+          "type": "string",
+          "maxLength": 6,
+          "description": "Sales district at item level"
+        },
+        "to_PricingElement": {
+          "type": "array",
+          "description": "Item-level pricing conditions",
+          "items": {
+            "$ref": "#/$defs/SalesOrderItemPrcgElmnt"
+          }
+        },
+        "to_ScheduleLine": {
+          "type": "array",
+          "description": "Delivery schedule lines with confirmed quantities and dates",
+          "items": {
+            "$ref": "#/$defs/SalesOrderScheduleLine"
+          }
+        },
+        "to_Partner": {
+          "type": "array",
+          "description": "Item-level partner function assignments",
+          "items": {
+            "$ref": "#/$defs/SalesOrderItemPartner"
+          }
+        },
+        "to_Text": {
+          "type": "array",
+          "description": "Item-level text records",
+          "items": {
+            "$ref": "#/$defs/SalesOrderItemText"
+          }
+        }
+      },
+      "additionalProperties": true
+    },
+    "SalesOrderHeaderPartner": {
+      "type": "object",
+      "description": "Header-level partner function (A_SalesOrderHeaderPartner) assigning a business partner to a role such as sold-to, ship-to, bill-to, or payer.",
+      "properties": {
+        "SalesOrder": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Sales order number"
+        },
+        "PartnerFunction": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Partner function code (AG=Sold-to party, WE=Ship-to party, RE=Bill-to party, RG=Payer, AP=Contact person)",
+          "examples": ["AG", "WE", "RE", "RG"]
+        },
+        "Customer": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Customer number assigned to this partner function"
+        },
+        "Supplier": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Supplier number if the partner is a vendor"
+        },
+        "Personnel": {
+          "type": "string",
+          "maxLength": 8,
+          "description": "Personnel number for employee partners"
+        },
+        "ContactPerson": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Contact person number at the customer"
+        }
+      },
+      "additionalProperties": true
+    },
+    "SalesOrderItemPartner": {
+      "type": "object",
+      "description": "Item-level partner function (A_SalesOrderItemPartner) allowing partner overrides at the line item level.",
+      "properties": {
+        "SalesOrder": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Sales order number"
+        },
+        "SalesOrderItem": {
+          "type": "string",
+          "maxLength": 6,
+          "description": "Sales order item number"
+        },
+        "PartnerFunction": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Partner function code"
+        },
+        "Customer": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Customer number"
+        },
+        "Supplier": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Supplier number"
+        }
+      },
+      "additionalProperties": true
+    },
+    "SalesOrderHeaderPrcgElmnt": {
+      "type": "object",
+      "description": "Header-level pricing condition (A_SalesOrderHeaderPrcgElmnt) representing a pricing element such as a price, discount, surcharge, tax, or freight charge applied at the order level.",
+      "properties": {
+        "SalesOrder": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Sales order number"
+        },
+        "PricingProcedureStep": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Step number within the pricing procedure"
+        },
+        "PricingProcedureCounter": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Counter differentiating multiple conditions of the same type at a step"
+        },
+        "ConditionType": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Condition type identifier (e.g., PR00=Price, K004=Material Discount, K005=Customer Discount, MWST=Tax, KF00=Freight)",
+          "examples": ["PR00", "K004", "MWST", "KF00"]
+        },
+        "ConditionRateValue": {
+          "type": "string",
+          "description": "Rate or percentage value of the condition per pricing unit"
+        },
+        "ConditionCurrency": {
+          "type": "string",
+          "maxLength": 5,
+          "description": "Currency of the condition rate"
+        },
+        "ConditionQuantity": {
+          "type": "string",
+          "description": "Pricing unit quantity"
+        },
+        "ConditionQuantityUnit": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Unit of measure for the pricing unit"
+        },
+        "ConditionAmount": {
+          "type": "string",
+          "description": "Total calculated amount for the condition in document currency"
+        },
+        "TransactionCurrency": {
+          "type": "string",
+          "maxLength": 5,
+          "description": "Document currency"
+        },
+        "ConditionCategory": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Category of the condition"
+        },
+        "ConditionIsForStatistics": {
+          "type": "boolean",
+          "description": "If true, condition is statistical and does not affect the document value"
+        },
+        "ConditionOrigin": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Origin of the condition (e.g., automatic, manual)"
+        },
+        "IsGroupCondition": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Indicator for group condition"
+        },
+        "ConditionClass": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Condition class (A=Discount/Surcharge, B=Price, C=Percentage)"
+        },
+        "ConditionIsManuallyChanged": {
+          "type": "boolean",
+          "description": "Indicator that the condition was manually overridden"
+        }
+      },
+      "additionalProperties": true
+    },
+    "SalesOrderItemPrcgElmnt": {
+      "type": "object",
+      "description": "Item-level pricing condition (A_SalesOrderItemPrcgElmnt) representing a pricing element applied at the line item level.",
+      "properties": {
+        "SalesOrder": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Sales order number"
+        },
+        "SalesOrderItem": {
+          "type": "string",
+          "maxLength": 6,
+          "description": "Sales order item number"
+        },
+        "PricingProcedureStep": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Step number within the pricing procedure"
+        },
+        "PricingProcedureCounter": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Counter within the step"
+        },
+        "ConditionType": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Condition type identifier"
+        },
+        "ConditionRateValue": {
+          "type": "string",
+          "description": "Condition rate per pricing unit"
+        },
+        "ConditionCurrency": {
+          "type": "string",
+          "maxLength": 5,
+          "description": "Condition currency"
+        },
+        "ConditionQuantity": {
+          "type": "string",
+          "description": "Pricing unit quantity"
+        },
+        "ConditionQuantityUnit": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Pricing unit"
+        },
+        "ConditionAmount": {
+          "type": "string",
+          "description": "Total calculated condition value"
+        },
+        "TransactionCurrency": {
+          "type": "string",
+          "maxLength": 5,
+          "description": "Document currency"
+        },
+        "ConditionCategory": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Category of the condition"
+        },
+        "ConditionIsForStatistics": {
+          "type": "boolean",
+          "description": "Statistical condition indicator"
+        },
+        "ConditionOrigin": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Origin of the condition"
+        },
+        "ConditionClass": {
+          "type": "string",
+          "maxLength": 1,
+          "description": "Condition class"
+        },
+        "ConditionIsManuallyChanged": {
+          "type": "boolean",
+          "description": "Manual change indicator"
+        }
+      },
+      "additionalProperties": true
+    },
+    "SalesOrderScheduleLine": {
+      "type": "object",
+      "description": "Schedule line (A_SalesOrderScheduleLine) representing a delivery date and quantity commitment for a sales order item, including confirmed quantities from availability check (ATP).",
+      "properties": {
+        "SalesOrder": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Sales order number"
+        },
+        "SalesOrderItem": {
+          "type": "string",
+          "maxLength": 6,
+          "description": "Sales order item number"
+        },
+        "ScheduleLine": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Schedule line number within the item"
+        },
+        "RequestedDeliveryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Requested delivery date for this schedule line"
+        },
+        "ConfirmedDeliveryDate": {
+          "type": "string",
+          "format": "date",
+          "description": "Delivery date confirmed by ATP check"
+        },
+        "OrderQuantityUnit": {
+          "type": "string",
+          "maxLength": 3,
+          "description": "Unit of measure for quantities"
+        },
+        "ScheduleLineOrderQuantity": {
+          "type": "string",
+          "description": "Ordered quantity on this schedule line"
+        },
+        "ConfdOrderQtyByMatlAvailCheck": {
+          "type": "string",
+          "description": "Quantity confirmed as available by ATP"
+        },
+        "DeliveredQtyInOrderQtyUnit": {
+          "type": "string",
+          "description": "Quantity already delivered"
+        },
+        "OpenConfdDelivQtyInOrdQtyUnit": {
+          "type": "string",
+          "description": "Open confirmed quantity still to be delivered"
+        },
+        "CorrectedQtyInOrderQtyUnit": {
+          "type": "string",
+          "description": "Corrected quantity"
+        },
+        "DelivBlockReasonForSchedLine": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Delivery block reason for this schedule line"
+        }
+      },
+      "additionalProperties": true
+    },
+    "SalesOrderText": {
+      "type": "object",
+      "description": "Header-level text record (A_SalesOrderText) containing long text associated with the sales order header such as notes, header comments, and shipping instructions.",
+      "properties": {
+        "SalesOrder": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Sales order number"
+        },
+        "Language": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Language key (ISO 639-1 code)"
+        },
+        "LongTextID": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Text ID identifying the text type (e.g., 0001=Header note, 0002=Internal note)"
+        },
+        "LongText": {
+          "type": "string",
+          "description": "Text content"
+        }
+      },
+      "additionalProperties": true
+    },
+    "SalesOrderItemText": {
+      "type": "object",
+      "description": "Item-level text record (A_SalesOrderItemText) containing long text for a specific sales order item.",
+      "properties": {
+        "SalesOrder": {
+          "type": "string",
+          "maxLength": 10,
+          "description": "Sales order number"
+        },
+        "SalesOrderItem": {
+          "type": "string",
+          "maxLength": 6,
+          "description": "Sales order item number"
+        },
+        "Language": {
+          "type": "string",
+          "maxLength": 2,
+          "description": "Language key"
+        },
+        "LongTextID": {
+          "type": "string",
+          "maxLength": 4,
+          "description": "Text ID"
+        },
+        "LongText": {
+          "type": "string",
+          "description": "Text content"
+        }
+      },
+      "additionalProperties": true
+    }
+  },
+  "properties": {
+    "d": {
+      "type": "object",
+      "description": "OData response envelope",
+      "properties": {
+        "results": {
+          "type": "array",
+          "description": "Collection of sales order entities",
+          "items": {
+            "$ref": "#/$defs/SalesOrder"
+          }
+        },
+        "__count": {
+          "type": "string",
+          "description": "Total count of matching entities when $inlinecount=allpages is used"
+        }
+      }
+    }
+  },
+  "additionalProperties": true
+}
