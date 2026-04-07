@@ -20,53 +20,53 @@ info:
   x-sap-api-type: OData V2
   x-sap-shortText: Manage sales orders in SAP S/4HANA
 servers:
-- url: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV
-  description: SAP S/4HANA Cloud sandbox environment
-- url: https://{host}:{port}/sap/opu/odata/sap/API_SALES_ORDER_SRV
-  description: SAP S/4HANA on-premise or private cloud
-  variables:
-    host:
-      default: my-s4hana-host.example.com
-      description: SAP S/4HANA server hostname
-    port:
-      default: '443'
-      description: SAP S/4HANA server port
+  - url: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV
+    description: SAP S/4HANA Cloud sandbox environment
+  - url: https://{host}:{port}/sap/opu/odata/sap/API_SALES_ORDER_SRV
+    description: SAP S/4HANA on-premise or private cloud
+    variables:
+      host:
+        default: my-s4hana-host.example.com
+        description: SAP S/4HANA server hostname
+      port:
+        default: '443'
+        description: SAP S/4HANA server port
 security:
-- basicAuth: []
-- oauth2: []
+  - basicAuth: []
+  - oauth2: []
 tags:
-- name: Sales Orders
-  description: Operations on sales order header records
-- name: Sales Order Items
-  description: Operations on sales order line items
-- name: Pricing Elements
-  description: Operations on header and item pricing elements
-- name: Schedule Lines
-  description: Operations on item schedule lines for delivery scheduling
-- name: Partners
-  description: Operations on header and item partner functions
-- name: Text
-  description: Operations on header and item text records
+  - name: Sales Orders
+    description: Operations on sales order header records
+  - name: Sales Order Items
+    description: Operations on sales order line items
+  - name: Pricing Elements
+    description: Operations on header and item pricing elements
+  - name: Schedule Lines
+    description: Operations on item schedule lines for delivery scheduling
+  - name: Partners
+    description: Operations on header and item partner functions
+  - name: Text
+    description: Operations on header and item text records
 paths:
   /A_SalesOrder:
     get:
       operationId: listSalesOrders
-      summary: Retrieve a list of sales orders
+      summary: SAP S/4HANA Retrieve a list of sales orders
       description: >-
         Returns a collection of sales order header records. Supports OData system
         query options including $filter, $select, $expand, $orderby, $top, $skip,
         and $inlinecount for pagination. Use $expand to include related entities
         such as items, partners, and pricing elements in the response.
       tags:
-      - Sales Orders
+        - Sales Orders
       parameters:
-      - $ref: '#/components/parameters/top'
-      - $ref: '#/components/parameters/skip'
-      - $ref: '#/components/parameters/filter'
-      - $ref: '#/components/parameters/select'
-      - $ref: '#/components/parameters/expand'
-      - $ref: '#/components/parameters/orderby'
-      - $ref: '#/components/parameters/inlinecount'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/expand'
+        - $ref: '#/components/parameters/orderby'
+        - $ref: '#/components/parameters/inlinecount'
       responses:
         '200':
           description: Sales orders retrieved successfully
@@ -91,7 +91,7 @@ paths:
           $ref: '#/components/responses/Forbidden'
     post:
       operationId: createSalesOrder
-      summary: Create a new sales order
+      summary: SAP S/4HANA Create a new sales order
       description: >-
         Creates a new sales order in SAP S/4HANA. Supports deep insert, allowing
         you to create a header along with items, partners, pricing elements,
@@ -99,7 +99,7 @@ paths:
         SalesOrderType, SalesOrganization, DistributionChannel, and
         OrganizationDivision are required for creation.
       tags:
-      - Sales Orders
+        - Sales Orders
       requestBody:
         required: true
         content:
@@ -125,17 +125,17 @@ paths:
   /A_SalesOrder('{SalesOrder}'):
     get:
       operationId: getSalesOrder
-      summary: Retrieve a single sales order by key
+      summary: SAP S/4HANA Retrieve a single sales order by key
       description: >-
         Returns a single sales order header record identified by its sales order
         number. Use $expand to include related entities such as to_Item,
         to_Partner, and to_PricingElement.
       tags:
-      - Sales Orders
+        - Sales Orders
       parameters:
-      - $ref: '#/components/parameters/salesOrderKey'
-      - $ref: '#/components/parameters/select'
-      - $ref: '#/components/parameters/expand'
+        - $ref: '#/components/parameters/salesOrderKey'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/expand'
       responses:
         '200':
           description: Sales order retrieved successfully
@@ -154,16 +154,16 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateSalesOrder
-      summary: Update a sales order header
+      summary: SAP S/4HANA Update a sales order header
       description: >-
         Performs a partial update (MERGE/PATCH) on an existing sales order header.
         Only the fields provided in the request body are updated. Requires an
         If-Match header with the entity ETag for optimistic concurrency control.
       tags:
-      - Sales Orders
+        - Sales Orders
       parameters:
-      - $ref: '#/components/parameters/salesOrderKey'
-      - $ref: '#/components/parameters/ifMatch'
+        - $ref: '#/components/parameters/salesOrderKey'
+        - $ref: '#/components/parameters/ifMatch'
       requestBody:
         required: true
         content:
@@ -183,16 +183,16 @@ paths:
           $ref: '#/components/responses/PreconditionFailed'
     delete:
       operationId: deleteSalesOrder
-      summary: Delete a sales order
+      summary: SAP S/4HANA Delete a sales order
       description: >-
         Deletes an existing sales order. Requires an If-Match header with the
         entity ETag for optimistic concurrency control. A sales order can only be
         deleted if its processing status permits deletion.
       tags:
-      - Sales Orders
+        - Sales Orders
       parameters:
-      - $ref: '#/components/parameters/salesOrderKey'
-      - $ref: '#/components/parameters/ifMatch'
+        - $ref: '#/components/parameters/salesOrderKey'
+        - $ref: '#/components/parameters/ifMatch'
       responses:
         '204':
           description: Sales order deleted successfully
@@ -205,20 +205,20 @@ paths:
   /A_SalesOrder('{SalesOrder}')/to_Item:
     get:
       operationId: listSalesOrderItems
-      summary: Retrieve items for a sales order
+      summary: SAP S/4HANA Retrieve items for a sales order
       description: >-
         Returns the line items belonging to a specific sales order. Use $expand
         to include related entities such as to_PricingElement, to_ScheduleLine,
         and to_Partner.
       tags:
-      - Sales Order Items
+        - Sales Order Items
       parameters:
-      - $ref: '#/components/parameters/salesOrderKey'
-      - $ref: '#/components/parameters/top'
-      - $ref: '#/components/parameters/skip'
-      - $ref: '#/components/parameters/filter'
-      - $ref: '#/components/parameters/select'
-      - $ref: '#/components/parameters/expand'
+        - $ref: '#/components/parameters/salesOrderKey'
+        - $ref: '#/components/parameters/top'
+        - $ref: '#/components/parameters/skip'
+        - $ref: '#/components/parameters/filter'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/expand'
       responses:
         '200':
           description: Sales order items retrieved successfully
@@ -240,15 +240,15 @@ paths:
           $ref: '#/components/responses/NotFound'
     post:
       operationId: createSalesOrderItem
-      summary: Create a new sales order item
+      summary: SAP S/4HANA Create a new sales order item
       description: >-
         Creates a new line item within an existing sales order. The Material
         field is typically required. Supports deep insert for creating pricing
         elements, schedule lines, partners, and text along with the item.
       tags:
-      - Sales Order Items
+        - Sales Order Items
       parameters:
-      - $ref: '#/components/parameters/salesOrderKey'
+        - $ref: '#/components/parameters/salesOrderKey'
       requestBody:
         required: true
         content:
@@ -274,17 +274,17 @@ paths:
   /A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}'):
     get:
       operationId: getSalesOrderItem
-      summary: Retrieve a single sales order item
+      summary: SAP S/4HANA Retrieve a single sales order item
       description: >-
         Returns a single sales order item identified by the composite key of
         SalesOrder and SalesOrderItem numbers.
       tags:
-      - Sales Order Items
+        - Sales Order Items
       parameters:
-      - $ref: '#/components/parameters/salesOrderKey'
-      - $ref: '#/components/parameters/salesOrderItemKey'
-      - $ref: '#/components/parameters/select'
-      - $ref: '#/components/parameters/expand'
+        - $ref: '#/components/parameters/salesOrderKey'
+        - $ref: '#/components/parameters/salesOrderItemKey'
+        - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/expand'
       responses:
         '200':
           description: Sales order item retrieved successfully
@@ -301,17 +301,17 @@ paths:
           $ref: '#/components/responses/NotFound'
     patch:
       operationId: updateSalesOrderItem
-      summary: Update a sales order item
+      summary: SAP S/4HANA Update a sales order item
       description: >-
         Performs a partial update on an existing sales order item. Only the fields
         provided in the request body are updated. Requires an If-Match header
         with the entity ETag for optimistic concurrency control.
       tags:
-      - Sales Order Items
+        - Sales Order Items
       parameters:
-      - $ref: '#/components/parameters/salesOrderKey'
-      - $ref: '#/components/parameters/salesOrderItemKey'
-      - $ref: '#/components/parameters/ifMatch'
+        - $ref: '#/components/parameters/salesOrderKey'
+        - $ref: '#/components/parameters/salesOrderItemKey'
+        - $ref: '#/components/parameters/ifMatch'
       requestBody:
         required: true
         content:
@@ -331,16 +331,16 @@ paths:
           $ref: '#/components/responses/PreconditionFailed'
     delete:
       operationId: deleteSalesOrderItem
-      summary: Delete a sales order item
+      summary: SAP S/4HANA Delete a sales order item
       description: >-
         Deletes an existing sales order item. Requires an If-Match header with
         the entity ETag.
       tags:
-      - Sales Order Items
+        - Sales Order Items
       parameters:
-      - $ref: '#/components/parameters/salesOrderKey'
-      - $ref: '#/components/parameters/salesOrderItemKey'
-      - $ref: '#/components/parameters/ifMatch'
+        - $ref: '#/components/parameters/salesOrderKey'
+        - $ref: '#/components/parameters/salesOrderItemKey'
+        - $ref: '#/components/parameters/ifMatch'
       responses:
         '204':
           description: Sales order item deleted successfully
@@ -353,15 +353,15 @@ paths:
   /A_SalesOrder('{SalesOrder}')/to_Partner:
     get:
       operationId: listSalesOrderPartners
-      summary: Retrieve partners for a sales order
+      summary: SAP S/4HANA Retrieve partners for a sales order
       description: >-
         Returns the header-level partner functions for a sales order, such as
         sold-to party, ship-to party, bill-to party, and payer.
       tags:
-      - Partners
+        - Partners
       parameters:
-      - $ref: '#/components/parameters/salesOrderKey'
-      - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/salesOrderKey'
+        - $ref: '#/components/parameters/select'
       responses:
         '200':
           description: Sales order partners retrieved successfully
@@ -384,15 +384,15 @@ paths:
   /A_SalesOrder('{SalesOrder}')/to_PricingElement:
     get:
       operationId: listSalesOrderPricingElements
-      summary: Retrieve header pricing elements for a sales order
+      summary: SAP S/4HANA Retrieve header pricing elements for a sales order
       description: >-
         Returns the header-level pricing condition records for a sales order,
         including prices, discounts, surcharges, taxes, and freight charges.
       tags:
-      - Pricing Elements
+        - Pricing Elements
       parameters:
-      - $ref: '#/components/parameters/salesOrderKey'
-      - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/salesOrderKey'
+        - $ref: '#/components/parameters/select'
       responses:
         '200':
           description: Pricing elements retrieved successfully
@@ -415,16 +415,16 @@ paths:
   /A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}')/to_ScheduleLine:
     get:
       operationId: listSalesOrderItemScheduleLines
-      summary: Retrieve schedule lines for a sales order item
+      summary: SAP S/4HANA Retrieve schedule lines for a sales order item
       description: >-
         Returns the schedule lines for a specific sales order item, containing
         confirmed quantities and delivery dates.
       tags:
-      - Schedule Lines
+        - Schedule Lines
       parameters:
-      - $ref: '#/components/parameters/salesOrderKey'
-      - $ref: '#/components/parameters/salesOrderItemKey'
-      - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/salesOrderKey'
+        - $ref: '#/components/parameters/salesOrderItemKey'
+        - $ref: '#/components/parameters/select'
       responses:
         '200':
           description: Schedule lines retrieved successfully
@@ -447,16 +447,16 @@ paths:
   /A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}')/to_PricingElement:
     get:
       operationId: listSalesOrderItemPricingElements
-      summary: Retrieve pricing elements for a sales order item
+      summary: SAP S/4HANA Retrieve pricing elements for a sales order item
       description: >-
         Returns the item-level pricing condition records for a sales order item,
         including item prices, discounts, surcharges, and tax amounts.
       tags:
-      - Pricing Elements
+        - Pricing Elements
       parameters:
-      - $ref: '#/components/parameters/salesOrderKey'
-      - $ref: '#/components/parameters/salesOrderItemKey'
-      - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/salesOrderKey'
+        - $ref: '#/components/parameters/salesOrderItemKey'
+        - $ref: '#/components/parameters/select'
       responses:
         '200':
           description: Pricing elements retrieved successfully
@@ -479,15 +479,15 @@ paths:
   /A_SalesOrder('{SalesOrder}')/to_Text:
     get:
       operationId: listSalesOrderTexts
-      summary: Retrieve text records for a sales order
+      summary: SAP S/4HANA Retrieve text records for a sales order
       description: >-
         Returns the header-level text records for a sales order, such as notes,
         internal comments, and header texts.
       tags:
-      - Text
+        - Text
       parameters:
-      - $ref: '#/components/parameters/salesOrderKey'
-      - $ref: '#/components/parameters/select'
+        - $ref: '#/components/parameters/salesOrderKey'
+        - $ref: '#/components/parameters/select'
       responses:
         '200':
           description: Text records retrieved successfully
@@ -583,8 +583,8 @@ components:
       schema:
         type: string
         enum:
-        - allpages
-        - none
+          - allpages
+          - none
     ifMatch:
       name: If-Match
       in: header
@@ -851,10 +851,10 @@ components:
       type: object
       description: Request payload for creating a new sales order with optional deep insert
       required:
-      - SalesOrderType
-      - SalesOrganization
-      - DistributionChannel
-      - OrganizationDivision
+        - SalesOrderType
+        - SalesOrganization
+        - DistributionChannel
+        - OrganizationDivision
       properties:
         SalesOrderType:
           type: string
