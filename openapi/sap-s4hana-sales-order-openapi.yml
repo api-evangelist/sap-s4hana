@@ -35,16 +35,16 @@ security:
   - basicAuth: []
   - oauth2: []
 tags:
-  - name: Sales Orders
-    description: Operations on sales order header records
-  - name: Sales Order Items
-    description: Operations on sales order line items
-  - name: Pricing Elements
-    description: Operations on header and item pricing elements
-  - name: Schedule Lines
-    description: Operations on item schedule lines for delivery scheduling
   - name: Partners
     description: Operations on header and item partner functions
+  - name: Pricing Elements
+    description: Operations on header and item pricing elements
+  - name: Sales Order Items
+    description: Operations on sales order line items
+  - name: Sales Orders
+    description: Operations on sales order header records
+  - name: Schedule Lines
+    description: Operations on item schedule lines for delivery scheduling
   - name: Text
     description: Operations on header and item text records
 paths:

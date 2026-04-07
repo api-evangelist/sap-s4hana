@@ -12,25 +12,22 @@ apis:
       API for creating, reading, updating, and deleting business partner master data.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_BUSINESS_PARTNER/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BUSINESS_PARTNER
     tags:
       - Business Partner
-      - Master Data
       - Customer
-      - Supplier
       - ERP
+      - Master Data
+      - Supplier
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_BUSINESS_PARTNER/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/873c58e32fa642eea4ffb53d80819fa3.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/873c58e32fa642eea4ffb53d80819fa3.html
       - type: API Console
         url: https://api.sap.com/api/API_BUSINESS_PARTNER/tryout
       - type: Authentication
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/26f2b5aa3f3a4019b7d08978095b9e6a.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/26f2b5aa3f3a4019b7d08978095b9e6a.html
       - type: API Reference
         url: https://api.sap.com/api/API_BUSINESS_PARTNER/resource
       - type: Schema
@@ -43,13 +40,12 @@ apis:
       API for managing sales orders including creation, updates, and status changes.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_SALES_ORDER_SRV/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV
     tags:
-      - Sales Order
-      - Sales
-      - Order Management
       - ERP
+      - Order Management
+      - Sales
+      - Sales Order
     properties:
       - type: OpenAPI
         url: openapi/sap-s4hana-sales-order-openapi.yml
@@ -60,8 +56,7 @@ apis:
       - type: OpenAPI
         url: https://api.sap.com/api/API_SALES_ORDER_SRV/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/cd99a61e5e3f45789c954055c1e31de0/46e2b3e1e0d44419b86e4f0f6e90a0c9.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/cd99a61e5e3f45789c954055c1e31de0/46e2b3e1e0d44419b86e4f0f6e90a0c9.html
       - type: API Console
         url: https://api.sap.com/api/API_SALES_ORDER_SRV/tryout
       - type: API Reference
@@ -76,19 +71,17 @@ apis:
       API for creating and managing purchase orders in procurement processes.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_PURCHASEORDER_PROCESS_SRV/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PURCHASEORDER_PROCESS_SRV
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PURCHASEORDER_PROCESS_SRV
     tags:
-      - Purchase Order
-      - Procurement
-      - Purchasing
       - ERP
+      - Procurement
+      - Purchase Order
+      - Purchasing
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_PURCHASEORDER_PROCESS_SRV/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/68bf513d4c6742ddb5c0268d46b48b7c/7e0da70d14b44e0cac79c2a29c21b695.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/68bf513d4c6742ddb5c0268d46b48b7c/7e0da70d14b44e0cac79c2a29c21b695.html
       - type: API Console
         url: https://api.sap.com/api/API_PURCHASEORDER_PROCESS_SRV/tryout
       - type: API Reference
@@ -103,20 +96,18 @@ apis:
       API for posting goods movements and managing inventory transactions.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_MATERIAL_DOCUMENT_SRV/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_MATERIAL_DOCUMENT_SRV
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_MATERIAL_DOCUMENT_SRV
     tags:
-      - Material Document
-      - Inventory
-      - Goods Movement
-      - Warehouse
       - ERP
+      - Goods Movement
+      - Inventory
+      - Material Document
+      - Warehouse
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_MATERIAL_DOCUMENT_SRV/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/0dd0e7f348b04fc7b4e6e63bc9e1db9f/e5ced76872764cbbb8d78e81e21e7f35.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/0dd0e7f348b04fc7b4e6e63bc9e1db9f/e5ced76872764cbbb8d78e81e21e7f35.html
       - type: API Console
         url: https://api.sap.com/api/API_MATERIAL_DOCUMENT_SRV/tryout
       - type: API Reference
@@ -131,19 +122,17 @@ apis:
       API for managing product and material master data.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_PRODUCT_SRV/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCT_SRV
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCT_SRV
     tags:
-      - Product
-      - Material
-      - Master Data
       - ERP
+      - Master Data
+      - Material
+      - Product
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_PRODUCT_SRV/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/48a7b615c24444a9b3a6f2810f88db71.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/48a7b615c24444a9b3a6f2810f88db71.html
       - type: API Console
         url: https://api.sap.com/api/API_PRODUCT_SRV/tryout
       - type: API Reference
@@ -158,20 +147,18 @@ apis:
       API for creating and managing financial journal entries.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_JOURNALENTRY_SRV/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_JOURNALENTRY_SRV
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_JOURNALENTRY_SRV
     tags:
-      - Finance
       - Accounting
-      - Journal Entry
-      - General Ledger
       - ERP
+      - Finance
+      - General Ledger
+      - Journal Entry
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_JOURNALENTRY_SRV/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/b8c083f8f1614da6bf6f7a6e06c4f9be/e0f6c2e84e214c8c8d77a24b40a11ae8.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/b8c083f8f1614da6bf6f7a6e06c4f9be/e0f6c2e84e214c8c8d77a24b40a11ae8.html
       - type: API Console
         url: https://api.sap.com/api/API_JOURNALENTRY_SRV/tryout
       - type: API Reference
@@ -187,20 +174,18 @@ apis:
       and distribution.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_BILLING_DOCUMENT_SRV/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BILLING_DOCUMENT_SRV
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BILLING_DOCUMENT_SRV
     tags:
       - Billing
+      - ERP
+      - Finance
       - Invoice
       - Sales
-      - Finance
-      - ERP
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_BILLING_DOCUMENT_SRV/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/03c04db2a7434731b7fe21dca77440da/65680dabb62546029175655482f85edc.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/03c04db2a7434731b7fe21dca77440da/65680dabb62546029175655482f85edc.html
       - type: API Console
         url: https://api.sap.com/api/API_BILLING_DOCUMENT_SRV/tryout
       - type: API Reference
@@ -215,20 +200,18 @@ apis:
       API for creating and processing supplier invoices referenced to purchase orders.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_SUPPLIERINVOICE_PROCESS_SRV/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SUPPLIERINVOICE_PROCESS_SRV
     tags:
-      - Supplier Invoice
       - Accounts Payable
-      - Procurement
-      - Finance
       - ERP
+      - Finance
+      - Procurement
+      - Supplier Invoice
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_SUPPLIERINVOICE_PROCESS_SRV/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/0864cb07010642b3bde45a20de4975bc/8ddf1d448ce74a799390a1706d90ca3d.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/0864cb07010642b3bde45a20de4975bc/8ddf1d448ce74a799390a1706d90ca3d.html
       - type: API Console
         url: https://api.sap.com/api/API_SUPPLIERINVOICE_PROCESS_SRV/tryout
       - type: API Reference
@@ -244,20 +227,18 @@ apis:
       advanced returns management.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_CUSTOMER_RETURN_SRV/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_CUSTOMER_RETURN_SRV
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_CUSTOMER_RETURN_SRV
     tags:
       - Customer Return
+      - ERP
+      - Logistics
       - Returns Management
       - Sales
-      - Logistics
-      - ERP
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_CUSTOMER_RETURN_SRV/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/03c04db2a7434731b7fe21dca77440da/69bd2e81cb394eb0b3d8eae85d6b4517.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/03c04db2a7434731b7fe21dca77440da/69bd2e81cb394eb0b3d8eae85d6b4517.html
       - type: API Console
         url: https://api.sap.com/api/API_CUSTOMER_RETURN_SRV/tryout
       - type: API Reference
@@ -273,13 +254,12 @@ apis:
       workflows.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_PURCHASEREQ_PROCESS_SRV/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PURCHASEREQ_PROCESS_SRV
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PURCHASEREQ_PROCESS_SRV
     tags:
-      - Purchase Requisition
-      - Procurement
-      - Purchasing
       - ERP
+      - Procurement
+      - Purchase Requisition
+      - Purchasing
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_PURCHASEREQ_PROCESS_SRV/overview
@@ -298,20 +278,18 @@ apis:
       goods issue and picking operations.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_OUTBOUND_DELIVERY_SRV_0002
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_OUTBOUND_DELIVERY_SRV_0002
     tags:
+      - ERP
+      - Logistics
       - Outbound Delivery
       - Shipping
-      - Logistics
       - Warehouse
-      - ERP
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/588780cab2774a7ab9fffca3a7f919fe/113abb06f3fe4e94987d35d5f86ba1ac.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/588780cab2774a7ab9fffca3a7f919fe/113abb06f3fe4e94987d35d5f86ba1ac.html
       - type: API Console
         url: https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/tryout
       - type: API Reference
@@ -327,20 +305,18 @@ apis:
       and logistics.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_INBOUND_DELIVERY_SRV_0002
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_INBOUND_DELIVERY_SRV_0002
     tags:
-      - Inbound Delivery
-      - Receiving
-      - Logistics
-      - Warehouse
       - ERP
+      - Inbound Delivery
+      - Logistics
+      - Receiving
+      - Warehouse
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/588780cab2774a7ab9fffca3a7f919fe/f3ff58c5e7ec43c7b55a503be6633567.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/588780cab2774a7ab9fffca3a7f919fe/f3ff58c5e7ec43c7b55a503be6633567.html
       - type: API Console
         url: https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/tryout
       - type: API Reference
@@ -355,20 +331,18 @@ apis:
       API for reading cost center master data used in controlling and cost management.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_COSTCENTER_SRV/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_COSTCENTER_SRV
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_COSTCENTER_SRV
     tags:
-      - Cost Center
       - Controlling
+      - Cost Center
+      - ERP
       - Finance
       - Master Data
-      - ERP
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_COSTCENTER_SRV/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/6b39bd1d0e5e4099a5b65d835c29c696/5792333ddf3c47eaad4314b071dfd684.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/6b39bd1d0e5e4099a5b65d835c29c696/5792333ddf3c47eaad4314b071dfd684.html
       - type: API Console
         url: https://api.sap.com/api/API_COSTCENTER_SRV/tryout
       - type: API Reference
@@ -382,17 +356,15 @@ apis:
     description: >-
       API for reading general ledger account master data in chart of accounts.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
-    humanUrl: 
-      https://api.sap.com/api/API_GLACCOUNTINCHARTOFACCOUNTS_SRV/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_GLACCOUNTINCHARTOFACCOUNTS_SRV
+    humanUrl: https://api.sap.com/api/API_GLACCOUNTINCHARTOFACCOUNTS_SRV/overview
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_GLACCOUNTINCHARTOFACCOUNTS_SRV
     tags:
+      - Accounting
+      - ERP
+      - Finance
       - General Ledger
       - GL Account
-      - Finance
-      - Accounting
       - Master Data
-      - ERP
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_GLACCOUNTINCHARTOFACCOUNTS_SRV/overview
@@ -411,20 +383,18 @@ apis:
       details.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_BANKDETAIL_SRV/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BANKDETAIL_SRV
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_BANKDETAIL_SRV
     tags:
       - Bank
-      - Master Data
-      - Finance
-      - Payment
       - ERP
+      - Finance
+      - Master Data
+      - Payment
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_BANKDETAIL_SRV/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/e296651f454c4284ade361292c633d69/1de6770532554d43a1d026f57e7dd46e.html
+        url: https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/e296651f454c4284ade361292c633d69/1de6770532554d43a1d026f57e7dd46e.html
       - type: API Console
         url: https://api.sap.com/api/API_BANKDETAIL_SRV/tryout
       - type: API Reference
@@ -440,13 +410,12 @@ apis:
       status information.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_PRODUCTION_ORDER_2_SRV/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ORDER_2_SRV
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_PRODUCTION_ORDER_2_SRV
     tags:
-      - Production Order
-      - Manufacturing
-      - Production Planning
       - ERP
+      - Manufacturing
+      - Production Order
+      - Production Planning
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_PRODUCTION_ORDER_2_SRV/overview
@@ -465,19 +434,17 @@ apis:
       asset management.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_MAINTENANCEORDER/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_MAINTENANCEORDER
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_MAINTENANCEORDER
     tags:
-      - Maintenance Order
-      - Plant Maintenance
       - Asset Management
       - ERP
+      - Maintenance Order
+      - Plant Maintenance
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_MAINTENANCEORDER/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/2dfa044a255f49e89a3050daf3c61c11/ff951ebb44664d87b2a8db9290a41dc2.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/2dfa044a255f49e89a3050daf3c61c11/ff951ebb44664d87b2a8db9290a41dc2.html
       - type: API Console
         url: https://api.sap.com/api/API_MAINTENANCEORDER/tryout
       - type: API Reference
@@ -493,20 +460,18 @@ apis:
       with automatic posting to controlling.
     image: https://www.sap.com/dam/application/shared/logos/sap-logo.svg
     humanUrl: https://api.sap.com/api/API_MANAGE_WORKFORCE_TIMESHEET/overview
-    baseUrl: 
-      https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_MANAGE_WORKFORCE_TIMESHEET
+    baseUrl: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_MANAGE_WORKFORCE_TIMESHEET
     tags:
-      - Workforce
-      - Timesheet
-      - Time Management
-      - Human Resources
       - ERP
+      - Human Resources
+      - Time Management
+      - Timesheet
+      - Workforce
     properties:
       - type: OpenAPI
         url: https://api.sap.com/api/API_MANAGE_WORKFORCE_TIMESHEET/overview
       - type: Documentation
-        url: 
-          https://help.sap.com/docs/SAP_S4HANA_CLOUD/b08cb360201544ec803330fefa59b0f7/fa198e62c6d24788bd1f82082feb3096.html
+        url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/b08cb360201544ec803330fefa59b0f7/fa198e62c6d24788bd1f82082feb3096.html
       - type: API Console
         url: https://api.sap.com/api/API_MANAGE_WORKFORCE_TIMESHEET/tryout
       - type: API Reference
@@ -520,18 +485,15 @@ common:
   - type: Portal
     url: https://api.sap.com
   - type: Getting Started
-    url: 
-      https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/1e45cfd73e814aa6b1a1118e2c1d3cec.html
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/1e45cfd73e814aa6b1a1118e2c1d3cec.html
   - type: Authentication
-    url: 
-      https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/26f2b5aa3f3a4019b7d08978095b9e6a.html
+    url: https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/26f2b5aa3f3a4019b7d08978095b9e6a.html
   - type: Change Log
     url: https://api.sap.com/releasenotes
   - type: Support
     url: https://support.sap.com
   - type: Terms of Service
-    url: 
-      https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html
+    url: https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html
   - type: Privacy Policy
     url: https://www.sap.com/about/legal/privacy.html
   - type: API Catalog
@@ -549,8 +511,7 @@ common:
   - type: Private Edition APIs
     url: https://api.sap.com/products/SAPS4HANACloudPrivateEdition/apis/packages
   - type: Community
-    url: 
-      https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-sap/sap-s-4hana-apis-and-where-to-find-them/ba-p/13723939
+    url: https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-sap/sap-s-4hana-apis-and-where-to-find-them/ba-p/13723939
   - type: Status
     url: https://www.sap.com/about/cloud-trust-center/cloud-service-status.html
 maintainers:
@@ -558,17 +519,17 @@ maintainers:
     email: kin@apievangelist.com
     url: https://apievangelist.com
 tags:
-  - ERP
-  - Enterprise Resource Planning
-  - SAP
-  - S/4HANA
-  - Cloud
   - Business Applications
+  - Cloud
+  - Enterprise Resource Planning
+  - ERP
   - Finance
-  - Sales
-  - Procurement
+  - Human Resources
   - Inventory
+  - Logistics
   - Manufacturing
   - Plant Maintenance
-  - Human Resources
-  - Logistics
+  - Procurement
+  - S/4HANA
+  - Sales
+  - SAP
