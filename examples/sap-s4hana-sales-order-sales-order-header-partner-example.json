@@ -1,0 +1,8 @@
+{
+  "SalesOrder": "example_value",
+  "PartnerFunction": "example_value",
+  "Customer": "example_value",
+  "Supplier": "example_value",
+  "Personnel": "example_value",
+  "ContactPerson": "example_value"
+}

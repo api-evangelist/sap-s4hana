@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SalesOrderUpdate",
+  "type": "object",
+  "description": "Request payload for updating sales order header fields",
+  "properties": {
+    "PurchaseOrderByCustomer": {
+      "type": "string"
+    },
+    "RequestedDeliveryDate": {
+      "type": "string"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string"
+    },
+    "ShippingCondition": {
+      "type": "string"
+    },
+    "CompleteDeliveryIsDefined": {
+      "type": "boolean"
+    },
+    "HeaderBillingBlockReason": {
+      "type": "string"
+    },
+    "DeliveryBlockReason": {
+      "type": "string"
+    },
+    "IncotermsClassification": {
+      "type": "string"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string"
+    },
+    "PricingDate": {
+      "type": "string"
+    },
+    "SDDocumentReason": {
+      "type": "string"
+    }
+  }
+}

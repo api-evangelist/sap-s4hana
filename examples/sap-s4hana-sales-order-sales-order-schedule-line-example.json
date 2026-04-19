@@ -1,0 +1,15 @@
+{
+  "SalesOrder": "example_value",
+  "SalesOrderItem": "example_value",
+  "ScheduleLine": "example_value",
+  "RequestedDeliveryDate": "example_value",
+  "ConfirmedDeliveryDate": "example_value",
+  "OrderQuantityUnit": "example_value",
+  "OrderQuantitySAPUnit": "example_value",
+  "ScheduleLineOrderQuantity": "example_value",
+  "ConfdOrderQtyByMatlAvailCheck": "example_value",
+  "DeliveredQtyInOrderQtyUnit": "example_value",
+  "OpenConfdDelivQtyInOrdQtyUnit": "example_value",
+  "CorrectedQtyInOrderQtyUnit": "example_value",
+  "DelivBlockReasonForSchedLine": "example_value"
+}

@@ -1,0 +1,60 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SalesOrderScheduleLine",
+  "type": "object",
+  "description": "Sales order schedule line entity (A_SalesOrderScheduleLine) representing a delivery schedule for a sales order item with confirmed quantities and dates from availability check (ATP).",
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "description": "Sales order number"
+    },
+    "SalesOrderItem": {
+      "type": "string",
+      "description": "Sales order item number"
+    },
+    "ScheduleLine": {
+      "type": "string",
+      "description": "Schedule line number"
+    },
+    "RequestedDeliveryDate": {
+      "type": "string",
+      "description": "Requested delivery date"
+    },
+    "ConfirmedDeliveryDate": {
+      "type": "string",
+      "description": "Confirmed delivery date from ATP check"
+    },
+    "OrderQuantityUnit": {
+      "type": "string",
+      "description": "Order quantity unit"
+    },
+    "OrderQuantitySAPUnit": {
+      "type": "string",
+      "description": "SAP internal unit of measure"
+    },
+    "ScheduleLineOrderQuantity": {
+      "type": "string",
+      "description": "Ordered quantity on the schedule line"
+    },
+    "ConfdOrderQtyByMatlAvailCheck": {
+      "type": "string",
+      "description": "Confirmed quantity from material availability check"
+    },
+    "DeliveredQtyInOrderQtyUnit": {
+      "type": "string",
+      "description": "Delivered quantity in order unit"
+    },
+    "OpenConfdDelivQtyInOrdQtyUnit": {
+      "type": "string",
+      "description": "Open confirmed delivery quantity"
+    },
+    "CorrectedQtyInOrderQtyUnit": {
+      "type": "string",
+      "description": "Corrected quantity"
+    },
+    "DelivBlockReasonForSchedLine": {
+      "type": "string",
+      "description": "Delivery block for the schedule line"
+    }
+  }
+}

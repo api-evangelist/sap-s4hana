@@ -1,0 +1,169 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "SAP S/4HANA Sales Order API"
+  description: "OData V2 API for managing sales orders in SAP S/4HANA including headers, items, partners, pricing elements, schedule lines, and text records."
+  tags:
+    - SAP
+    - S/4HANA
+    - Sales
+    - ERP
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      SAP_USERNAME: SAP_USERNAME
+      SAP_PASSWORD: SAP_PASSWORD
+
+capability:
+  consumes:
+    - type: http
+      namespace: sales-order
+      baseUri: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV
+      description: "SAP S/4HANA Sales Order API for CRUD operations on sales documents."
+      authentication:
+        type: basic
+        username: "{{SAP_USERNAME}}"
+        password: "{{SAP_PASSWORD}}"
+      resources:
+        - name: sales-orders
+          path: /A_SalesOrder
+          description: "Sales order header operations"
+          operations:
+            - name: list-sales-orders
+              method: GET
+              description: "Retrieve a list of sales orders"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-sales-order
+              method: POST
+              description: "Create a new sales order with optional deep insert"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  SalesOrderType: "{{tools.SalesOrderType}}"
+                  SalesOrganization: "{{tools.SalesOrganization}}"
+                  DistributionChannel: "{{tools.DistributionChannel}}"
+                  OrganizationDivision: "{{tools.OrganizationDivision}}"
+            - name: get-sales-order
+              method: GET
+              description: "Retrieve a single sales order by key"
+              inputParameters:
+                - name: SalesOrder
+                  in: path
+                  type: string
+                  required: true
+                  description: "Sales order number"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: update-sales-order
+              method: PATCH
+              description: "Update a sales order header"
+              inputParameters:
+                - name: SalesOrder
+                  in: path
+                  type: string
+                  required: true
+                  description: "Sales order number"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: delete-sales-order
+              method: DELETE
+              description: "Delete a sales order"
+              inputParameters:
+                - name: SalesOrder
+                  in: path
+                  type: string
+                  required: true
+                  description: "Sales order number"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-sales-order-items
+              method: GET
+              description: "Retrieve items for a sales order"
+              inputParameters:
+                - name: SalesOrder
+                  in: path
+                  type: string
+                  required: true
+                  description: "Sales order number"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-sales-order-item
+              method: POST
+              description: "Create a new sales order item"
+              inputParameters:
+                - name: SalesOrder
+                  in: path
+                  type: string
+                  required: true
+                  description: "Sales order number"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-sales-order-partners
+              method: GET
+              description: "Retrieve partners for a sales order"
+              inputParameters:
+                - name: SalesOrder
+                  in: path
+                  type: string
+                  required: true
+                  description: "Sales order number"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-sales-order-pricing
+              method: GET
+              description: "Retrieve header pricing elements"
+              inputParameters:
+                - name: SalesOrder
+                  in: path
+                  type: string
+                  required: true
+                  description: "Sales order number"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: list-sales-order-texts
+              method: GET
+              description: "Retrieve text records for a sales order"
+              inputParameters:
+                - name: SalesOrder
+                  in: path
+                  type: string
+                  required: true
+                  description: "Sales order number"
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."

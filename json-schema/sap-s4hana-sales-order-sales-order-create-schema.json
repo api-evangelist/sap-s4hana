@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SalesOrderCreate",
+  "type": "object",
+  "description": "Request payload for creating a new sales order with optional deep insert",
+  "properties": {
+    "SalesOrderType": {
+      "type": "string",
+      "description": "Sales document type"
+    },
+    "SalesOrganization": {
+      "type": "string",
+      "description": "Sales organization"
+    },
+    "DistributionChannel": {
+      "type": "string",
+      "description": "Distribution channel"
+    },
+    "OrganizationDivision": {
+      "type": "string",
+      "description": "Organization division"
+    },
+    "SoldToParty": {
+      "type": "string",
+      "description": "Sold-to party customer number"
+    },
+    "PurchaseOrderByCustomer": {
+      "type": "string",
+      "description": "Customer purchase order number"
+    },
+    "SalesOrderDate": {
+      "type": "string",
+      "description": "Document date"
+    },
+    "RequestedDeliveryDate": {
+      "type": "string",
+      "description": "Requested delivery date"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string",
+      "description": "Payment terms key"
+    },
+    "TransactionCurrency": {
+      "type": "string",
+      "description": "Currency key (ISO 4217)"
+    },
+    "PricingDate": {
+      "type": "string",
+      "description": "Pricing date"
+    },
+    "IncotermsClassification": {
+      "type": "string",
+      "description": "Incoterms classification"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string",
+      "description": "Incoterms location"
+    },
+    "ShippingCondition": {
+      "type": "string",
+      "description": "Shipping condition"
+    },
+    "CompleteDeliveryIsDefined": {
+      "type": "boolean",
+      "description": "Complete delivery indicator"
+    },
+    "SDDocumentReason": {
+      "type": "string",
+      "description": "Order reason"
+    },
+    "to_Item": {
+      "type": "array",
+      "description": "Items to create (deep insert)"
+    },
+    "to_Partner": {
+      "type": "array",
+      "description": "Partners to create (deep insert)"
+    },
+    "to_PricingElement": {
+      "type": "array",
+      "description": "Pricing elements to create (deep insert)"
+    },
+    "to_Text": {
+      "type": "array",
+      "description": "Text records to create (deep insert)"
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SalesOrderItemCreate",
+  "type": "object",
+  "properties": {
+    "Material": {
+      "type": "string"
+    },
+    "RequestedQuantity": {
+      "type": "string"
+    },
+    "RequestedQuantityUnit": {
+      "type": "string"
+    },
+    "Plant": {
+      "type": "string"
+    },
+    "SalesOrderItemCategory": {
+      "type": "string"
+    },
+    "SalesOrderItemText": {
+      "type": "string"
+    },
+    "PurchaseOrderByCustomer": {
+      "type": "string"
+    },
+    "PricingDate": {
+      "type": "string"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string"
+    },
+    "MaterialByCustomer": {
+      "type": "string"
+    },
+    "Batch": {
+      "type": "string"
+    },
+    "ProductionPlant": {
+      "type": "string"
+    },
+    "StorageLocation": {
+      "type": "string"
+    },
+    "DeliveryPriority": {
+      "type": "string"
+    },
+    "IncotermsClassification": {
+      "type": "string"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string"
+    },
+    "to_PricingElement": {
+      "type": "array"
+    },
+    "to_ScheduleLine": {
+      "type": "array"
+    },
+    "to_Partner": {
+      "type": "array"
+    },
+    "to_Text": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SalesOrderHeaderPartner",
+  "type": "object",
+  "description": "Sales order header partner entity (A_SalesOrderHeaderPartner) representing a business partner in a specific partner function role at the header level.",
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "description": "Sales order number"
+    },
+    "PartnerFunction": {
+      "type": "string",
+      "description": "Partner function code (e.g., AG=Sold-to, WE=Ship-to, RE=Bill-to, RG=Payer)"
+    },
+    "Customer": {
+      "type": "string",
+      "description": "Customer number"
+    },
+    "Supplier": {
+      "type": "string",
+      "description": "Supplier number"
+    },
+    "Personnel": {
+      "type": "string",
+      "description": "Personnel number"
+    },
+    "ContactPerson": {
+      "type": "string",
+      "description": "Contact person number"
+    }
+  }
+}

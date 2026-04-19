@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SalesOrderItemText",
+  "type": "object",
+  "properties": {
+    "SalesOrder": {
+      "type": "string"
+    },
+    "SalesOrderItem": {
+      "type": "string"
+    },
+    "Language": {
+      "type": "string"
+    },
+    "LongTextID": {
+      "type": "string"
+    },
+    "LongText": {
+      "type": "string"
+    }
+  }
+}

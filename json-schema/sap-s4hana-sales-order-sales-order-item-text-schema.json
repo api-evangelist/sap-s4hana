@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SalesOrderItemText",
+  "type": "object",
+  "description": "Sales order item text entity (A_SalesOrderItemText) for long texts associated with a sales order item.",
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "description": "Sales order number"
+    },
+    "SalesOrderItem": {
+      "type": "string",
+      "description": "Sales order item number"
+    },
+    "Language": {
+      "type": "string",
+      "description": "Language key (ISO 639-1)"
+    },
+    "LongTextID": {
+      "type": "string",
+      "description": "Text ID"
+    },
+    "LongText": {
+      "type": "string",
+      "description": "Text content"
+    }
+  }
+}

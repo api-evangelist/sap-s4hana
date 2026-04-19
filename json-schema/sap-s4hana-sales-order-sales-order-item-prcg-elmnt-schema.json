@@ -1,0 +1,84 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SalesOrderItemPrcgElmnt",
+  "type": "object",
+  "description": "Sales order item pricing element entity (A_SalesOrderItemPrcgElmnt) representing a pricing condition at the item level.",
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "description": "Sales order number"
+    },
+    "SalesOrderItem": {
+      "type": "string",
+      "description": "Sales order item number"
+    },
+    "PricingProcedureStep": {
+      "type": "string",
+      "description": "Step number in the pricing procedure"
+    },
+    "PricingProcedureCounter": {
+      "type": "string",
+      "description": "Counter for condition within a step"
+    },
+    "ConditionType": {
+      "type": "string",
+      "description": "Condition type"
+    },
+    "ConditionRateValue": {
+      "type": "string",
+      "description": "Condition rate"
+    },
+    "ConditionCurrency": {
+      "type": "string",
+      "description": "Condition currency"
+    },
+    "ConditionQuantity": {
+      "type": "string",
+      "description": "Condition quantity"
+    },
+    "ConditionQuantityUnit": {
+      "type": "string",
+      "description": "Condition quantity unit"
+    },
+    "ConditionAmount": {
+      "type": "string",
+      "description": "Condition value"
+    },
+    "TransactionCurrency": {
+      "type": "string",
+      "description": "Document currency"
+    },
+    "ConditionCategory": {
+      "type": "string",
+      "description": "Condition category"
+    },
+    "ConditionIsForStatistics": {
+      "type": "boolean",
+      "description": "Statistical condition"
+    },
+    "ConditionOrigin": {
+      "type": "string",
+      "description": "Origin of the condition"
+    },
+    "IsGroupCondition": {
+      "type": "string",
+      "description": "Group condition indicator"
+    },
+    "ConditionControl": {
+      "type": "string",
+      "description": "Condition control"
+    },
+    "ConditionInactiveReason": {
+      "type": "string",
+      "description": "Reason for inactivity"
+    },
+    "ConditionClass": {
+      "type": "string",
+      "description": "Condition class"
+    },
+    "ConditionIsManuallyChanged": {
+      "type": "boolean",
+      "description": "Manually changed indicator"
+    }
+  }
+}

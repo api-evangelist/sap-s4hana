@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SalesOrderItemUpdate",
+  "type": "object",
+  "description": "Request payload for updating sales order item fields",
+  "properties": {
+    "RequestedQuantity": {
+      "type": "string"
+    },
+    "RequestedQuantityUnit": {
+      "type": "string"
+    },
+    "Plant": {
+      "type": "string"
+    },
+    "SalesOrderItemText": {
+      "type": "string"
+    },
+    "PricingDate": {
+      "type": "string"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string"
+    },
+    "ItemBillingBlockReason": {
+      "type": "string"
+    },
+    "SalesDocumentRjcnReason": {
+      "type": "string"
+    },
+    "DeliveryPriority": {
+      "type": "string"
+    },
+    "IncotermsClassification": {
+      "type": "string"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string"
+    }
+  }
+}

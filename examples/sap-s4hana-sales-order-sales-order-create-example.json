@@ -1,0 +1,22 @@
+{
+  "SalesOrderType": "example_value",
+  "SalesOrganization": "example_value",
+  "DistributionChannel": "example_value",
+  "OrganizationDivision": "example_value",
+  "SoldToParty": "example_value",
+  "PurchaseOrderByCustomer": "example_value",
+  "SalesOrderDate": "example_value",
+  "RequestedDeliveryDate": "example_value",
+  "CustomerPaymentTerms": "example_value",
+  "TransactionCurrency": "example_value",
+  "PricingDate": "example_value",
+  "IncotermsClassification": "example_value",
+  "IncotermsTransferLocation": "example_value",
+  "ShippingCondition": "example_value",
+  "CompleteDeliveryIsDefined": true,
+  "SDDocumentReason": "example_value",
+  "to_Item": [],
+  "to_Partner": [],
+  "to_PricingElement": [],
+  "to_Text": []
+}

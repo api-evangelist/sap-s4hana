@@ -1,0 +1,228 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SalesOrderItem",
+  "type": "object",
+  "description": "Sales order item entity (A_SalesOrderItem) representing a line item in a sales order. Contains material, quantity, pricing, plant assignment, and item-level processing status.",
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "description": "Sales order number the item belongs to"
+    },
+    "SalesOrderItem": {
+      "type": "string",
+      "description": "Sales order item number (e.g., '000010')"
+    },
+    "HigherLevelItem": {
+      "type": "string",
+      "description": "Higher-level item number in a BOM structure"
+    },
+    "SalesOrderItemCategory": {
+      "type": "string",
+      "description": "Item category (e.g., TAN for standard item, TANN for free-of-charge)"
+    },
+    "SalesOrderItemText": {
+      "type": "string",
+      "description": "Short text description of the item"
+    },
+    "PurchaseOrderByCustomer": {
+      "type": "string",
+      "description": "Customer purchase order number at item level"
+    },
+    "Material": {
+      "type": "string",
+      "description": "Material number"
+    },
+    "MaterialByCustomer": {
+      "type": "string",
+      "description": "Material number used by the customer"
+    },
+    "PricingDate": {
+      "type": "string",
+      "description": "Pricing date at item level"
+    },
+    "BillingPlan": {
+      "type": "string",
+      "description": "Billing plan number"
+    },
+    "RequestedQuantity": {
+      "type": "string",
+      "description": "Requested quantity"
+    },
+    "RequestedQuantityUnit": {
+      "type": "string",
+      "description": "Unit of measure for the requested quantity (ISO unit code)"
+    },
+    "RequestedQuantitySAPUnit": {
+      "type": "string",
+      "description": "SAP internal unit of measure"
+    },
+    "RequestedQuantityIsFixed": {
+      "type": "boolean",
+      "description": "Indicator that the requested quantity is fixed"
+    },
+    "ItemGrossWeight": {
+      "type": "string",
+      "description": "Gross weight of the item"
+    },
+    "ItemNetWeight": {
+      "type": "string",
+      "description": "Net weight of the item"
+    },
+    "ItemWeightUnit": {
+      "type": "string",
+      "description": "Weight unit (e.g., KG, LB)"
+    },
+    "ItemVolume": {
+      "type": "string",
+      "description": "Volume of the item"
+    },
+    "ItemVolumeUnit": {
+      "type": "string",
+      "description": "Volume unit"
+    },
+    "TransactionCurrency": {
+      "type": "string",
+      "description": "Transaction currency (ISO 4217)"
+    },
+    "NetAmount": {
+      "type": "string",
+      "description": "Net value of the item in document currency"
+    },
+    "TotalSDAmount": {
+      "type": "string",
+      "description": "Total SD amount"
+    },
+    "MaterialGroup": {
+      "type": "string",
+      "description": "Material group"
+    },
+    "MaterialPricingGroup": {
+      "type": "string",
+      "description": "Material pricing group"
+    },
+    "Batch": {
+      "type": "string",
+      "description": "Batch number"
+    },
+    "ProductionPlant": {
+      "type": "string",
+      "description": "Production plant"
+    },
+    "StorageLocation": {
+      "type": "string",
+      "description": "Storage location"
+    },
+    "DeliveryGroup": {
+      "type": "string",
+      "description": "Delivery group"
+    },
+    "ShippingPoint": {
+      "type": "string",
+      "description": "Shipping point or receiving point"
+    },
+    "ShippingType": {
+      "type": "string",
+      "description": "Shipping type"
+    },
+    "DeliveryPriority": {
+      "type": "string",
+      "description": "Delivery priority"
+    },
+    "IncotermsClassification": {
+      "type": "string",
+      "description": "Incoterms at item level"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string",
+      "description": "Incoterms location at item level"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string",
+      "description": "Payment terms at item level"
+    },
+    "ProductTaxClassification1": {
+      "type": "string",
+      "description": "Tax classification for material"
+    },
+    "SalesDocumentRjcnReason": {
+      "type": "string",
+      "description": "Reason for rejection of the item"
+    },
+    "ItemBillingBlockReason": {
+      "type": "string",
+      "description": "Billing block at item level"
+    },
+    "WBSElement": {
+      "type": "string",
+      "description": "WBS element for project assignment"
+    },
+    "ProfitCenter": {
+      "type": "string",
+      "description": "Profit center"
+    },
+    "OrderID": {
+      "type": "string",
+      "description": "Internal order number"
+    },
+    "CostCenter": {
+      "type": "string",
+      "description": "Cost center"
+    },
+    "ReferenceSDDocument": {
+      "type": "string",
+      "description": "Reference document number"
+    },
+    "ReferenceSDDocumentItem": {
+      "type": "string",
+      "description": "Reference document item"
+    },
+    "SDProcessStatus": {
+      "type": "string",
+      "description": "Processing status at item level"
+    },
+    "DeliveryStatus": {
+      "type": "string",
+      "description": "Delivery status"
+    },
+    "OrderRelatedBillingStatus": {
+      "type": "string",
+      "description": "Order-related billing status"
+    },
+    "Plant": {
+      "type": "string",
+      "description": "Plant (delivering plant)"
+    },
+    "WarehouseNumber": {
+      "type": "string",
+      "description": "Warehouse number"
+    },
+    "CustomerGroup": {
+      "type": "string",
+      "description": "Customer group"
+    },
+    "SalesDistrict": {
+      "type": "string",
+      "description": "Sales district"
+    },
+    "CustomerMaterialItemUsage": {
+      "type": "string",
+      "description": "Item usage"
+    },
+    "to_PricingElement": {
+      "type": "array",
+      "description": "Navigation to item pricing elements"
+    },
+    "to_ScheduleLine": {
+      "type": "array",
+      "description": "Navigation to item schedule lines"
+    },
+    "to_Partner": {
+      "type": "array",
+      "description": "Navigation to item partner functions"
+    },
+    "to_Text": {
+      "type": "array",
+      "description": "Navigation to item text records"
+    }
+  }
+}

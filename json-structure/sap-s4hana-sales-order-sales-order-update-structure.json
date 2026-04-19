@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SalesOrderUpdate",
+  "type": "object",
+  "properties": {
+    "PurchaseOrderByCustomer": {
+      "type": "string"
+    },
+    "RequestedDeliveryDate": {
+      "type": "string"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string"
+    },
+    "ShippingCondition": {
+      "type": "string"
+    },
+    "CompleteDeliveryIsDefined": {
+      "type": "boolean"
+    },
+    "HeaderBillingBlockReason": {
+      "type": "string"
+    },
+    "DeliveryBlockReason": {
+      "type": "string"
+    },
+    "IncotermsClassification": {
+      "type": "string"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string"
+    },
+    "PricingDate": {
+      "type": "string"
+    },
+    "SDDocumentReason": {
+      "type": "string"
+    }
+  }
+}

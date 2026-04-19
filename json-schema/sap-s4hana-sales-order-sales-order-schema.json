@@ -1,0 +1,244 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SalesOrder",
+  "type": "object",
+  "description": "Sales order header entity (A_SalesOrder) representing a complete sales document in SAP S/4HANA. Contains organizational data, customer references, pricing totals, and processing status information.",
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "description": "Sales order number"
+    },
+    "SalesOrderType": {
+      "type": "string",
+      "description": "Sales document type (e.g., OR for standard order, RE for returns)"
+    },
+    "SalesOrganization": {
+      "type": "string",
+      "description": "Sales organization responsible for the sales order"
+    },
+    "DistributionChannel": {
+      "type": "string",
+      "description": "Distribution channel through which the product reaches the customer"
+    },
+    "OrganizationDivision": {
+      "type": "string",
+      "description": "Division for the sales organization"
+    },
+    "SalesGroup": {
+      "type": "string",
+      "description": "Sales group within the sales organization"
+    },
+    "SalesOffice": {
+      "type": "string",
+      "description": "Sales office responsible for the order"
+    },
+    "SalesDistrict": {
+      "type": "string",
+      "description": "Geographic sales district"
+    },
+    "SoldToParty": {
+      "type": "string",
+      "description": "Customer number of the sold-to party"
+    },
+    "CreationDate": {
+      "type": "string",
+      "description": "Date when the sales order was created"
+    },
+    "CreatedByUser": {
+      "type": "string",
+      "description": "User who created the sales order"
+    },
+    "LastChangeDate": {
+      "type": "string",
+      "description": "Date of the last change to the sales order"
+    },
+    "LastChangeDateTime": {
+      "type": "string",
+      "description": "Timestamp of the last change including time zone"
+    },
+    "PurchaseOrderByCustomer": {
+      "type": "string",
+      "description": "Customer purchase order number"
+    },
+    "CustomerPurchaseOrderType": {
+      "type": "string",
+      "description": "Customer purchase order type"
+    },
+    "CustomerPurchaseOrderDate": {
+      "type": "string",
+      "description": "Customer purchase order date"
+    },
+    "SalesOrderDate": {
+      "type": "string",
+      "description": "Document date of the sales order"
+    },
+    "TotalNetAmount": {
+      "type": "string",
+      "description": "Total net value of the sales order in document currency"
+    },
+    "TransactionCurrency": {
+      "type": "string",
+      "description": "Currency key for the sales order (ISO 4217)"
+    },
+    "SDDocumentReason": {
+      "type": "string",
+      "description": "Order reason (e.g., reason for return or credit memo)"
+    },
+    "PricingDate": {
+      "type": "string",
+      "description": "Date used for pricing determination"
+    },
+    "RequestedDeliveryDate": {
+      "type": "string",
+      "description": "Requested delivery date for the entire order"
+    },
+    "ShippingCondition": {
+      "type": "string",
+      "description": "Shipping condition code"
+    },
+    "CompleteDeliveryIsDefined": {
+      "type": "boolean",
+      "description": "Indicator for complete delivery requirement"
+    },
+    "ShippingType": {
+      "type": "string",
+      "description": "Shipping type code"
+    },
+    "HeaderBillingBlockReason": {
+      "type": "string",
+      "description": "Billing block reason at header level"
+    },
+    "DeliveryBlockReason": {
+      "type": "string",
+      "description": "Delivery block reason"
+    },
+    "IncotermsClassification": {
+      "type": "string",
+      "description": "Incoterms classification (e.g., FOB, CIF, EXW)"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string",
+      "description": "Incoterms location (named place)"
+    },
+    "IncotermsLocation1": {
+      "type": "string",
+      "description": "Incoterms location 1"
+    },
+    "IncotermsLocation2": {
+      "type": "string",
+      "description": "Incoterms location 2"
+    },
+    "IncotermsVersion": {
+      "type": "string",
+      "description": "Incoterms version year"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string",
+      "description": "Payment terms key"
+    },
+    "PaymentMethod": {
+      "type": "string",
+      "description": "Payment method code"
+    },
+    "AssignmentReference": {
+      "type": "string",
+      "description": "Assignment reference number"
+    },
+    "ReferenceSDDocument": {
+      "type": "string",
+      "description": "Reference document number (e.g., quotation or contract number)"
+    },
+    "ReferenceSDDocumentCategory": {
+      "type": "string",
+      "description": "Reference document category"
+    },
+    "AccountingExchangeRate": {
+      "type": "string",
+      "description": "Exchange rate for accounting"
+    },
+    "OverallSDProcessStatus": {
+      "type": "string",
+      "description": "Overall processing status of the sales document (A=Not yet processed, B=Partially processed, C=Completely processed)"
+    },
+    "TotalCreditCheckStatus": {
+      "type": "string",
+      "description": "Overall status of credit checks"
+    },
+    "OverallTotalDeliveryStatus": {
+      "type": "string",
+      "description": "Overall delivery status"
+    },
+    "OverallSDDocumentRejectionSts": {
+      "type": "string",
+      "description": "Overall rejection status of the sales document"
+    },
+    "BillingDocumentDate": {
+      "type": "string",
+      "description": "Billing date for the entire order"
+    },
+    "ContractAccount": {
+      "type": "string",
+      "description": "Contract account number"
+    },
+    "AdditionalCustomerGroup1": {
+      "type": "string",
+      "description": "Customer group 1"
+    },
+    "AdditionalCustomerGroup2": {
+      "type": "string",
+      "description": "Customer group 2"
+    },
+    "AdditionalCustomerGroup3": {
+      "type": "string",
+      "description": "Customer group 3"
+    },
+    "AdditionalCustomerGroup4": {
+      "type": "string",
+      "description": "Customer group 4"
+    },
+    "AdditionalCustomerGroup5": {
+      "type": "string",
+      "description": "Customer group 5"
+    },
+    "SlsDocIsRlvtForProofOfDeliv": {
+      "type": "boolean",
+      "description": "Indicator that the document is relevant for proof of delivery"
+    },
+    "CustomerTaxClassification1": {
+      "type": "string",
+      "description": "Tax classification 1 for customer"
+    },
+    "CustomerTaxClassification2": {
+      "type": "string",
+      "description": "Tax classification 2 for customer"
+    },
+    "CustomerTaxClassification3": {
+      "type": "string",
+      "description": "Tax classification 3 for customer"
+    },
+    "CustomerTaxClassification4": {
+      "type": "string",
+      "description": "Tax classification 4 for customer"
+    },
+    "CustomerAccountGroup": {
+      "type": "string",
+      "description": "Customer account group"
+    },
+    "to_Item": {
+      "type": "array",
+      "description": "Navigation to sales order items"
+    },
+    "to_Partner": {
+      "type": "array",
+      "description": "Navigation to header partner functions"
+    },
+    "to_PricingElement": {
+      "type": "array",
+      "description": "Navigation to header pricing elements"
+    },
+    "to_Text": {
+      "type": "array",
+      "description": "Navigation to header text records"
+    }
+  }
+}

@@ -1,0 +1,13 @@
+name: sap-s4hana API Vocabulary
+provider: sap-s4hana
+created: '2026-04-18'
+modified: '2026-04-18'
+operations: 15
+schemas: 14
+tags:
+- Partners
+- Pricing Elements
+- Sales Order Items
+- Sales Orders
+- Schedule Lines
+- Text

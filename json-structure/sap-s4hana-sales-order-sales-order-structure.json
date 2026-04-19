@@ -1,0 +1,184 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SalesOrder",
+  "type": "object",
+  "properties": {
+    "SalesOrder": {
+      "type": "string"
+    },
+    "SalesOrderType": {
+      "type": "string"
+    },
+    "SalesOrganization": {
+      "type": "string"
+    },
+    "DistributionChannel": {
+      "type": "string"
+    },
+    "OrganizationDivision": {
+      "type": "string"
+    },
+    "SalesGroup": {
+      "type": "string"
+    },
+    "SalesOffice": {
+      "type": "string"
+    },
+    "SalesDistrict": {
+      "type": "string"
+    },
+    "SoldToParty": {
+      "type": "string"
+    },
+    "CreationDate": {
+      "type": "string"
+    },
+    "CreatedByUser": {
+      "type": "string"
+    },
+    "LastChangeDate": {
+      "type": "string"
+    },
+    "LastChangeDateTime": {
+      "type": "string"
+    },
+    "PurchaseOrderByCustomer": {
+      "type": "string"
+    },
+    "CustomerPurchaseOrderType": {
+      "type": "string"
+    },
+    "CustomerPurchaseOrderDate": {
+      "type": "string"
+    },
+    "SalesOrderDate": {
+      "type": "string"
+    },
+    "TotalNetAmount": {
+      "type": "string"
+    },
+    "TransactionCurrency": {
+      "type": "string"
+    },
+    "SDDocumentReason": {
+      "type": "string"
+    },
+    "PricingDate": {
+      "type": "string"
+    },
+    "RequestedDeliveryDate": {
+      "type": "string"
+    },
+    "ShippingCondition": {
+      "type": "string"
+    },
+    "CompleteDeliveryIsDefined": {
+      "type": "boolean"
+    },
+    "ShippingType": {
+      "type": "string"
+    },
+    "HeaderBillingBlockReason": {
+      "type": "string"
+    },
+    "DeliveryBlockReason": {
+      "type": "string"
+    },
+    "IncotermsClassification": {
+      "type": "string"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string"
+    },
+    "IncotermsLocation1": {
+      "type": "string"
+    },
+    "IncotermsLocation2": {
+      "type": "string"
+    },
+    "IncotermsVersion": {
+      "type": "string"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string"
+    },
+    "PaymentMethod": {
+      "type": "string"
+    },
+    "AssignmentReference": {
+      "type": "string"
+    },
+    "ReferenceSDDocument": {
+      "type": "string"
+    },
+    "ReferenceSDDocumentCategory": {
+      "type": "string"
+    },
+    "AccountingExchangeRate": {
+      "type": "string"
+    },
+    "OverallSDProcessStatus": {
+      "type": "string"
+    },
+    "TotalCreditCheckStatus": {
+      "type": "string"
+    },
+    "OverallTotalDeliveryStatus": {
+      "type": "string"
+    },
+    "OverallSDDocumentRejectionSts": {
+      "type": "string"
+    },
+    "BillingDocumentDate": {
+      "type": "string"
+    },
+    "ContractAccount": {
+      "type": "string"
+    },
+    "AdditionalCustomerGroup1": {
+      "type": "string"
+    },
+    "AdditionalCustomerGroup2": {
+      "type": "string"
+    },
+    "AdditionalCustomerGroup3": {
+      "type": "string"
+    },
+    "AdditionalCustomerGroup4": {
+      "type": "string"
+    },
+    "AdditionalCustomerGroup5": {
+      "type": "string"
+    },
+    "SlsDocIsRlvtForProofOfDeliv": {
+      "type": "boolean"
+    },
+    "CustomerTaxClassification1": {
+      "type": "string"
+    },
+    "CustomerTaxClassification2": {
+      "type": "string"
+    },
+    "CustomerTaxClassification3": {
+      "type": "string"
+    },
+    "CustomerTaxClassification4": {
+      "type": "string"
+    },
+    "CustomerAccountGroup": {
+      "type": "string"
+    },
+    "to_Item": {
+      "type": "array"
+    },
+    "to_Partner": {
+      "type": "array"
+    },
+    "to_PricingElement": {
+      "type": "array"
+    },
+    "to_Text": {
+      "type": "array"
+    }
+  }
+}

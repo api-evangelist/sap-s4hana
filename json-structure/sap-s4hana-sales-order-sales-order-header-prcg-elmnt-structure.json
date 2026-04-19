@@ -1,0 +1,94 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SalesOrderHeaderPrcgElmnt",
+  "type": "object",
+  "properties": {
+    "SalesOrder": {
+      "type": "string"
+    },
+    "PricingProcedureStep": {
+      "type": "string"
+    },
+    "PricingProcedureCounter": {
+      "type": "string"
+    },
+    "ConditionType": {
+      "type": "string"
+    },
+    "ConditionRateValue": {
+      "type": "string"
+    },
+    "ConditionCurrency": {
+      "type": "string"
+    },
+    "ConditionQuantity": {
+      "type": "string"
+    },
+    "ConditionQuantityUnit": {
+      "type": "string"
+    },
+    "ConditionCategory": {
+      "type": "string"
+    },
+    "ConditionIsForStatistics": {
+      "type": "boolean"
+    },
+    "PricingScaleType": {
+      "type": "string"
+    },
+    "IsRelevantForAccrual": {
+      "type": "boolean"
+    },
+    "ConditionOrigin": {
+      "type": "string"
+    },
+    "IsGroupCondition": {
+      "type": "string"
+    },
+    "ConditionAmount": {
+      "type": "string"
+    },
+    "TransactionCurrency": {
+      "type": "string"
+    },
+    "ConditionControl": {
+      "type": "string"
+    },
+    "ConditionInactiveReason": {
+      "type": "string"
+    },
+    "ConditionClass": {
+      "type": "string"
+    },
+    "PrcgProcedureCounterForHeader": {
+      "type": "string"
+    },
+    "FactorForConditionBasisValue": {
+      "type": "string"
+    },
+    "StructureCondition": {
+      "type": "string"
+    },
+    "PeriodFactorForCndnBasisValue": {
+      "type": "string"
+    },
+    "PricingScaleBasis": {
+      "type": "string"
+    },
+    "ConditionScaleBasisValue": {
+      "type": "string"
+    },
+    "ConditionScaleBasisUnit": {
+      "type": "string"
+    },
+    "ConditionScaleBasisCurrency": {
+      "type": "string"
+    },
+    "CndnIsRelevantForIntcoBilling": {
+      "type": "boolean"
+    },
+    "ConditionIsManuallyChanged": {
+      "type": "boolean"
+    }
+  }
+}

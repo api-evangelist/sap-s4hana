@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SalesOrderItemCreate",
+  "type": "object",
+  "description": "Request payload for creating a new sales order item",
+  "properties": {
+    "Material": {
+      "type": "string",
+      "description": "Material number"
+    },
+    "RequestedQuantity": {
+      "type": "string",
+      "description": "Requested quantity"
+    },
+    "RequestedQuantityUnit": {
+      "type": "string",
+      "description": "Unit of measure"
+    },
+    "Plant": {
+      "type": "string",
+      "description": "Plant"
+    },
+    "SalesOrderItemCategory": {
+      "type": "string",
+      "description": "Item category"
+    },
+    "SalesOrderItemText": {
+      "type": "string",
+      "description": "Item description"
+    },
+    "PurchaseOrderByCustomer": {
+      "type": "string",
+      "description": "Customer PO number at item level"
+    },
+    "PricingDate": {
+      "type": "string",
+      "description": "Pricing date"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string",
+      "description": "Payment terms"
+    },
+    "MaterialByCustomer": {
+      "type": "string",
+      "description": "Customer material number"
+    },
+    "Batch": {
+      "type": "string",
+      "description": "Batch number"
+    },
+    "ProductionPlant": {
+      "type": "string",
+      "description": "Production plant"
+    },
+    "StorageLocation": {
+      "type": "string",
+      "description": "Storage location"
+    },
+    "DeliveryPriority": {
+      "type": "string",
+      "description": "Delivery priority"
+    },
+    "IncotermsClassification": {
+      "type": "string",
+      "description": "Incoterms classification"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string",
+      "description": "Incoterms location"
+    },
+    "to_PricingElement": {
+      "type": "array",
+      "description": "Pricing elements (deep insert)"
+    },
+    "to_ScheduleLine": {
+      "type": "array",
+      "description": "Schedule lines (deep insert)"
+    },
+    "to_Partner": {
+      "type": "array",
+      "description": "Partners (deep insert)"
+    },
+    "to_Text": {
+      "type": "array",
+      "description": "Text records (deep insert)"
+    }
+  }
+}

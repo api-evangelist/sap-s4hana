@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SalesOrderCreate",
+  "type": "object",
+  "properties": {
+    "SalesOrderType": {
+      "type": "string"
+    },
+    "SalesOrganization": {
+      "type": "string"
+    },
+    "DistributionChannel": {
+      "type": "string"
+    },
+    "OrganizationDivision": {
+      "type": "string"
+    },
+    "SoldToParty": {
+      "type": "string"
+    },
+    "PurchaseOrderByCustomer": {
+      "type": "string"
+    },
+    "SalesOrderDate": {
+      "type": "string"
+    },
+    "RequestedDeliveryDate": {
+      "type": "string"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string"
+    },
+    "TransactionCurrency": {
+      "type": "string"
+    },
+    "PricingDate": {
+      "type": "string"
+    },
+    "IncotermsClassification": {
+      "type": "string"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string"
+    },
+    "ShippingCondition": {
+      "type": "string"
+    },
+    "CompleteDeliveryIsDefined": {
+      "type": "boolean"
+    },
+    "SDDocumentReason": {
+      "type": "string"
+    },
+    "to_Item": {
+      "type": "array"
+    },
+    "to_Partner": {
+      "type": "array"
+    },
+    "to_PricingElement": {
+      "type": "array"
+    },
+    "to_Text": {
+      "type": "array"
+    }
+  }
+}

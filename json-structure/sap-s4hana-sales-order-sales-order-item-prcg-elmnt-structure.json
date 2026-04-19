@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SalesOrderItemPrcgElmnt",
+  "type": "object",
+  "properties": {
+    "SalesOrder": {
+      "type": "string"
+    },
+    "SalesOrderItem": {
+      "type": "string"
+    },
+    "PricingProcedureStep": {
+      "type": "string"
+    },
+    "PricingProcedureCounter": {
+      "type": "string"
+    },
+    "ConditionType": {
+      "type": "string"
+    },
+    "ConditionRateValue": {
+      "type": "string"
+    },
+    "ConditionCurrency": {
+      "type": "string"
+    },
+    "ConditionQuantity": {
+      "type": "string"
+    },
+    "ConditionQuantityUnit": {
+      "type": "string"
+    },
+    "ConditionAmount": {
+      "type": "string"
+    },
+    "TransactionCurrency": {
+      "type": "string"
+    },
+    "ConditionCategory": {
+      "type": "string"
+    },
+    "ConditionIsForStatistics": {
+      "type": "boolean"
+    },
+    "ConditionOrigin": {
+      "type": "string"
+    },
+    "IsGroupCondition": {
+      "type": "string"
+    },
+    "ConditionControl": {
+      "type": "string"
+    },
+    "ConditionInactiveReason": {
+      "type": "string"
+    },
+    "ConditionClass": {
+      "type": "string"
+    },
+    "ConditionIsManuallyChanged": {
+      "type": "boolean"
+    }
+  }
+}

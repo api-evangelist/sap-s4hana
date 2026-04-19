@@ -1,0 +1,22 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SalesOrderItemPartner",
+  "type": "object",
+  "properties": {
+    "SalesOrder": {
+      "type": "string"
+    },
+    "SalesOrderItem": {
+      "type": "string"
+    },
+    "PartnerFunction": {
+      "type": "string"
+    },
+    "Customer": {
+      "type": "string"
+    },
+    "Supplier": {
+      "type": "string"
+    }
+  }
+}

@@ -20,53 +20,53 @@ info:
   x-sap-api-type: OData V2
   x-sap-shortText: Manage sales orders in SAP S/4HANA
 servers:
-  - url: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV
-    description: SAP S/4HANA Cloud sandbox environment
-  - url: https://{host}:{port}/sap/opu/odata/sap/API_SALES_ORDER_SRV
-    description: SAP S/4HANA on-premise or private cloud
-    variables:
-      host:
-        default: my-s4hana-host.example.com
-        description: SAP S/4HANA server hostname
-      port:
-        default: '443'
-        description: SAP S/4HANA server port
+- url: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV
+  description: SAP S/4HANA Cloud sandbox environment
+- url: https://{host}:{port}/sap/opu/odata/sap/API_SALES_ORDER_SRV
+  description: SAP S/4HANA on-premise or private cloud
+  variables:
+    host:
+      default: my-s4hana-host.example.com
+      description: SAP S/4HANA server hostname
+    port:
+      default: '443'
+      description: SAP S/4HANA server port
 security:
-  - basicAuth: []
-  - oauth2: []
+- basicAuth: []
+- oauth2: []
 tags:
-  - name: Partners
-    description: Operations on header and item partner functions
-  - name: Pricing Elements
-    description: Operations on header and item pricing elements
-  - name: Sales Order Items
-    description: Operations on sales order line items
-  - name: Sales Orders
-    description: Operations on sales order header records
-  - name: Schedule Lines
-    description: Operations on item schedule lines for delivery scheduling
-  - name: Text
-    description: Operations on header and item text records
+- name: Partners
+  description: Operations on header and item partner functions
+- name: Pricing Elements
+  description: Operations on header and item pricing elements
+- name: Sales Order Items
+  description: Operations on sales order line items
+- name: Sales Orders
+  description: Operations on sales order header records
+- name: Schedule Lines
+  description: Operations on item schedule lines for delivery scheduling
+- name: Text
+  description: Operations on header and item text records
 paths:
   /A_SalesOrder:
     get:
       operationId: listSalesOrders
-      summary: SAP S/4HANA Retrieve a list of sales orders
+      summary: Sap S/4hana Retrieve a List of Sales Orders
       description: >-
         Returns a collection of sales order header records. Supports OData system
         query options including $filter, $select, $expand, $orderby, $top, $skip,
         and $inlinecount for pagination. Use $expand to include related entities
         such as items, partners, and pricing elements in the response.
       tags:
-        - Sales Orders
+      - Sales Orders
       parameters:
-        - $ref: '#/components/parameters/top'
-        - $ref: '#/components/parameters/skip'
-        - $ref: '#/components/parameters/filter'
-        - $ref: '#/components/parameters/select'
-        - $ref: '#/components/parameters/expand'
-        - $ref: '#/components/parameters/orderby'
-        - $ref: '#/components/parameters/inlinecount'
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/skip'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/expand'
+      - $ref: '#/components/parameters/orderby'
+      - $ref: '#/components/parameters/inlinecount'
       responses:
         '200':
           description: Sales orders retrieved successfully
@@ -89,9 +89,12 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/Forbidden'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createSalesOrder
-      summary: SAP S/4HANA Create a new sales order
+      summary: Sap S/4hana Create a New Sales Order
       description: >-
         Creates a new sales order in SAP S/4HANA. Supports deep insert, allowing
         you to create a header along with items, partners, pricing elements,
@@ -99,7 +102,7 @@ paths:
         SalesOrderType, SalesOrganization, DistributionChannel, and
         OrganizationDivision are required for creation.
       tags:
-        - Sales Orders
+      - Sales Orders
       requestBody:
         required: true
         content:
@@ -122,20 +125,23 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '403':
           $ref: '#/components/responses/Forbidden'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /A_SalesOrder('{SalesOrder}'):
     get:
       operationId: getSalesOrder
-      summary: SAP S/4HANA Retrieve a single sales order by key
+      summary: Sap S/4hana Retrieve a Single Sales Order by Key
       description: >-
         Returns a single sales order header record identified by its sales order
         number. Use $expand to include related entities such as to_Item,
         to_Partner, and to_PricingElement.
       tags:
-        - Sales Orders
+      - Sales Orders
       parameters:
-        - $ref: '#/components/parameters/salesOrderKey'
-        - $ref: '#/components/parameters/select'
-        - $ref: '#/components/parameters/expand'
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/expand'
       responses:
         '200':
           description: Sales order retrieved successfully
@@ -152,18 +158,21 @@ paths:
           $ref: '#/components/responses/Forbidden'
         '404':
           $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     patch:
       operationId: updateSalesOrder
-      summary: SAP S/4HANA Update a sales order header
+      summary: Sap S/4hana Update a Sales Order Header
       description: >-
         Performs a partial update (MERGE/PATCH) on an existing sales order header.
         Only the fields provided in the request body are updated. Requires an
         If-Match header with the entity ETag for optimistic concurrency control.
       tags:
-        - Sales Orders
+      - Sales Orders
       parameters:
-        - $ref: '#/components/parameters/salesOrderKey'
-        - $ref: '#/components/parameters/ifMatch'
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/ifMatch'
       requestBody:
         required: true
         content:
@@ -181,18 +190,21 @@ paths:
           $ref: '#/components/responses/NotFound'
         '412':
           $ref: '#/components/responses/PreconditionFailed'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteSalesOrder
-      summary: SAP S/4HANA Delete a sales order
+      summary: Sap S/4hana Delete a Sales Order
       description: >-
         Deletes an existing sales order. Requires an If-Match header with the
         entity ETag for optimistic concurrency control. A sales order can only be
         deleted if its processing status permits deletion.
       tags:
-        - Sales Orders
+      - Sales Orders
       parameters:
-        - $ref: '#/components/parameters/salesOrderKey'
-        - $ref: '#/components/parameters/ifMatch'
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/ifMatch'
       responses:
         '204':
           description: Sales order deleted successfully
@@ -202,23 +214,26 @@ paths:
           $ref: '#/components/responses/NotFound'
         '412':
           $ref: '#/components/responses/PreconditionFailed'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /A_SalesOrder('{SalesOrder}')/to_Item:
     get:
       operationId: listSalesOrderItems
-      summary: SAP S/4HANA Retrieve items for a sales order
+      summary: Sap S/4hana Retrieve Items for a Sales Order
       description: >-
         Returns the line items belonging to a specific sales order. Use $expand
         to include related entities such as to_PricingElement, to_ScheduleLine,
         and to_Partner.
       tags:
-        - Sales Order Items
+      - Sales Order Items
       parameters:
-        - $ref: '#/components/parameters/salesOrderKey'
-        - $ref: '#/components/parameters/top'
-        - $ref: '#/components/parameters/skip'
-        - $ref: '#/components/parameters/filter'
-        - $ref: '#/components/parameters/select'
-        - $ref: '#/components/parameters/expand'
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/top'
+      - $ref: '#/components/parameters/skip'
+      - $ref: '#/components/parameters/filter'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/expand'
       responses:
         '200':
           description: Sales order items retrieved successfully
@@ -238,17 +253,20 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     post:
       operationId: createSalesOrderItem
-      summary: SAP S/4HANA Create a new sales order item
+      summary: Sap S/4hana Create a New Sales Order Item
       description: >-
         Creates a new line item within an existing sales order. The Material
         field is typically required. Supports deep insert for creating pricing
         elements, schedule lines, partners, and text along with the item.
       tags:
-        - Sales Order Items
+      - Sales Order Items
       parameters:
-        - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/salesOrderKey'
       requestBody:
         required: true
         content:
@@ -271,20 +289,23 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}'):
     get:
       operationId: getSalesOrderItem
-      summary: SAP S/4HANA Retrieve a single sales order item
+      summary: Sap S/4hana Retrieve a Single Sales Order Item
       description: >-
         Returns a single sales order item identified by the composite key of
         SalesOrder and SalesOrderItem numbers.
       tags:
-        - Sales Order Items
+      - Sales Order Items
       parameters:
-        - $ref: '#/components/parameters/salesOrderKey'
-        - $ref: '#/components/parameters/salesOrderItemKey'
-        - $ref: '#/components/parameters/select'
-        - $ref: '#/components/parameters/expand'
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/salesOrderItemKey'
+      - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/expand'
       responses:
         '200':
           description: Sales order item retrieved successfully
@@ -299,19 +320,22 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     patch:
       operationId: updateSalesOrderItem
-      summary: SAP S/4HANA Update a sales order item
+      summary: Sap S/4hana Update a Sales Order Item
       description: >-
         Performs a partial update on an existing sales order item. Only the fields
         provided in the request body are updated. Requires an If-Match header
         with the entity ETag for optimistic concurrency control.
       tags:
-        - Sales Order Items
+      - Sales Order Items
       parameters:
-        - $ref: '#/components/parameters/salesOrderKey'
-        - $ref: '#/components/parameters/salesOrderItemKey'
-        - $ref: '#/components/parameters/ifMatch'
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/salesOrderItemKey'
+      - $ref: '#/components/parameters/ifMatch'
       requestBody:
         required: true
         content:
@@ -329,18 +353,21 @@ paths:
           $ref: '#/components/responses/NotFound'
         '412':
           $ref: '#/components/responses/PreconditionFailed'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
     delete:
       operationId: deleteSalesOrderItem
-      summary: SAP S/4HANA Delete a sales order item
+      summary: Sap S/4hana Delete a Sales Order Item
       description: >-
         Deletes an existing sales order item. Requires an If-Match header with
         the entity ETag.
       tags:
-        - Sales Order Items
+      - Sales Order Items
       parameters:
-        - $ref: '#/components/parameters/salesOrderKey'
-        - $ref: '#/components/parameters/salesOrderItemKey'
-        - $ref: '#/components/parameters/ifMatch'
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/salesOrderItemKey'
+      - $ref: '#/components/parameters/ifMatch'
       responses:
         '204':
           description: Sales order item deleted successfully
@@ -350,18 +377,21 @@ paths:
           $ref: '#/components/responses/NotFound'
         '412':
           $ref: '#/components/responses/PreconditionFailed'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /A_SalesOrder('{SalesOrder}')/to_Partner:
     get:
       operationId: listSalesOrderPartners
-      summary: SAP S/4HANA Retrieve partners for a sales order
+      summary: Sap S/4hana Retrieve Partners for a Sales Order
       description: >-
         Returns the header-level partner functions for a sales order, such as
         sold-to party, ship-to party, bill-to party, and payer.
       tags:
-        - Partners
+      - Partners
       parameters:
-        - $ref: '#/components/parameters/salesOrderKey'
-        - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/select'
       responses:
         '200':
           description: Sales order partners retrieved successfully
@@ -381,18 +411,21 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /A_SalesOrder('{SalesOrder}')/to_PricingElement:
     get:
       operationId: listSalesOrderPricingElements
-      summary: SAP S/4HANA Retrieve header pricing elements for a sales order
+      summary: Sap S/4hana Retrieve Header Pricing Elements for a Sales Order
       description: >-
         Returns the header-level pricing condition records for a sales order,
         including prices, discounts, surcharges, taxes, and freight charges.
       tags:
-        - Pricing Elements
+      - Pricing Elements
       parameters:
-        - $ref: '#/components/parameters/salesOrderKey'
-        - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/select'
       responses:
         '200':
           description: Pricing elements retrieved successfully
@@ -412,19 +445,22 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}')/to_ScheduleLine:
     get:
       operationId: listSalesOrderItemScheduleLines
-      summary: SAP S/4HANA Retrieve schedule lines for a sales order item
+      summary: Sap S/4hana Retrieve Schedule Lines for a Sales Order Item
       description: >-
         Returns the schedule lines for a specific sales order item, containing
         confirmed quantities and delivery dates.
       tags:
-        - Schedule Lines
+      - Schedule Lines
       parameters:
-        - $ref: '#/components/parameters/salesOrderKey'
-        - $ref: '#/components/parameters/salesOrderItemKey'
-        - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/salesOrderItemKey'
+      - $ref: '#/components/parameters/select'
       responses:
         '200':
           description: Schedule lines retrieved successfully
@@ -444,19 +480,22 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}')/to_PricingElement:
     get:
       operationId: listSalesOrderItemPricingElements
-      summary: SAP S/4HANA Retrieve pricing elements for a sales order item
+      summary: Sap S/4hana Retrieve Pricing Elements for a Sales Order Item
       description: >-
         Returns the item-level pricing condition records for a sales order item,
         including item prices, discounts, surcharges, and tax amounts.
       tags:
-        - Pricing Elements
+      - Pricing Elements
       parameters:
-        - $ref: '#/components/parameters/salesOrderKey'
-        - $ref: '#/components/parameters/salesOrderItemKey'
-        - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/salesOrderItemKey'
+      - $ref: '#/components/parameters/select'
       responses:
         '200':
           description: Pricing elements retrieved successfully
@@ -476,18 +515,21 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /A_SalesOrder('{SalesOrder}')/to_Text:
     get:
       operationId: listSalesOrderTexts
-      summary: SAP S/4HANA Retrieve text records for a sales order
+      summary: Sap S/4hana Retrieve Text Records for a Sales Order
       description: >-
         Returns the header-level text records for a sales order, such as notes,
         internal comments, and header texts.
       tags:
-        - Text
+      - Text
       parameters:
-        - $ref: '#/components/parameters/salesOrderKey'
-        - $ref: '#/components/parameters/select'
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/select'
       responses:
         '200':
           description: Text records retrieved successfully
@@ -507,6 +549,9 @@ paths:
           $ref: '#/components/responses/Unauthorized'
         '404':
           $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     basicAuth:
@@ -583,8 +628,8 @@ components:
       schema:
         type: string
         enum:
-          - allpages
-          - none
+        - allpages
+        - none
     ifMatch:
       name: If-Match
       in: header
@@ -629,14 +674,17 @@ components:
           type: string
           maxLength: 3
           description: Sales group within the sales organization
+          example: example_value
         SalesOffice:
           type: string
           maxLength: 4
           description: Sales office responsible for the order
+          example: example_value
         SalesDistrict:
           type: string
           maxLength: 6
           description: Geographic sales district
+          example: example_value
         SoldToParty:
           type: string
           maxLength: 10
@@ -646,34 +694,42 @@ components:
           type: string
           format: date
           description: Date when the sales order was created
+          example: '2026-01-15'
         CreatedByUser:
           type: string
           maxLength: 12
           description: User who created the sales order
+          example: example_value
         LastChangeDate:
           type: string
           format: date
           description: Date of the last change to the sales order
+          example: '2026-01-15'
         LastChangeDateTime:
           type: string
           format: date-time
           description: Timestamp of the last change including time zone
+          example: '2026-01-15T10:30:00Z'
         PurchaseOrderByCustomer:
           type: string
           maxLength: 35
           description: Customer purchase order number
+          example: example_value
         CustomerPurchaseOrderType:
           type: string
           maxLength: 4
           description: Customer purchase order type
+          example: example_value
         CustomerPurchaseOrderDate:
           type: string
           format: date
           description: Customer purchase order date
+          example: '2026-01-15'
         SalesOrderDate:
           type: string
           format: date
           description: Document date of the sales order
+          example: '2026-01-15'
         TotalNetAmount:
           type: string
           description: Total net value of the sales order in document currency
@@ -687,33 +743,41 @@ components:
           type: string
           maxLength: 3
           description: Order reason (e.g., reason for return or credit memo)
+          example: example_value
         PricingDate:
           type: string
           format: date
           description: Date used for pricing determination
+          example: '2026-01-15'
         RequestedDeliveryDate:
           type: string
           format: date
           description: Requested delivery date for the entire order
+          example: '2026-01-15'
         ShippingCondition:
           type: string
           maxLength: 2
           description: Shipping condition code
+          example: example_value
         CompleteDeliveryIsDefined:
           type: boolean
           description: Indicator for complete delivery requirement
+          example: true
         ShippingType:
           type: string
           maxLength: 2
           description: Shipping type code
+          example: example_value
         HeaderBillingBlockReason:
           type: string
           maxLength: 2
           description: Billing block reason at header level
+          example: example_value
         DeliveryBlockReason:
           type: string
           maxLength: 2
           description: Delivery block reason
+          example: example_value
         IncotermsClassification:
           type: string
           maxLength: 3
@@ -723,18 +787,22 @@ components:
           type: string
           maxLength: 28
           description: Incoterms location (named place)
+          example: example_value
         IncotermsLocation1:
           type: string
           maxLength: 70
           description: Incoterms location 1
+          example: example_value
         IncotermsLocation2:
           type: string
           maxLength: 70
           description: Incoterms location 2
+          example: example_value
         IncotermsVersion:
           type: string
           maxLength: 4
           description: Incoterms version year
+          example: example_value
         CustomerPaymentTerms:
           type: string
           maxLength: 4
@@ -744,21 +812,26 @@ components:
           type: string
           maxLength: 1
           description: Payment method code
+          example: example_value
         AssignmentReference:
           type: string
           maxLength: 18
           description: Assignment reference number
+          example: example_value
         ReferenceSDDocument:
           type: string
           maxLength: 10
           description: Reference document number (e.g., quotation or contract number)
+          example: example_value
         ReferenceSDDocumentCategory:
           type: string
           maxLength: 4
           description: Reference document category
+          example: example_value
         AccountingExchangeRate:
           type: string
           description: Exchange rate for accounting
+          example: example_value
         OverallSDProcessStatus:
           type: string
           maxLength: 1
@@ -768,177 +841,217 @@ components:
           type: string
           maxLength: 1
           description: Overall status of credit checks
+          example: example_value
         OverallTotalDeliveryStatus:
           type: string
           maxLength: 1
           description: Overall delivery status
+          example: example_value
         OverallSDDocumentRejectionSts:
           type: string
           maxLength: 1
           description: Overall rejection status of the sales document
+          example: example_value
         BillingDocumentDate:
           type: string
           format: date
           description: Billing date for the entire order
+          example: '2026-01-15'
         ContractAccount:
           type: string
           maxLength: 12
           description: Contract account number
+          example: example_value
         AdditionalCustomerGroup1:
           type: string
           maxLength: 3
           description: Customer group 1
+          example: example_value
         AdditionalCustomerGroup2:
           type: string
           maxLength: 3
           description: Customer group 2
+          example: example_value
         AdditionalCustomerGroup3:
           type: string
           maxLength: 3
           description: Customer group 3
+          example: example_value
         AdditionalCustomerGroup4:
           type: string
           maxLength: 3
           description: Customer group 4
+          example: example_value
         AdditionalCustomerGroup5:
           type: string
           maxLength: 3
           description: Customer group 5
+          example: example_value
         SlsDocIsRlvtForProofOfDeliv:
           type: boolean
           description: Indicator that the document is relevant for proof of delivery
+          example: true
         CustomerTaxClassification1:
           type: string
           maxLength: 1
           description: Tax classification 1 for customer
+          example: example_value
         CustomerTaxClassification2:
           type: string
           maxLength: 1
           description: Tax classification 2 for customer
+          example: example_value
         CustomerTaxClassification3:
           type: string
           maxLength: 1
           description: Tax classification 3 for customer
+          example: example_value
         CustomerTaxClassification4:
           type: string
           maxLength: 1
           description: Tax classification 4 for customer
+          example: example_value
         CustomerAccountGroup:
           type: string
           maxLength: 4
           description: Customer account group
+          example: example_value
         to_Item:
           type: array
           description: Navigation to sales order items
           items:
             $ref: '#/components/schemas/SalesOrderItem'
+          example: []
         to_Partner:
           type: array
           description: Navigation to header partner functions
           items:
             $ref: '#/components/schemas/SalesOrderHeaderPartner'
+          example: []
         to_PricingElement:
           type: array
           description: Navigation to header pricing elements
           items:
             $ref: '#/components/schemas/SalesOrderHeaderPrcgElmnt'
+          example: []
         to_Text:
           type: array
           description: Navigation to header text records
           items:
             $ref: '#/components/schemas/SalesOrderText'
+          example: []
     SalesOrderCreate:
       type: object
       description: Request payload for creating a new sales order with optional deep insert
       required:
-        - SalesOrderType
-        - SalesOrganization
-        - DistributionChannel
-        - OrganizationDivision
+      - SalesOrderType
+      - SalesOrganization
+      - DistributionChannel
+      - OrganizationDivision
       properties:
         SalesOrderType:
           type: string
           maxLength: 4
           description: Sales document type
+          example: example_value
         SalesOrganization:
           type: string
           maxLength: 4
           description: Sales organization
+          example: example_value
         DistributionChannel:
           type: string
           maxLength: 2
           description: Distribution channel
+          example: example_value
         OrganizationDivision:
           type: string
           maxLength: 2
           description: Organization division
+          example: example_value
         SoldToParty:
           type: string
           maxLength: 10
           description: Sold-to party customer number
+          example: example_value
         PurchaseOrderByCustomer:
           type: string
           maxLength: 35
           description: Customer purchase order number
+          example: example_value
         SalesOrderDate:
           type: string
           format: date
           description: Document date
+          example: '2026-01-15'
         RequestedDeliveryDate:
           type: string
           format: date
           description: Requested delivery date
+          example: '2026-01-15'
         CustomerPaymentTerms:
           type: string
           maxLength: 4
           description: Payment terms key
+          example: example_value
         TransactionCurrency:
           type: string
           maxLength: 5
           description: Currency key (ISO 4217)
+          example: example_value
         PricingDate:
           type: string
           format: date
           description: Pricing date
+          example: '2026-01-15'
         IncotermsClassification:
           type: string
           maxLength: 3
           description: Incoterms classification
+          example: example_value
         IncotermsTransferLocation:
           type: string
           maxLength: 28
           description: Incoterms location
+          example: example_value
         ShippingCondition:
           type: string
           maxLength: 2
           description: Shipping condition
+          example: example_value
         CompleteDeliveryIsDefined:
           type: boolean
           description: Complete delivery indicator
+          example: true
         SDDocumentReason:
           type: string
           maxLength: 3
           description: Order reason
+          example: example_value
         to_Item:
           type: array
           description: Items to create (deep insert)
           items:
             $ref: '#/components/schemas/SalesOrderItemCreate'
+          example: []
         to_Partner:
           type: array
           description: Partners to create (deep insert)
           items:
             $ref: '#/components/schemas/SalesOrderHeaderPartner'
+          example: []
         to_PricingElement:
           type: array
           description: Pricing elements to create (deep insert)
           items:
             $ref: '#/components/schemas/SalesOrderHeaderPrcgElmnt'
+          example: []
         to_Text:
           type: array
           description: Text records to create (deep insert)
           items:
             $ref: '#/components/schemas/SalesOrderText'
+          example: []
     SalesOrderUpdate:
       type: object
       description: Request payload for updating sales order header fields
@@ -946,35 +1059,46 @@ components:
         PurchaseOrderByCustomer:
           type: string
           maxLength: 35
+          example: example_value
         RequestedDeliveryDate:
           type: string
           format: date
+          example: '2026-01-15'
         CustomerPaymentTerms:
           type: string
           maxLength: 4
+          example: example_value
         ShippingCondition:
           type: string
           maxLength: 2
+          example: example_value
         CompleteDeliveryIsDefined:
           type: boolean
+          example: true
         HeaderBillingBlockReason:
           type: string
           maxLength: 2
+          example: example_value
         DeliveryBlockReason:
           type: string
           maxLength: 2
+          example: example_value
         IncotermsClassification:
           type: string
           maxLength: 3
+          example: example_value
         IncotermsTransferLocation:
           type: string
           maxLength: 28
+          example: example_value
         PricingDate:
           type: string
           format: date
+          example: '2026-01-15'
         SDDocumentReason:
           type: string
           maxLength: 3
+          example: example_value
     SalesOrderItem:
       type: object
       description: >-
@@ -986,6 +1110,7 @@ components:
           type: string
           maxLength: 10
           description: Sales order number the item belongs to
+          example: example_value
         SalesOrderItem:
           type: string
           maxLength: 6
@@ -995,6 +1120,7 @@ components:
           type: string
           maxLength: 6
           description: Higher-level item number in a BOM structure
+          example: example_value
         SalesOrderItemCategory:
           type: string
           maxLength: 4
@@ -1004,10 +1130,12 @@ components:
           type: string
           maxLength: 40
           description: Short text description of the item
+          example: example_value
         PurchaseOrderByCustomer:
           type: string
           maxLength: 35
           description: Customer purchase order number at item level
+          example: example_value
         Material:
           type: string
           maxLength: 40
@@ -1017,14 +1145,17 @@ components:
           type: string
           maxLength: 35
           description: Material number used by the customer
+          example: example_value
         PricingDate:
           type: string
           format: date
           description: Pricing date at item level
+          example: '2026-01-15'
         BillingPlan:
           type: string
           maxLength: 10
           description: Billing plan number
+          example: example_value
         RequestedQuantity:
           type: string
           description: Requested quantity
@@ -1038,30 +1169,38 @@ components:
           type: string
           maxLength: 3
           description: SAP internal unit of measure
+          example: example_value
         RequestedQuantityIsFixed:
           type: boolean
           description: Indicator that the requested quantity is fixed
+          example: true
         ItemGrossWeight:
           type: string
           description: Gross weight of the item
+          example: example_value
         ItemNetWeight:
           type: string
           description: Net weight of the item
+          example: example_value
         ItemWeightUnit:
           type: string
           maxLength: 3
           description: Weight unit (e.g., KG, LB)
+          example: example_value
         ItemVolume:
           type: string
           description: Volume of the item
+          example: example_value
         ItemVolumeUnit:
           type: string
           maxLength: 3
           description: Volume unit
+          example: example_value
         TransactionCurrency:
           type: string
           maxLength: 5
           description: Transaction currency (ISO 4217)
+          example: example_value
         NetAmount:
           type: string
           description: Net value of the item in document currency
@@ -1069,102 +1208,127 @@ components:
         TotalSDAmount:
           type: string
           description: Total SD amount
+          example: example_value
         MaterialGroup:
           type: string
           maxLength: 9
           description: Material group
+          example: example_value
         MaterialPricingGroup:
           type: string
           maxLength: 2
           description: Material pricing group
+          example: example_value
         Batch:
           type: string
           maxLength: 10
           description: Batch number
+          example: example_value
         ProductionPlant:
           type: string
           maxLength: 4
           description: Production plant
+          example: example_value
         StorageLocation:
           type: string
           maxLength: 4
           description: Storage location
+          example: example_value
         DeliveryGroup:
           type: string
           maxLength: 3
           description: Delivery group
+          example: example_value
         ShippingPoint:
           type: string
           maxLength: 4
           description: Shipping point or receiving point
+          example: example_value
         ShippingType:
           type: string
           maxLength: 2
           description: Shipping type
+          example: example_value
         DeliveryPriority:
           type: string
           maxLength: 2
           description: Delivery priority
+          example: example_value
         IncotermsClassification:
           type: string
           maxLength: 3
           description: Incoterms at item level
+          example: example_value
         IncotermsTransferLocation:
           type: string
           maxLength: 28
           description: Incoterms location at item level
+          example: example_value
         CustomerPaymentTerms:
           type: string
           maxLength: 4
           description: Payment terms at item level
+          example: example_value
         ProductTaxClassification1:
           type: string
           maxLength: 1
           description: Tax classification for material
+          example: example_value
         SalesDocumentRjcnReason:
           type: string
           maxLength: 2
           description: Reason for rejection of the item
+          example: example_value
         ItemBillingBlockReason:
           type: string
           maxLength: 2
           description: Billing block at item level
+          example: example_value
         WBSElement:
           type: string
           maxLength: 24
           description: WBS element for project assignment
+          example: example_value
         ProfitCenter:
           type: string
           maxLength: 10
           description: Profit center
+          example: example_value
         OrderID:
           type: string
           maxLength: 12
           description: Internal order number
+          example: '500123'
         CostCenter:
           type: string
           maxLength: 10
           description: Cost center
+          example: example_value
         ReferenceSDDocument:
           type: string
           maxLength: 10
           description: Reference document number
+          example: example_value
         ReferenceSDDocumentItem:
           type: string
           maxLength: 6
           description: Reference document item
+          example: example_value
         SDProcessStatus:
           type: string
           maxLength: 1
           description: Processing status at item level
+          example: example_value
         DeliveryStatus:
           type: string
           maxLength: 1
           description: Delivery status
+          example: example_value
         OrderRelatedBillingStatus:
           type: string
           maxLength: 1
           description: Order-related billing status
+          example: example_value
         Plant:
           type: string
           maxLength: 4
@@ -1174,38 +1338,46 @@ components:
           type: string
           maxLength: 3
           description: Warehouse number
+          example: example_value
         CustomerGroup:
           type: string
           maxLength: 2
           description: Customer group
+          example: example_value
         SalesDistrict:
           type: string
           maxLength: 6
           description: Sales district
+          example: example_value
         CustomerMaterialItemUsage:
           type: string
           maxLength: 5
           description: Item usage
+          example: example_value
         to_PricingElement:
           type: array
           description: Navigation to item pricing elements
           items:
             $ref: '#/components/schemas/SalesOrderItemPrcgElmnt'
+          example: []
         to_ScheduleLine:
           type: array
           description: Navigation to item schedule lines
           items:
             $ref: '#/components/schemas/SalesOrderScheduleLine'
+          example: []
         to_Partner:
           type: array
           description: Navigation to item partner functions
           items:
             $ref: '#/components/schemas/SalesOrderItemPartner'
+          example: []
         to_Text:
           type: array
           description: Navigation to item text records
           items:
             $ref: '#/components/schemas/SalesOrderItemText'
+          example: []
     SalesOrderItemCreate:
       type: object
       description: Request payload for creating a new sales order item
@@ -1214,121 +1386,152 @@ components:
           type: string
           maxLength: 40
           description: Material number
+          example: example_value
         RequestedQuantity:
           type: string
           description: Requested quantity
+          example: example_value
         RequestedQuantityUnit:
           type: string
           maxLength: 3
           description: Unit of measure
+          example: example_value
         Plant:
           type: string
           maxLength: 4
           description: Plant
+          example: example_value
         SalesOrderItemCategory:
           type: string
           maxLength: 4
           description: Item category
+          example: example_value
         SalesOrderItemText:
           type: string
           maxLength: 40
           description: Item description
+          example: example_value
         PurchaseOrderByCustomer:
           type: string
           maxLength: 35
           description: Customer PO number at item level
+          example: example_value
         PricingDate:
           type: string
           format: date
           description: Pricing date
+          example: '2026-01-15'
         CustomerPaymentTerms:
           type: string
           maxLength: 4
           description: Payment terms
+          example: example_value
         MaterialByCustomer:
           type: string
           maxLength: 35
           description: Customer material number
+          example: example_value
         Batch:
           type: string
           maxLength: 10
           description: Batch number
+          example: example_value
         ProductionPlant:
           type: string
           maxLength: 4
           description: Production plant
+          example: example_value
         StorageLocation:
           type: string
           maxLength: 4
           description: Storage location
+          example: example_value
         DeliveryPriority:
           type: string
           maxLength: 2
           description: Delivery priority
+          example: example_value
         IncotermsClassification:
           type: string
           maxLength: 3
           description: Incoterms classification
+          example: example_value
         IncotermsTransferLocation:
           type: string
           maxLength: 28
           description: Incoterms location
+          example: example_value
         to_PricingElement:
           type: array
           description: Pricing elements (deep insert)
           items:
             $ref: '#/components/schemas/SalesOrderItemPrcgElmnt'
+          example: []
         to_ScheduleLine:
           type: array
           description: Schedule lines (deep insert)
           items:
             $ref: '#/components/schemas/SalesOrderScheduleLine'
+          example: []
         to_Partner:
           type: array
           description: Partners (deep insert)
           items:
             $ref: '#/components/schemas/SalesOrderItemPartner'
+          example: []
         to_Text:
           type: array
           description: Text records (deep insert)
           items:
             $ref: '#/components/schemas/SalesOrderItemText'
+          example: []
     SalesOrderItemUpdate:
       type: object
       description: Request payload for updating sales order item fields
       properties:
         RequestedQuantity:
           type: string
+          example: example_value
         RequestedQuantityUnit:
           type: string
           maxLength: 3
+          example: example_value
         Plant:
           type: string
           maxLength: 4
+          example: example_value
         SalesOrderItemText:
           type: string
           maxLength: 40
+          example: example_value
         PricingDate:
           type: string
           format: date
+          example: '2026-01-15'
         CustomerPaymentTerms:
           type: string
           maxLength: 4
+          example: example_value
         ItemBillingBlockReason:
           type: string
           maxLength: 2
+          example: example_value
         SalesDocumentRjcnReason:
           type: string
           maxLength: 2
+          example: example_value
         DeliveryPriority:
           type: string
           maxLength: 2
+          example: example_value
         IncotermsClassification:
           type: string
           maxLength: 3
+          example: example_value
         IncotermsTransferLocation:
           type: string
           maxLength: 28
+          example: example_value
     SalesOrderHeaderPartner:
       type: object
       description: >-
@@ -1339,6 +1542,7 @@ components:
           type: string
           maxLength: 10
           description: Sales order number
+          example: example_value
         PartnerFunction:
           type: string
           maxLength: 2
@@ -1348,18 +1552,22 @@ components:
           type: string
           maxLength: 10
           description: Customer number
+          example: example_value
         Supplier:
           type: string
           maxLength: 10
           description: Supplier number
+          example: example_value
         Personnel:
           type: string
           maxLength: 8
           description: Personnel number
+          example: example_value
         ContactPerson:
           type: string
           maxLength: 10
           description: Contact person number
+          example: example_value
     SalesOrderItemPartner:
       type: object
       description: >-
@@ -1370,22 +1578,27 @@ components:
           type: string
           maxLength: 10
           description: Sales order number
+          example: example_value
         SalesOrderItem:
           type: string
           maxLength: 6
           description: Sales order item number
+          example: example_value
         PartnerFunction:
           type: string
           maxLength: 2
           description: Partner function code
+          example: example_value
         Customer:
           type: string
           maxLength: 10
           description: Customer number
+          example: example_value
         Supplier:
           type: string
           maxLength: 10
           description: Supplier number
+          example: example_value
     SalesOrderHeaderPrcgElmnt:
       type: object
       description: >-
@@ -1397,14 +1610,17 @@ components:
           type: string
           maxLength: 10
           description: Sales order number
+          example: example_value
         PricingProcedureStep:
           type: string
           maxLength: 3
           description: Step number in the pricing procedure
+          example: example_value
         PricingProcedureCounter:
           type: string
           maxLength: 3
           description: Counter for condition within a step
+          example: example_value
         ConditionType:
           type: string
           maxLength: 4
@@ -1413,93 +1629,118 @@ components:
         ConditionRateValue:
           type: string
           description: Condition rate or amount per pricing unit
+          example: example_value
         ConditionCurrency:
           type: string
           maxLength: 5
           description: Currency for the condition
+          example: example_value
         ConditionQuantity:
           type: string
           description: Condition pricing quantity
+          example: example_value
         ConditionQuantityUnit:
           type: string
           maxLength: 3
           description: Condition quantity unit
+          example: example_value
         ConditionCategory:
           type: string
           maxLength: 1
           description: Condition category
+          example: example_value
         ConditionIsForStatistics:
           type: boolean
           description: Statistical condition indicator
+          example: true
         PricingScaleType:
           type: string
           maxLength: 1
           description: Scale type
+          example: example_value
         IsRelevantForAccrual:
           type: boolean
           description: Accrual indicator
+          example: true
         ConditionOrigin:
           type: string
           maxLength: 1
           description: Origin of the condition
+          example: example_value
         IsGroupCondition:
           type: string
           maxLength: 1
           description: Group condition indicator
+          example: example_value
         ConditionAmount:
           type: string
           description: Condition value (total amount for the condition)
+          example: example_value
         TransactionCurrency:
           type: string
           maxLength: 5
           description: Document currency
+          example: example_value
         ConditionControl:
           type: string
           maxLength: 1
           description: Condition control
+          example: example_value
         ConditionInactiveReason:
           type: string
           maxLength: 1
           description: Reason the condition is inactive
+          example: example_value
         ConditionClass:
           type: string
           maxLength: 1
           description: Condition class (A=discount, B=surcharge)
+          example: example_value
         PrcgProcedureCounterForHeader:
           type: string
           maxLength: 3
           description: Procedure counter for header conditions
+          example: example_value
         FactorForConditionBasisValue:
           type: string
           description: Factor for condition basis value
+          example: example_value
         StructureCondition:
           type: string
           maxLength: 1
           description: Structure condition
+          example: example_value
         PeriodFactorForCndnBasisValue:
           type: string
           description: Period factor for condition basis value
+          example: example_value
         PricingScaleBasis:
           type: string
           maxLength: 3
           description: Scale basis indicator
+          example: example_value
         ConditionScaleBasisValue:
           type: string
           description: Scale basis value
+          example: example_value
         ConditionScaleBasisUnit:
           type: string
           maxLength: 3
           description: Condition scale basis unit
+          example: example_value
         ConditionScaleBasisCurrency:
           type: string
           maxLength: 5
           description: Scale basis currency
+          example: example_value
         CndnIsRelevantForIntcoBilling:
           type: boolean
           description: Relevant for intercompany billing
+          example: true
         ConditionIsManuallyChanged:
           type: boolean
           description: Indicator that the condition was manually changed
+          example: true
     SalesOrderItemPrcgElmnt:
       type: object
       description: >-
@@ -1510,73 +1751,92 @@ components:
           type: string
           maxLength: 10
           description: Sales order number
+          example: example_value
         SalesOrderItem:
           type: string
           maxLength: 6
           description: Sales order item number
+          example: example_value
         PricingProcedureStep:
           type: string
           maxLength: 3
           description: Step number in the pricing procedure
+          example: example_value
         PricingProcedureCounter:
           type: string
           maxLength: 3
           description: Counter for condition within a step
+          example: example_value
         ConditionType:
           type: string
           maxLength: 4
           description: Condition type
+          example: example_value
         ConditionRateValue:
           type: string
           description: Condition rate
+          example: example_value
         ConditionCurrency:
           type: string
           maxLength: 5
           description: Condition currency
+          example: example_value
         ConditionQuantity:
           type: string
           description: Condition quantity
+          example: example_value
         ConditionQuantityUnit:
           type: string
           maxLength: 3
           description: Condition quantity unit
+          example: example_value
         ConditionAmount:
           type: string
           description: Condition value
+          example: example_value
         TransactionCurrency:
           type: string
           maxLength: 5
           description: Document currency
+          example: example_value
         ConditionCategory:
           type: string
           maxLength: 1
           description: Condition category
+          example: example_value
         ConditionIsForStatistics:
           type: boolean
           description: Statistical condition
+          example: true
         ConditionOrigin:
           type: string
           maxLength: 1
           description: Origin of the condition
+          example: example_value
         IsGroupCondition:
           type: string
           maxLength: 1
           description: Group condition indicator
+          example: example_value
         ConditionControl:
           type: string
           maxLength: 1
           description: Condition control
+          example: example_value
         ConditionInactiveReason:
           type: string
           maxLength: 1
           description: Reason for inactivity
+          example: example_value
         ConditionClass:
           type: string
           maxLength: 1
           description: Condition class
+          example: example_value
         ConditionIsManuallyChanged:
           type: boolean
           description: Manually changed indicator
+          example: true
     SalesOrderScheduleLine:
       type: object
       description: >-
@@ -1588,49 +1848,62 @@ components:
           type: string
           maxLength: 10
           description: Sales order number
+          example: example_value
         SalesOrderItem:
           type: string
           maxLength: 6
           description: Sales order item number
+          example: example_value
         ScheduleLine:
           type: string
           maxLength: 4
           description: Schedule line number
+          example: example_value
         RequestedDeliveryDate:
           type: string
           format: date
           description: Requested delivery date
+          example: '2026-01-15'
         ConfirmedDeliveryDate:
           type: string
           format: date
           description: Confirmed delivery date from ATP check
+          example: '2026-01-15'
         OrderQuantityUnit:
           type: string
           maxLength: 3
           description: Order quantity unit
+          example: example_value
         OrderQuantitySAPUnit:
           type: string
           maxLength: 3
           description: SAP internal unit of measure
+          example: example_value
         ScheduleLineOrderQuantity:
           type: string
           description: Ordered quantity on the schedule line
+          example: example_value
         ConfdOrderQtyByMatlAvailCheck:
           type: string
           description: Confirmed quantity from material availability check
+          example: example_value
         DeliveredQtyInOrderQtyUnit:
           type: string
           description: Delivered quantity in order unit
+          example: example_value
         OpenConfdDelivQtyInOrdQtyUnit:
           type: string
           description: Open confirmed delivery quantity
+          example: example_value
         CorrectedQtyInOrderQtyUnit:
           type: string
           description: Corrected quantity
+          example: example_value
         DelivBlockReasonForSchedLine:
           type: string
           maxLength: 2
           description: Delivery block for the schedule line
+          example: example_value
     SalesOrderText:
       type: object
       description: >-
@@ -1641,17 +1914,21 @@ components:
           type: string
           maxLength: 10
           description: Sales order number
+          example: example_value
         Language:
           type: string
           maxLength: 2
           description: Language key (ISO 639-1)
+          example: example_value
         LongTextID:
           type: string
           maxLength: 4
           description: Text ID (e.g., 0001 for header note)
+          example: '500123'
         LongText:
           type: string
           description: Text content
+          example: example_value
     SalesOrderItemText:
       type: object
       description: >-
@@ -1662,21 +1939,26 @@ components:
           type: string
           maxLength: 10
           description: Sales order number
+          example: example_value
         SalesOrderItem:
           type: string
           maxLength: 6
           description: Sales order item number
+          example: example_value
         Language:
           type: string
           maxLength: 2
           description: Language key (ISO 639-1)
+          example: example_value
         LongTextID:
           type: string
           maxLength: 4
           description: Text ID
+          example: '500123'
         LongText:
           type: string
           description: Text content
+          example: example_value
     ODataError:
       type: object
       description: OData error response envelope
@@ -1726,6 +2008,7 @@ components:
                         type: string
                       severity:
                         type: string
+          example: example_value
   responses:
     BadRequest:
       description: Invalid request - the request body or parameters are malformed

@@ -1,0 +1,13 @@
+{
+  "RequestedQuantity": "example_value",
+  "RequestedQuantityUnit": "example_value",
+  "Plant": "example_value",
+  "SalesOrderItemText": "example_value",
+  "PricingDate": "example_value",
+  "CustomerPaymentTerms": "example_value",
+  "ItemBillingBlockReason": "example_value",
+  "SalesDocumentRjcnReason": "example_value",
+  "DeliveryPriority": "example_value",
+  "IncotermsClassification": "example_value",
+  "IncotermsTransferLocation": "example_value"
+}

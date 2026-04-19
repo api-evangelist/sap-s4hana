@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SalesOrderHeaderPrcgElmnt",
+  "type": "object",
+  "description": "Sales order header pricing element entity (A_SalesOrderHeaderPrcgElmnt) representing a pricing condition at the header level, such as overall discounts, surcharges, or freight.",
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "description": "Sales order number"
+    },
+    "PricingProcedureStep": {
+      "type": "string",
+      "description": "Step number in the pricing procedure"
+    },
+    "PricingProcedureCounter": {
+      "type": "string",
+      "description": "Counter for condition within a step"
+    },
+    "ConditionType": {
+      "type": "string",
+      "description": "Condition type (e.g., PR00 for price, K004 for discount, MWST for tax)"
+    },
+    "ConditionRateValue": {
+      "type": "string",
+      "description": "Condition rate or amount per pricing unit"
+    },
+    "ConditionCurrency": {
+      "type": "string",
+      "description": "Currency for the condition"
+    },
+    "ConditionQuantity": {
+      "type": "string",
+      "description": "Condition pricing quantity"
+    },
+    "ConditionQuantityUnit": {
+      "type": "string",
+      "description": "Condition quantity unit"
+    },
+    "ConditionCategory": {
+      "type": "string",
+      "description": "Condition category"
+    },
+    "ConditionIsForStatistics": {
+      "type": "boolean",
+      "description": "Statistical condition indicator"
+    },
+    "PricingScaleType": {
+      "type": "string",
+      "description": "Scale type"
+    },
+    "IsRelevantForAccrual": {
+      "type": "boolean",
+      "description": "Accrual indicator"
+    },
+    "ConditionOrigin": {
+      "type": "string",
+      "description": "Origin of the condition"
+    },
+    "IsGroupCondition": {
+      "type": "string",
+      "description": "Group condition indicator"
+    },
+    "ConditionAmount": {
+      "type": "string",
+      "description": "Condition value (total amount for the condition)"
+    },
+    "TransactionCurrency": {
+      "type": "string",
+      "description": "Document currency"
+    },
+    "ConditionControl": {
+      "type": "string",
+      "description": "Condition control"
+    },
+    "ConditionInactiveReason": {
+      "type": "string",
+      "description": "Reason the condition is inactive"
+    },
+    "ConditionClass": {
+      "type": "string",
+      "description": "Condition class (A=discount, B=surcharge)"
+    },
+    "PrcgProcedureCounterForHeader": {
+      "type": "string",
+      "description": "Procedure counter for header conditions"
+    },
+    "FactorForConditionBasisValue": {
+      "type": "string",
+      "description": "Factor for condition basis value"
+    },
+    "StructureCondition": {
+      "type": "string",
+      "description": "Structure condition"
+    },
+    "PeriodFactorForCndnBasisValue": {
+      "type": "string",
+      "description": "Period factor for condition basis value"
+    },
+    "PricingScaleBasis": {
+      "type": "string",
+      "description": "Scale basis indicator"
+    },
+    "ConditionScaleBasisValue": {
+      "type": "string",
+      "description": "Scale basis value"
+    },
+    "ConditionScaleBasisUnit": {
+      "type": "string",
+      "description": "Condition scale basis unit"
+    },
+    "ConditionScaleBasisCurrency": {
+      "type": "string",
+      "description": "Scale basis currency"
+    },
+    "CndnIsRelevantForIntcoBilling": {
+      "type": "boolean",
+      "description": "Relevant for intercompany billing"
+    },
+    "ConditionIsManuallyChanged": {
+      "type": "boolean",
+      "description": "Indicator that the condition was manually changed"
+    }
+  }
+}

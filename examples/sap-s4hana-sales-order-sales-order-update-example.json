@@ -1,0 +1,13 @@
+{
+  "PurchaseOrderByCustomer": "example_value",
+  "RequestedDeliveryDate": "example_value",
+  "CustomerPaymentTerms": "example_value",
+  "ShippingCondition": "example_value",
+  "CompleteDeliveryIsDefined": true,
+  "HeaderBillingBlockReason": "example_value",
+  "DeliveryBlockReason": "example_value",
+  "IncotermsClassification": "example_value",
+  "IncotermsTransferLocation": "example_value",
+  "PricingDate": "example_value",
+  "SDDocumentReason": "example_value"
+}

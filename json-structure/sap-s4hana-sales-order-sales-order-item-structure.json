@@ -1,0 +1,172 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SalesOrderItem",
+  "type": "object",
+  "properties": {
+    "SalesOrder": {
+      "type": "string"
+    },
+    "SalesOrderItem": {
+      "type": "string"
+    },
+    "HigherLevelItem": {
+      "type": "string"
+    },
+    "SalesOrderItemCategory": {
+      "type": "string"
+    },
+    "SalesOrderItemText": {
+      "type": "string"
+    },
+    "PurchaseOrderByCustomer": {
+      "type": "string"
+    },
+    "Material": {
+      "type": "string"
+    },
+    "MaterialByCustomer": {
+      "type": "string"
+    },
+    "PricingDate": {
+      "type": "string"
+    },
+    "BillingPlan": {
+      "type": "string"
+    },
+    "RequestedQuantity": {
+      "type": "string"
+    },
+    "RequestedQuantityUnit": {
+      "type": "string"
+    },
+    "RequestedQuantitySAPUnit": {
+      "type": "string"
+    },
+    "RequestedQuantityIsFixed": {
+      "type": "boolean"
+    },
+    "ItemGrossWeight": {
+      "type": "string"
+    },
+    "ItemNetWeight": {
+      "type": "string"
+    },
+    "ItemWeightUnit": {
+      "type": "string"
+    },
+    "ItemVolume": {
+      "type": "string"
+    },
+    "ItemVolumeUnit": {
+      "type": "string"
+    },
+    "TransactionCurrency": {
+      "type": "string"
+    },
+    "NetAmount": {
+      "type": "string"
+    },
+    "TotalSDAmount": {
+      "type": "string"
+    },
+    "MaterialGroup": {
+      "type": "string"
+    },
+    "MaterialPricingGroup": {
+      "type": "string"
+    },
+    "Batch": {
+      "type": "string"
+    },
+    "ProductionPlant": {
+      "type": "string"
+    },
+    "StorageLocation": {
+      "type": "string"
+    },
+    "DeliveryGroup": {
+      "type": "string"
+    },
+    "ShippingPoint": {
+      "type": "string"
+    },
+    "ShippingType": {
+      "type": "string"
+    },
+    "DeliveryPriority": {
+      "type": "string"
+    },
+    "IncotermsClassification": {
+      "type": "string"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string"
+    },
+    "ProductTaxClassification1": {
+      "type": "string"
+    },
+    "SalesDocumentRjcnReason": {
+      "type": "string"
+    },
+    "ItemBillingBlockReason": {
+      "type": "string"
+    },
+    "WBSElement": {
+      "type": "string"
+    },
+    "ProfitCenter": {
+      "type": "string"
+    },
+    "OrderID": {
+      "type": "string"
+    },
+    "CostCenter": {
+      "type": "string"
+    },
+    "ReferenceSDDocument": {
+      "type": "string"
+    },
+    "ReferenceSDDocumentItem": {
+      "type": "string"
+    },
+    "SDProcessStatus": {
+      "type": "string"
+    },
+    "DeliveryStatus": {
+      "type": "string"
+    },
+    "OrderRelatedBillingStatus": {
+      "type": "string"
+    },
+    "Plant": {
+      "type": "string"
+    },
+    "WarehouseNumber": {
+      "type": "string"
+    },
+    "CustomerGroup": {
+      "type": "string"
+    },
+    "SalesDistrict": {
+      "type": "string"
+    },
+    "CustomerMaterialItemUsage": {
+      "type": "string"
+    },
+    "to_PricingElement": {
+      "type": "array"
+    },
+    "to_ScheduleLine": {
+      "type": "array"
+    },
+    "to_Partner": {
+      "type": "array"
+    },
+    "to_Text": {
+      "type": "array"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "SalesOrderItemPartner",
+  "type": "object",
+  "description": "Sales order item partner entity (A_SalesOrderItemPartner) representing a business partner in a specific function role at the item level.",
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "description": "Sales order number"
+    },
+    "SalesOrderItem": {
+      "type": "string",
+      "description": "Sales order item number"
+    },
+    "PartnerFunction": {
+      "type": "string",
+      "description": "Partner function code"
+    },
+    "Customer": {
+      "type": "string",
+      "description": "Customer number"
+    },
+    "Supplier": {
+      "type": "string",
+      "description": "Supplier number"
+    }
+  }
+}

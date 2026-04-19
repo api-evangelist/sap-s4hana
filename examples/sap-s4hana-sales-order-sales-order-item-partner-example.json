@@ -1,0 +1,7 @@
+{
+  "SalesOrder": "example_value",
+  "SalesOrderItem": "example_value",
+  "PartnerFunction": "example_value",
+  "Customer": "example_value",
+  "Supplier": "example_value"
+}

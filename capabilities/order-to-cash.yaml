@@ -1,0 +1,149 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: "SAP S/4HANA Order-to-Cash"
+  description: "Unified order-to-cash capability combining sales order management with items, partners, pricing, schedule lines, and text records. Used by sales operations and order management teams."
+  tags:
+    - SAP
+    - S/4HANA
+    - Sales
+    - Order-to-Cash
+  created: "2026-04-18"
+  modified: "2026-04-18"
+
+binds:
+  - namespace: env
+    keys:
+      SAP_USERNAME: SAP_USERNAME
+      SAP_PASSWORD: SAP_PASSWORD
+
+capability:
+  consumes:
+    - import: sales-order
+      location: ./shared/sales-order.yaml
+
+  exposes:
+    - type: rest
+      port: 8080
+      namespace: order-to-cash-api
+      description: "Unified REST API for SAP S/4HANA order-to-cash operations."
+      resources:
+        - path: /v1/sales-orders
+          name: sales-orders
+          description: "Sales order management"
+          operations:
+            - method: GET
+              name: list-sales-orders
+              description: "List sales orders"
+              call: "sales-order.list-sales-orders"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-sales-order
+              description: "Create a sales order"
+              call: "sales-order.create-sales-order"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9090
+      namespace: order-to-cash-mcp
+      transport: http
+      description: "MCP server for AI-assisted SAP S/4HANA order-to-cash operations."
+      tools:
+        - name: list-sales-orders
+          description: "Retrieve a list of sales orders"
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "sales-order.list-sales-orders"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: get-sales-order
+          description: "Retrieve a single sales order by key"
+          hints:
+            readOnly: true
+          call: "sales-order.get-sales-order"
+          with:
+            SalesOrder: "tools.SalesOrder"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-sales-order
+          description: "Create a new sales order"
+          call: "sales-order.create-sales-order"
+          with:
+            SalesOrderType: "tools.SalesOrderType"
+            SalesOrganization: "tools.SalesOrganization"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: update-sales-order
+          description: "Update a sales order header"
+          call: "sales-order.update-sales-order"
+          with:
+            SalesOrder: "tools.SalesOrder"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: delete-sales-order
+          description: "Delete a sales order"
+          hints:
+            destructive: true
+          call: "sales-order.delete-sales-order"
+          with:
+            SalesOrder: "tools.SalesOrder"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-sales-order-items
+          description: "Retrieve items for a sales order"
+          hints:
+            readOnly: true
+          call: "sales-order.list-sales-order-items"
+          with:
+            SalesOrder: "tools.SalesOrder"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: create-sales-order-item
+          description: "Create a new sales order item"
+          call: "sales-order.create-sales-order-item"
+          with:
+            SalesOrder: "tools.SalesOrder"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-sales-order-partners
+          description: "Retrieve partners for a sales order"
+          hints:
+            readOnly: true
+          call: "sales-order.list-sales-order-partners"
+          with:
+            SalesOrder: "tools.SalesOrder"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-sales-order-pricing
+          description: "Retrieve header pricing elements"
+          hints:
+            readOnly: true
+          call: "sales-order.list-sales-order-pricing"
+          with:
+            SalesOrder: "tools.SalesOrder"
+          outputParameters:
+            - type: object
+              mapping: "$."
+        - name: list-sales-order-texts
+          description: "Retrieve text records for a sales order"
+          hints:
+            readOnly: true
+          call: "sales-order.list-sales-order-texts"
+          with:
+            SalesOrder: "tools.SalesOrder"
+          outputParameters:
+            - type: object
+              mapping: "$."

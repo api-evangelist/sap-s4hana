@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-structure.org/draft/2020-12/schema",
+  "name": "SalesOrderScheduleLine",
+  "type": "object",
+  "properties": {
+    "SalesOrder": {
+      "type": "string"
+    },
+    "SalesOrderItem": {
+      "type": "string"
+    },
+    "ScheduleLine": {
+      "type": "string"
+    },
+    "RequestedDeliveryDate": {
+      "type": "string"
+    },
+    "ConfirmedDeliveryDate": {
+      "type": "string"
+    },
+    "OrderQuantityUnit": {
+      "type": "string"
+    },
+    "OrderQuantitySAPUnit": {
+      "type": "string"
+    },
+    "ScheduleLineOrderQuantity": {
+      "type": "string"
+    },
+    "ConfdOrderQtyByMatlAvailCheck": {
+      "type": "string"
+    },
+    "DeliveredQtyInOrderQtyUnit": {
+      "type": "string"
+    },
+    "OpenConfdDelivQtyInOrdQtyUnit": {
+      "type": "string"
+    },
+    "CorrectedQtyInOrderQtyUnit": {
+      "type": "string"
+    },
+    "DelivBlockReasonForSchedLine": {
+      "type": "string"
+    }
+  }
+}
