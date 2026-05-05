@@ -1,0 +1,184 @@
+specification: API Commons Rate Limits
+specificationVersion: '0.1'
+schema: https://raw.githubusercontent.com/api-evangelist/interface-research/main/schema/api-commons.yml#/$defs/RateLimits
+provider: SAP S/4HANA
+providerId: sap-s4hana
+created: '2026-05-04'
+modified: '2026-05-04'
+tags:
+  - Business Applications
+  - Cloud
+  - Enterprise Resource Planning
+  - ERP
+  - Finance
+  - Human Resources
+  - Inventory
+  - Logistics
+  - Manufacturing
+  - Plant Maintenance
+  - Procurement
+  - S/4HANA
+  - Sales
+  - SAP
+  - Rate Limiting
+  - Quotas
+  - Throttling
+description: Machine-readable rate limit definitions for the SAP S/4HANA API surface. Captures per-tier
+  quotas, burst behavior, response signaling, and recovery semantics. Defaults are scaffold values to
+  be replaced with published provider limits.
+headers:
+  limit: X-RateLimit-Limit
+  remaining: X-RateLimit-Remaining
+  reset: X-RateLimit-Reset
+  retryAfter: Retry-After
+  policy: RateLimit-Policy
+responseCodes:
+  throttled: 429
+  quotaExceeded: 429
+  serviceUnavailable: 503
+limits:
+  - tier: free
+    name: Free Tier Default
+    scope: api-key
+    metric: requests_per_minute
+    limit: 10
+    burst: 20
+    timeFrame: minute
+    applies:
+      - SAP S/4HANA Business Partner API
+      - SAP S/4HANA Sales Order API
+      - SAP S/4HANA Purchase Order API
+      - SAP S/4HANA Material Document API
+      - SAP S/4HANA Product Master API
+      - SAP S/4HANA Journal Entry API
+      - SAP S/4HANA Billing Document API
+      - SAP S/4HANA Supplier Invoice API
+      - SAP S/4HANA Customer Return API
+      - SAP S/4HANA Purchase Requisition API
+      - SAP S/4HANA Outbound Delivery API
+      - SAP S/4HANA Inbound Delivery API
+      - SAP S/4HANA Cost Center API
+      - SAP S/4HANA GL Account API
+      - SAP S/4HANA Bank Master API
+      - SAP S/4HANA Production Order API
+      - SAP S/4HANA Maintenance Order API
+      - SAP S/4HANA Workforce Timesheet API
+  - tier: free
+    name: Free Tier Monthly Quota
+    scope: api-key
+    metric: requests_per_month
+    limit: 1000
+    timeFrame: month
+    applies:
+      - SAP S/4HANA Business Partner API
+      - SAP S/4HANA Sales Order API
+      - SAP S/4HANA Purchase Order API
+      - SAP S/4HANA Material Document API
+      - SAP S/4HANA Product Master API
+      - SAP S/4HANA Journal Entry API
+      - SAP S/4HANA Billing Document API
+      - SAP S/4HANA Supplier Invoice API
+      - SAP S/4HANA Customer Return API
+      - SAP S/4HANA Purchase Requisition API
+      - SAP S/4HANA Outbound Delivery API
+      - SAP S/4HANA Inbound Delivery API
+      - SAP S/4HANA Cost Center API
+      - SAP S/4HANA GL Account API
+      - SAP S/4HANA Bank Master API
+      - SAP S/4HANA Production Order API
+      - SAP S/4HANA Maintenance Order API
+      - SAP S/4HANA Workforce Timesheet API
+  - tier: professional
+    name: Professional Tier Default
+    scope: api-key
+    metric: requests_per_minute
+    limit: 100
+    burst: 200
+    timeFrame: minute
+    applies:
+      - SAP S/4HANA Business Partner API
+      - SAP S/4HANA Sales Order API
+      - SAP S/4HANA Purchase Order API
+      - SAP S/4HANA Material Document API
+      - SAP S/4HANA Product Master API
+      - SAP S/4HANA Journal Entry API
+      - SAP S/4HANA Billing Document API
+      - SAP S/4HANA Supplier Invoice API
+      - SAP S/4HANA Customer Return API
+      - SAP S/4HANA Purchase Requisition API
+      - SAP S/4HANA Outbound Delivery API
+      - SAP S/4HANA Inbound Delivery API
+      - SAP S/4HANA Cost Center API
+      - SAP S/4HANA GL Account API
+      - SAP S/4HANA Bank Master API
+      - SAP S/4HANA Production Order API
+      - SAP S/4HANA Maintenance Order API
+      - SAP S/4HANA Workforce Timesheet API
+  - tier: professional
+    name: Professional Tier Monthly Quota
+    scope: api-key
+    metric: requests_per_month
+    limit: 100000
+    timeFrame: month
+    applies:
+      - SAP S/4HANA Business Partner API
+      - SAP S/4HANA Sales Order API
+      - SAP S/4HANA Purchase Order API
+      - SAP S/4HANA Material Document API
+      - SAP S/4HANA Product Master API
+      - SAP S/4HANA Journal Entry API
+      - SAP S/4HANA Billing Document API
+      - SAP S/4HANA Supplier Invoice API
+      - SAP S/4HANA Customer Return API
+      - SAP S/4HANA Purchase Requisition API
+      - SAP S/4HANA Outbound Delivery API
+      - SAP S/4HANA Inbound Delivery API
+      - SAP S/4HANA Cost Center API
+      - SAP S/4HANA GL Account API
+      - SAP S/4HANA Bank Master API
+      - SAP S/4HANA Production Order API
+      - SAP S/4HANA Maintenance Order API
+      - SAP S/4HANA Workforce Timesheet API
+  - tier: enterprise
+    name: Enterprise Negotiated Limit
+    scope: contract
+    metric: requests_per_minute
+    limit: 1000
+    burst: 5000
+    timeFrame: minute
+    applies:
+      - SAP S/4HANA Business Partner API
+      - SAP S/4HANA Sales Order API
+      - SAP S/4HANA Purchase Order API
+      - SAP S/4HANA Material Document API
+      - SAP S/4HANA Product Master API
+      - SAP S/4HANA Journal Entry API
+      - SAP S/4HANA Billing Document API
+      - SAP S/4HANA Supplier Invoice API
+      - SAP S/4HANA Customer Return API
+      - SAP S/4HANA Purchase Requisition API
+      - SAP S/4HANA Outbound Delivery API
+      - SAP S/4HANA Inbound Delivery API
+      - SAP S/4HANA Cost Center API
+      - SAP S/4HANA GL Account API
+      - SAP S/4HANA Bank Master API
+      - SAP S/4HANA Production Order API
+      - SAP S/4HANA Maintenance Order API
+      - SAP S/4HANA Workforce Timesheet API
+policies:
+  - name: Backoff Strategy
+    description: Clients should implement exponential backoff with jitter, honoring the Retry-After header
+      when present.
+  - name: Burst Handling
+    description: Short bursts above the steady-state limit are tolerated up to the documented burst ceiling
+      before throttling engages.
+  - name: Quota Reset
+    description: Monthly quotas reset at the start of each calendar month in UTC. Per-minute and per-second
+      windows reset on a sliding-window basis.
+  - name: Fair Use
+    description: Even on uncapped enterprise tiers, sustained usage that materially impacts shared infrastructure
+      may be subject to fair-use throttling.
+maintainers:
+  - name: Kin Lane
+    email: kin@apievangelist.com
+    url: https://apievangelist.com
