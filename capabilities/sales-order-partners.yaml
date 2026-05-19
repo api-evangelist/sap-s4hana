@@ -1,0 +1,70 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SAP S/4HANA Sales Order API — Partners
+  description: 'SAP S/4HANA Sales Order API — Partners. 1 operations. Lead operation: Sap S/4hana Retrieve Partners for a
+    Sales Order. Self-contained Naftiko capability covering one Sap S4hana business surface.'
+  tags:
+  - Sap S4hana
+  - Partners
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SAP_S4HANA_API_KEY: SAP_S4HANA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sales-order-partners
+    baseUri: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV
+    description: SAP S/4HANA Sales Order API — Partners business capability. Self-contained, no shared references.
+    resources:
+    - name: A_SalesOrder('{SalesOrder}')-to_Partner
+      path: /A_SalesOrder('{SalesOrder}')/to_Partner
+      operations:
+      - name: listsalesorderpartners
+        method: GET
+        description: Sap S/4hana Retrieve Partners for a Sales Order
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.SAP_S4HANA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: sales-order-partners-rest
+    port: 8080
+    description: REST adapter for SAP S/4HANA Sales Order API — Partners. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/a-salesorder-salesorder/to-partner
+      name: a-salesorder-salesorder-to-partner
+      description: REST surface for A_SalesOrder('{SalesOrder}')-to_Partner.
+      operations:
+      - method: GET
+        name: listsalesorderpartners
+        description: Sap S/4hana Retrieve Partners for a Sales Order
+        call: sales-order-partners.listsalesorderpartners
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sales-order-partners-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SAP S/4HANA Sales Order API — Partners. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: sap-s-4hana-retrieve-partners
+      description: Sap S/4hana Retrieve Partners for a Sales Order
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sales-order-partners.listsalesorderpartners
+      outputParameters:
+      - type: object
+        mapping: $.

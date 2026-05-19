@@ -1,0 +1,197 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: SAP S/4HANA Sales Order API — Sales Order Items
+  description: 'SAP S/4HANA Sales Order API — Sales Order Items. 5 operations. Lead operation: Sap S/4hana Retrieve Items
+    for a Sales Order. Self-contained Naftiko capability covering one Sap S4hana business surface.'
+  tags:
+  - Sap S4hana
+  - Sales Order Items
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    SAP_S4HANA_API_KEY: SAP_S4HANA_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: sales-order-sales-order-items
+    baseUri: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV
+    description: SAP S/4HANA Sales Order API — Sales Order Items business capability. Self-contained, no shared references.
+    resources:
+    - name: A_SalesOrder('{SalesOrder}')-to_Item
+      path: /A_SalesOrder('{SalesOrder}')/to_Item
+      operations:
+      - name: listsalesorderitems
+        method: GET
+        description: Sap S/4hana Retrieve Items for a Sales Order
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: createsalesorderitem
+        method: POST
+        description: Sap S/4hana Create a New Sales Order Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}')
+      path: /A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}')
+      operations:
+      - name: getsalesorderitem
+        method: GET
+        description: Sap S/4hana Retrieve a Single Sales Order Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+      - name: updatesalesorderitem
+        method: PATCH
+        description: Sap S/4hana Update a Sales Order Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+      - name: deletesalesorderitem
+        method: DELETE
+        description: Sap S/4hana Delete a Sales Order Item
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: bearer
+      token: '{{env.SAP_S4HANA_API_KEY}}'
+  exposes:
+  - type: rest
+    namespace: sales-order-sales-order-items-rest
+    port: 8080
+    description: REST adapter for SAP S/4HANA Sales Order API — Sales Order Items. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/a-salesorder-salesorder/to-item
+      name: a-salesorder-salesorder-to-item
+      description: REST surface for A_SalesOrder('{SalesOrder}')-to_Item.
+      operations:
+      - method: GET
+        name: listsalesorderitems
+        description: Sap S/4hana Retrieve Items for a Sales Order
+        call: sales-order-sales-order-items.listsalesorderitems
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: POST
+        name: createsalesorderitem
+        description: Sap S/4hana Create a New Sales Order Item
+        call: sales-order-sales-order-items.createsalesorderitem
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/a-salesorderitem-salesorder-salesorder-salesorderitem-salesorderitem
+      name: a-salesorderitem-salesorder-salesorder-salesorderitem-salesorderitem
+      description: REST surface for A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}').
+      operations:
+      - method: GET
+        name: getsalesorderitem
+        description: Sap S/4hana Retrieve a Single Sales Order Item
+        call: sales-order-sales-order-items.getsalesorderitem
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: PATCH
+        name: updatesalesorderitem
+        description: Sap S/4hana Update a Sales Order Item
+        call: sales-order-sales-order-items.updatesalesorderitem
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+      - method: DELETE
+        name: deletesalesorderitem
+        description: Sap S/4hana Delete a Sales Order Item
+        call: sales-order-sales-order-items.deletesalesorderitem
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: sales-order-sales-order-items-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for SAP S/4HANA Sales Order API — Sales Order Items. One tool per consumed operation, routed
+      inline through this capability's consumes block.
+    tools:
+    - name: sap-s-4hana-retrieve-items
+      description: Sap S/4hana Retrieve Items for a Sales Order
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sales-order-sales-order-items.listsalesorderitems
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sap-s-4hana-create-new
+      description: Sap S/4hana Create a New Sales Order Item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: sales-order-sales-order-items.createsalesorderitem
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sap-s-4hana-retrieve-single
+      description: Sap S/4hana Retrieve a Single Sales Order Item
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: sales-order-sales-order-items.getsalesorderitem
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sap-s-4hana-update-sales
+      description: Sap S/4hana Update a Sales Order Item
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: true
+      call: sales-order-sales-order-items.updatesalesorderitem
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: sap-s-4hana-delete-sales
+      description: Sap S/4hana Delete a Sales Order Item
+      hints:
+        readOnly: false
+        destructive: true
+        idempotent: true
+      call: sales-order-sales-order-items.deletesalesorderitem
+      outputParameters:
+      - type: object
+        mapping: $.
