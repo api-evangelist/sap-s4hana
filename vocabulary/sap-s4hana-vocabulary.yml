@@ -1,0 +1,17 @@
+name: SAP S/4HANA Domain Vocabulary
+provider: SAP S/4HANA
+providerId: sap-s4hana
+description: Tag-derived vocabulary for the SAP S/4HANA API surface; sourced from openapi/ tags.
+terms:
+- term: Partners
+  description: Operations on header and item partner functions
+- term: Pricing Elements
+  description: Operations on header and item pricing elements
+- term: Sales Order Items
+  description: Operations on sales order line items
+- term: Sales Orders
+  description: Operations on sales order header records
+- term: Schedule Lines
+  description: Operations on item schedule lines for delivery scheduling
+- term: Text
+  description: Operations on header and item text records

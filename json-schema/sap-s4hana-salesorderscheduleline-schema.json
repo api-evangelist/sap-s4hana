@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SalesOrderScheduleLine",
+  "title": "SalesOrderScheduleLine",
+  "type": "object",
+  "description": "Sales order schedule line entity (A_SalesOrderScheduleLine) representing a delivery schedule for a sales order item with confirmed quantities and dates from availability check (ATP).",
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Sales order number",
+      "example": "example_value"
+    },
+    "SalesOrderItem": {
+      "type": "string",
+      "maxLength": 6,
+      "description": "Sales order item number",
+      "example": "example_value"
+    },
+    "ScheduleLine": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Schedule line number",
+      "example": "example_value"
+    },
+    "RequestedDeliveryDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Requested delivery date",
+      "example": "2026-01-15"
+    },
+    "ConfirmedDeliveryDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Confirmed delivery date from ATP check",
+      "example": "2026-01-15"
+    },
+    "OrderQuantityUnit": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Order quantity unit",
+      "example": "example_value"
+    },
+    "OrderQuantitySAPUnit": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "SAP internal unit of measure",
+      "example": "example_value"
+    },
+    "ScheduleLineOrderQuantity": {
+      "type": "string",
+      "description": "Ordered quantity on the schedule line",
+      "example": "example_value"
+    },
+    "ConfdOrderQtyByMatlAvailCheck": {
+      "type": "string",
+      "description": "Confirmed quantity from material availability check",
+      "example": "example_value"
+    },
+    "DeliveredQtyInOrderQtyUnit": {
+      "type": "string",
+      "description": "Delivered quantity in order unit",
+      "example": "example_value"
+    },
+    "OpenConfdDelivQtyInOrdQtyUnit": {
+      "type": "string",
+      "description": "Open confirmed delivery quantity",
+      "example": "example_value"
+    },
+    "CorrectedQtyInOrderQtyUnit": {
+      "type": "string",
+      "description": "Corrected quantity",
+      "example": "example_value"
+    },
+    "DelivBlockReasonForSchedLine": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Delivery block for the schedule line",
+      "example": "example_value"
+    }
+  }
+}

@@ -1,0 +1,236 @@
+{
+  "provider": "SAP S/4HANA",
+  "providerId": "sap-s4hana",
+  "kind": "json-structure",
+  "description": "Structural overview of the SAP S/4HANA API surface; extracted from openapi/.",
+  "schemaCount": 14,
+  "operationCount": 15,
+  "schemas": [
+    {
+      "name": "SalesOrder",
+      "type": "object",
+      "propertyCount": 59,
+      "required": []
+    },
+    {
+      "name": "SalesOrderCreate",
+      "type": "object",
+      "propertyCount": 20,
+      "required": [
+        "SalesOrderType",
+        "SalesOrganization",
+        "DistributionChannel",
+        "OrganizationDivision"
+      ]
+    },
+    {
+      "name": "SalesOrderUpdate",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    },
+    {
+      "name": "SalesOrderItem",
+      "type": "object",
+      "propertyCount": 55,
+      "required": []
+    },
+    {
+      "name": "SalesOrderItemCreate",
+      "type": "object",
+      "propertyCount": 20,
+      "required": []
+    },
+    {
+      "name": "SalesOrderItemUpdate",
+      "type": "object",
+      "propertyCount": 11,
+      "required": []
+    },
+    {
+      "name": "SalesOrderHeaderPartner",
+      "type": "object",
+      "propertyCount": 6,
+      "required": []
+    },
+    {
+      "name": "SalesOrderItemPartner",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "SalesOrderHeaderPrcgElmnt",
+      "type": "object",
+      "propertyCount": 29,
+      "required": []
+    },
+    {
+      "name": "SalesOrderItemPrcgElmnt",
+      "type": "object",
+      "propertyCount": 19,
+      "required": []
+    },
+    {
+      "name": "SalesOrderScheduleLine",
+      "type": "object",
+      "propertyCount": 13,
+      "required": []
+    },
+    {
+      "name": "SalesOrderText",
+      "type": "object",
+      "propertyCount": 4,
+      "required": []
+    },
+    {
+      "name": "SalesOrderItemText",
+      "type": "object",
+      "propertyCount": 5,
+      "required": []
+    },
+    {
+      "name": "ODataError",
+      "type": "object",
+      "propertyCount": 1,
+      "required": []
+    }
+  ],
+  "operations": [
+    {
+      "method": "GET",
+      "path": "/A_SalesOrder",
+      "operationId": "listSalesOrders",
+      "summary": "Sap S/4hana Retrieve a List of Sales Orders",
+      "tags": [
+        "Sales Orders"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/A_SalesOrder",
+      "operationId": "createSalesOrder",
+      "summary": "Sap S/4hana Create a New Sales Order",
+      "tags": [
+        "Sales Orders"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/A_SalesOrder('{SalesOrder}')",
+      "operationId": "getSalesOrder",
+      "summary": "Sap S/4hana Retrieve a Single Sales Order by Key",
+      "tags": [
+        "Sales Orders"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/A_SalesOrder('{SalesOrder}')",
+      "operationId": "deleteSalesOrder",
+      "summary": "Sap S/4hana Delete a Sales Order",
+      "tags": [
+        "Sales Orders"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/A_SalesOrder('{SalesOrder}')",
+      "operationId": "updateSalesOrder",
+      "summary": "Sap S/4hana Update a Sales Order Header",
+      "tags": [
+        "Sales Orders"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/A_SalesOrder('{SalesOrder}')/to_Item",
+      "operationId": "listSalesOrderItems",
+      "summary": "Sap S/4hana Retrieve Items for a Sales Order",
+      "tags": [
+        "Sales Order Items"
+      ]
+    },
+    {
+      "method": "POST",
+      "path": "/A_SalesOrder('{SalesOrder}')/to_Item",
+      "operationId": "createSalesOrderItem",
+      "summary": "Sap S/4hana Create a New Sales Order Item",
+      "tags": [
+        "Sales Order Items"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}')",
+      "operationId": "getSalesOrderItem",
+      "summary": "Sap S/4hana Retrieve a Single Sales Order Item",
+      "tags": [
+        "Sales Order Items"
+      ]
+    },
+    {
+      "method": "DELETE",
+      "path": "/A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}')",
+      "operationId": "deleteSalesOrderItem",
+      "summary": "Sap S/4hana Delete a Sales Order Item",
+      "tags": [
+        "Sales Order Items"
+      ]
+    },
+    {
+      "method": "PATCH",
+      "path": "/A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}')",
+      "operationId": "updateSalesOrderItem",
+      "summary": "Sap S/4hana Update a Sales Order Item",
+      "tags": [
+        "Sales Order Items"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/A_SalesOrder('{SalesOrder}')/to_Partner",
+      "operationId": "listSalesOrderPartners",
+      "summary": "Sap S/4hana Retrieve Partners for a Sales Order",
+      "tags": [
+        "Partners"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/A_SalesOrder('{SalesOrder}')/to_PricingElement",
+      "operationId": "listSalesOrderPricingElements",
+      "summary": "Sap S/4hana Retrieve Header Pricing Elements for a Sales Order",
+      "tags": [
+        "Pricing Elements"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}')/to_ScheduleLine",
+      "operationId": "listSalesOrderItemScheduleLines",
+      "summary": "Sap S/4hana Retrieve Schedule Lines for a Sales Order Item",
+      "tags": [
+        "Schedule Lines"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}')/to_PricingElement",
+      "operationId": "listSalesOrderItemPricingElements",
+      "summary": "Sap S/4hana Retrieve Pricing Elements for a Sales Order Item",
+      "tags": [
+        "Pricing Elements"
+      ]
+    },
+    {
+      "method": "GET",
+      "path": "/A_SalesOrder('{SalesOrder}')/to_Text",
+      "operationId": "listSalesOrderTexts",
+      "summary": "Sap S/4hana Retrieve Text Records for a Sales Order",
+      "tags": [
+        "Text"
+      ]
+    }
+  ]
+}

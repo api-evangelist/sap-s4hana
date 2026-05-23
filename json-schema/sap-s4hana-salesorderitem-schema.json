@@ -1,0 +1,354 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SalesOrderItem",
+  "title": "SalesOrderItem",
+  "type": "object",
+  "description": "Sales order item entity (A_SalesOrderItem) representing a line item in a sales order. Contains material, quantity, pricing, plant assignment, and item-level processing status.",
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Sales order number the item belongs to",
+      "example": "example_value"
+    },
+    "SalesOrderItem": {
+      "type": "string",
+      "maxLength": 6,
+      "description": "Sales order item number (e.g., '000010')",
+      "examples": [
+        "000010"
+      ]
+    },
+    "HigherLevelItem": {
+      "type": "string",
+      "maxLength": 6,
+      "description": "Higher-level item number in a BOM structure",
+      "example": "example_value"
+    },
+    "SalesOrderItemCategory": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Item category (e.g., TAN for standard item, TANN for free-of-charge)",
+      "examples": [
+        "TAN"
+      ]
+    },
+    "SalesOrderItemText": {
+      "type": "string",
+      "maxLength": 40,
+      "description": "Short text description of the item",
+      "example": "example_value"
+    },
+    "PurchaseOrderByCustomer": {
+      "type": "string",
+      "maxLength": 35,
+      "description": "Customer purchase order number at item level",
+      "example": "example_value"
+    },
+    "Material": {
+      "type": "string",
+      "maxLength": 40,
+      "description": "Material number",
+      "examples": [
+        "TG11"
+      ]
+    },
+    "MaterialByCustomer": {
+      "type": "string",
+      "maxLength": 35,
+      "description": "Material number used by the customer",
+      "example": "example_value"
+    },
+    "PricingDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Pricing date at item level",
+      "example": "2026-01-15"
+    },
+    "BillingPlan": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Billing plan number",
+      "example": "example_value"
+    },
+    "RequestedQuantity": {
+      "type": "string",
+      "description": "Requested quantity",
+      "examples": [
+        "10"
+      ]
+    },
+    "RequestedQuantityUnit": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Unit of measure for the requested quantity (ISO unit code)",
+      "examples": [
+        "EA"
+      ]
+    },
+    "RequestedQuantitySAPUnit": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "SAP internal unit of measure",
+      "example": "example_value"
+    },
+    "RequestedQuantityIsFixed": {
+      "type": "boolean",
+      "description": "Indicator that the requested quantity is fixed",
+      "example": true
+    },
+    "ItemGrossWeight": {
+      "type": "string",
+      "description": "Gross weight of the item",
+      "example": "example_value"
+    },
+    "ItemNetWeight": {
+      "type": "string",
+      "description": "Net weight of the item",
+      "example": "example_value"
+    },
+    "ItemWeightUnit": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Weight unit (e.g., KG, LB)",
+      "example": "example_value"
+    },
+    "ItemVolume": {
+      "type": "string",
+      "description": "Volume of the item",
+      "example": "example_value"
+    },
+    "ItemVolumeUnit": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Volume unit",
+      "example": "example_value"
+    },
+    "TransactionCurrency": {
+      "type": "string",
+      "maxLength": 5,
+      "description": "Transaction currency (ISO 4217)",
+      "example": "example_value"
+    },
+    "NetAmount": {
+      "type": "string",
+      "description": "Net value of the item in document currency",
+      "examples": [
+        "1500.00"
+      ]
+    },
+    "TotalSDAmount": {
+      "type": "string",
+      "description": "Total SD amount",
+      "example": "example_value"
+    },
+    "MaterialGroup": {
+      "type": "string",
+      "maxLength": 9,
+      "description": "Material group",
+      "example": "example_value"
+    },
+    "MaterialPricingGroup": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Material pricing group",
+      "example": "example_value"
+    },
+    "Batch": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Batch number",
+      "example": "example_value"
+    },
+    "ProductionPlant": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Production plant",
+      "example": "example_value"
+    },
+    "StorageLocation": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Storage location",
+      "example": "example_value"
+    },
+    "DeliveryGroup": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Delivery group",
+      "example": "example_value"
+    },
+    "ShippingPoint": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Shipping point or receiving point",
+      "example": "example_value"
+    },
+    "ShippingType": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Shipping type",
+      "example": "example_value"
+    },
+    "DeliveryPriority": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Delivery priority",
+      "example": "example_value"
+    },
+    "IncotermsClassification": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Incoterms at item level",
+      "example": "example_value"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string",
+      "maxLength": 28,
+      "description": "Incoterms location at item level",
+      "example": "example_value"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Payment terms at item level",
+      "example": "example_value"
+    },
+    "ProductTaxClassification1": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Tax classification for material",
+      "example": "example_value"
+    },
+    "SalesDocumentRjcnReason": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Reason for rejection of the item",
+      "example": "example_value"
+    },
+    "ItemBillingBlockReason": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Billing block at item level",
+      "example": "example_value"
+    },
+    "WBSElement": {
+      "type": "string",
+      "maxLength": 24,
+      "description": "WBS element for project assignment",
+      "example": "example_value"
+    },
+    "ProfitCenter": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Profit center",
+      "example": "example_value"
+    },
+    "OrderID": {
+      "type": "string",
+      "maxLength": 12,
+      "description": "Internal order number",
+      "example": "500123"
+    },
+    "CostCenter": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Cost center",
+      "example": "example_value"
+    },
+    "ReferenceSDDocument": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Reference document number",
+      "example": "example_value"
+    },
+    "ReferenceSDDocumentItem": {
+      "type": "string",
+      "maxLength": 6,
+      "description": "Reference document item",
+      "example": "example_value"
+    },
+    "SDProcessStatus": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Processing status at item level",
+      "example": "example_value"
+    },
+    "DeliveryStatus": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Delivery status",
+      "example": "example_value"
+    },
+    "OrderRelatedBillingStatus": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Order-related billing status",
+      "example": "example_value"
+    },
+    "Plant": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Plant (delivering plant)",
+      "examples": [
+        "1710"
+      ]
+    },
+    "WarehouseNumber": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Warehouse number",
+      "example": "example_value"
+    },
+    "CustomerGroup": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Customer group",
+      "example": "example_value"
+    },
+    "SalesDistrict": {
+      "type": "string",
+      "maxLength": 6,
+      "description": "Sales district",
+      "example": "example_value"
+    },
+    "CustomerMaterialItemUsage": {
+      "type": "string",
+      "maxLength": 5,
+      "description": "Item usage",
+      "example": "example_value"
+    },
+    "to_PricingElement": {
+      "type": "array",
+      "description": "Navigation to item pricing elements",
+      "items": {
+        "$ref": "#/components/schemas/SalesOrderItemPrcgElmnt"
+      },
+      "example": []
+    },
+    "to_ScheduleLine": {
+      "type": "array",
+      "description": "Navigation to item schedule lines",
+      "items": {
+        "$ref": "#/components/schemas/SalesOrderScheduleLine"
+      },
+      "example": []
+    },
+    "to_Partner": {
+      "type": "array",
+      "description": "Navigation to item partner functions",
+      "items": {
+        "$ref": "#/components/schemas/SalesOrderItemPartner"
+      },
+      "example": []
+    },
+    "to_Text": {
+      "type": "array",
+      "description": "Navigation to item text records",
+      "items": {
+        "$ref": "#/components/schemas/SalesOrderItemText"
+      },
+      "example": []
+    }
+  }
+}

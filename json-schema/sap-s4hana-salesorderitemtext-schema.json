@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SalesOrderItemText",
+  "title": "SalesOrderItemText",
+  "type": "object",
+  "description": "Sales order item text entity (A_SalesOrderItemText) for long texts associated with a sales order item.",
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Sales order number",
+      "example": "example_value"
+    },
+    "SalesOrderItem": {
+      "type": "string",
+      "maxLength": 6,
+      "description": "Sales order item number",
+      "example": "example_value"
+    },
+    "Language": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Language key (ISO 639-1)",
+      "example": "example_value"
+    },
+    "LongTextID": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Text ID",
+      "example": "500123"
+    },
+    "LongText": {
+      "type": "string",
+      "description": "Text content",
+      "example": "example_value"
+    }
+  }
+}

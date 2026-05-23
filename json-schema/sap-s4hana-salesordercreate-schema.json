@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SalesOrderCreate",
+  "title": "SalesOrderCreate",
+  "type": "object",
+  "description": "Request payload for creating a new sales order with optional deep insert",
+  "required": [
+    "SalesOrderType",
+    "SalesOrganization",
+    "DistributionChannel",
+    "OrganizationDivision"
+  ],
+  "properties": {
+    "SalesOrderType": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Sales document type",
+      "example": "example_value"
+    },
+    "SalesOrganization": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Sales organization",
+      "example": "example_value"
+    },
+    "DistributionChannel": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Distribution channel",
+      "example": "example_value"
+    },
+    "OrganizationDivision": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Organization division",
+      "example": "example_value"
+    },
+    "SoldToParty": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Sold-to party customer number",
+      "example": "example_value"
+    },
+    "PurchaseOrderByCustomer": {
+      "type": "string",
+      "maxLength": 35,
+      "description": "Customer purchase order number",
+      "example": "example_value"
+    },
+    "SalesOrderDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Document date",
+      "example": "2026-01-15"
+    },
+    "RequestedDeliveryDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Requested delivery date",
+      "example": "2026-01-15"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Payment terms key",
+      "example": "example_value"
+    },
+    "TransactionCurrency": {
+      "type": "string",
+      "maxLength": 5,
+      "description": "Currency key (ISO 4217)",
+      "example": "example_value"
+    },
+    "PricingDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Pricing date",
+      "example": "2026-01-15"
+    },
+    "IncotermsClassification": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Incoterms classification",
+      "example": "example_value"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string",
+      "maxLength": 28,
+      "description": "Incoterms location",
+      "example": "example_value"
+    },
+    "ShippingCondition": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Shipping condition",
+      "example": "example_value"
+    },
+    "CompleteDeliveryIsDefined": {
+      "type": "boolean",
+      "description": "Complete delivery indicator",
+      "example": true
+    },
+    "SDDocumentReason": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Order reason",
+      "example": "example_value"
+    },
+    "to_Item": {
+      "type": "array",
+      "description": "Items to create (deep insert)",
+      "items": {
+        "$ref": "#/components/schemas/SalesOrderItemCreate"
+      },
+      "example": []
+    },
+    "to_Partner": {
+      "type": "array",
+      "description": "Partners to create (deep insert)",
+      "items": {
+        "$ref": "#/components/schemas/SalesOrderHeaderPartner"
+      },
+      "example": []
+    },
+    "to_PricingElement": {
+      "type": "array",
+      "description": "Pricing elements to create (deep insert)",
+      "items": {
+        "$ref": "#/components/schemas/SalesOrderHeaderPrcgElmnt"
+      },
+      "example": []
+    },
+    "to_Text": {
+      "type": "array",
+      "description": "Text records to create (deep insert)",
+      "items": {
+        "$ref": "#/components/schemas/SalesOrderText"
+      },
+      "example": []
+    }
+  }
+}

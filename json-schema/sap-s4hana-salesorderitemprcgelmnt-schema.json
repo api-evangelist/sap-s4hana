@@ -1,0 +1,118 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SalesOrderItemPrcgElmnt",
+  "title": "SalesOrderItemPrcgElmnt",
+  "type": "object",
+  "description": "Sales order item pricing element entity (A_SalesOrderItemPrcgElmnt) representing a pricing condition at the item level.",
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Sales order number",
+      "example": "example_value"
+    },
+    "SalesOrderItem": {
+      "type": "string",
+      "maxLength": 6,
+      "description": "Sales order item number",
+      "example": "example_value"
+    },
+    "PricingProcedureStep": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Step number in the pricing procedure",
+      "example": "example_value"
+    },
+    "PricingProcedureCounter": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Counter for condition within a step",
+      "example": "example_value"
+    },
+    "ConditionType": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Condition type",
+      "example": "example_value"
+    },
+    "ConditionRateValue": {
+      "type": "string",
+      "description": "Condition rate",
+      "example": "example_value"
+    },
+    "ConditionCurrency": {
+      "type": "string",
+      "maxLength": 5,
+      "description": "Condition currency",
+      "example": "example_value"
+    },
+    "ConditionQuantity": {
+      "type": "string",
+      "description": "Condition quantity",
+      "example": "example_value"
+    },
+    "ConditionQuantityUnit": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Condition quantity unit",
+      "example": "example_value"
+    },
+    "ConditionAmount": {
+      "type": "string",
+      "description": "Condition value",
+      "example": "example_value"
+    },
+    "TransactionCurrency": {
+      "type": "string",
+      "maxLength": 5,
+      "description": "Document currency",
+      "example": "example_value"
+    },
+    "ConditionCategory": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Condition category",
+      "example": "example_value"
+    },
+    "ConditionIsForStatistics": {
+      "type": "boolean",
+      "description": "Statistical condition",
+      "example": true
+    },
+    "ConditionOrigin": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Origin of the condition",
+      "example": "example_value"
+    },
+    "IsGroupCondition": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Group condition indicator",
+      "example": "example_value"
+    },
+    "ConditionControl": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Condition control",
+      "example": "example_value"
+    },
+    "ConditionInactiveReason": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Reason for inactivity",
+      "example": "example_value"
+    },
+    "ConditionClass": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Condition class",
+      "example": "example_value"
+    },
+    "ConditionIsManuallyChanged": {
+      "type": "boolean",
+      "description": "Manually changed indicator",
+      "example": true
+    }
+  }
+}

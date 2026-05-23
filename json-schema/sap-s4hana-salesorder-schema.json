@@ -1,0 +1,389 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SalesOrder",
+  "title": "SalesOrder",
+  "type": "object",
+  "description": "Sales order header entity (A_SalesOrder) representing a complete sales document in SAP S/4HANA. Contains organizational data, customer references, pricing totals, and processing status information.",
+  "properties": {
+    "SalesOrder": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Sales order number",
+      "examples": [
+        "0000000001"
+      ]
+    },
+    "SalesOrderType": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Sales document type (e.g., OR for standard order, RE for returns)",
+      "examples": [
+        "OR"
+      ]
+    },
+    "SalesOrganization": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Sales organization responsible for the sales order",
+      "examples": [
+        "1710"
+      ]
+    },
+    "DistributionChannel": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Distribution channel through which the product reaches the customer",
+      "examples": [
+        "10"
+      ]
+    },
+    "OrganizationDivision": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Division for the sales organization",
+      "examples": [
+        "00"
+      ]
+    },
+    "SalesGroup": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Sales group within the sales organization",
+      "example": "example_value"
+    },
+    "SalesOffice": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Sales office responsible for the order",
+      "example": "example_value"
+    },
+    "SalesDistrict": {
+      "type": "string",
+      "maxLength": 6,
+      "description": "Geographic sales district",
+      "example": "example_value"
+    },
+    "SoldToParty": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Customer number of the sold-to party",
+      "examples": [
+        "10100001"
+      ]
+    },
+    "CreationDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date when the sales order was created",
+      "example": "2026-01-15"
+    },
+    "CreatedByUser": {
+      "type": "string",
+      "maxLength": 12,
+      "description": "User who created the sales order",
+      "example": "example_value"
+    },
+    "LastChangeDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the last change to the sales order",
+      "example": "2026-01-15"
+    },
+    "LastChangeDateTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Timestamp of the last change including time zone",
+      "example": "2026-01-15T10:30:00Z"
+    },
+    "PurchaseOrderByCustomer": {
+      "type": "string",
+      "maxLength": 35,
+      "description": "Customer purchase order number",
+      "example": "example_value"
+    },
+    "CustomerPurchaseOrderType": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Customer purchase order type",
+      "example": "example_value"
+    },
+    "CustomerPurchaseOrderDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Customer purchase order date",
+      "example": "2026-01-15"
+    },
+    "SalesOrderDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Document date of the sales order",
+      "example": "2026-01-15"
+    },
+    "TotalNetAmount": {
+      "type": "string",
+      "description": "Total net value of the sales order in document currency",
+      "examples": [
+        "15000.00"
+      ]
+    },
+    "TransactionCurrency": {
+      "type": "string",
+      "maxLength": 5,
+      "description": "Currency key for the sales order (ISO 4217)",
+      "examples": [
+        "USD"
+      ]
+    },
+    "SDDocumentReason": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Order reason (e.g., reason for return or credit memo)",
+      "example": "example_value"
+    },
+    "PricingDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Date used for pricing determination",
+      "example": "2026-01-15"
+    },
+    "RequestedDeliveryDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Requested delivery date for the entire order",
+      "example": "2026-01-15"
+    },
+    "ShippingCondition": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Shipping condition code",
+      "example": "example_value"
+    },
+    "CompleteDeliveryIsDefined": {
+      "type": "boolean",
+      "description": "Indicator for complete delivery requirement",
+      "example": true
+    },
+    "ShippingType": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Shipping type code",
+      "example": "example_value"
+    },
+    "HeaderBillingBlockReason": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Billing block reason at header level",
+      "example": "example_value"
+    },
+    "DeliveryBlockReason": {
+      "type": "string",
+      "maxLength": 2,
+      "description": "Delivery block reason",
+      "example": "example_value"
+    },
+    "IncotermsClassification": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Incoterms classification (e.g., FOB, CIF, EXW)",
+      "examples": [
+        "EXW"
+      ]
+    },
+    "IncotermsTransferLocation": {
+      "type": "string",
+      "maxLength": 28,
+      "description": "Incoterms location (named place)",
+      "example": "example_value"
+    },
+    "IncotermsLocation1": {
+      "type": "string",
+      "maxLength": 70,
+      "description": "Incoterms location 1",
+      "example": "example_value"
+    },
+    "IncotermsLocation2": {
+      "type": "string",
+      "maxLength": 70,
+      "description": "Incoterms location 2",
+      "example": "example_value"
+    },
+    "IncotermsVersion": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Incoterms version year",
+      "example": "example_value"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Payment terms key",
+      "examples": [
+        "0001"
+      ]
+    },
+    "PaymentMethod": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Payment method code",
+      "example": "example_value"
+    },
+    "AssignmentReference": {
+      "type": "string",
+      "maxLength": 18,
+      "description": "Assignment reference number",
+      "example": "example_value"
+    },
+    "ReferenceSDDocument": {
+      "type": "string",
+      "maxLength": 10,
+      "description": "Reference document number (e.g., quotation or contract number)",
+      "example": "example_value"
+    },
+    "ReferenceSDDocumentCategory": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Reference document category",
+      "example": "example_value"
+    },
+    "AccountingExchangeRate": {
+      "type": "string",
+      "description": "Exchange rate for accounting",
+      "example": "example_value"
+    },
+    "OverallSDProcessStatus": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Overall processing status of the sales document (A=Not yet processed, B=Partially processed, C=Completely processed)",
+      "examples": [
+        "A"
+      ]
+    },
+    "TotalCreditCheckStatus": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Overall status of credit checks",
+      "example": "example_value"
+    },
+    "OverallTotalDeliveryStatus": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Overall delivery status",
+      "example": "example_value"
+    },
+    "OverallSDDocumentRejectionSts": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Overall rejection status of the sales document",
+      "example": "example_value"
+    },
+    "BillingDocumentDate": {
+      "type": "string",
+      "format": "date",
+      "description": "Billing date for the entire order",
+      "example": "2026-01-15"
+    },
+    "ContractAccount": {
+      "type": "string",
+      "maxLength": 12,
+      "description": "Contract account number",
+      "example": "example_value"
+    },
+    "AdditionalCustomerGroup1": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Customer group 1",
+      "example": "example_value"
+    },
+    "AdditionalCustomerGroup2": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Customer group 2",
+      "example": "example_value"
+    },
+    "AdditionalCustomerGroup3": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Customer group 3",
+      "example": "example_value"
+    },
+    "AdditionalCustomerGroup4": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Customer group 4",
+      "example": "example_value"
+    },
+    "AdditionalCustomerGroup5": {
+      "type": "string",
+      "maxLength": 3,
+      "description": "Customer group 5",
+      "example": "example_value"
+    },
+    "SlsDocIsRlvtForProofOfDeliv": {
+      "type": "boolean",
+      "description": "Indicator that the document is relevant for proof of delivery",
+      "example": true
+    },
+    "CustomerTaxClassification1": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Tax classification 1 for customer",
+      "example": "example_value"
+    },
+    "CustomerTaxClassification2": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Tax classification 2 for customer",
+      "example": "example_value"
+    },
+    "CustomerTaxClassification3": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Tax classification 3 for customer",
+      "example": "example_value"
+    },
+    "CustomerTaxClassification4": {
+      "type": "string",
+      "maxLength": 1,
+      "description": "Tax classification 4 for customer",
+      "example": "example_value"
+    },
+    "CustomerAccountGroup": {
+      "type": "string",
+      "maxLength": 4,
+      "description": "Customer account group",
+      "example": "example_value"
+    },
+    "to_Item": {
+      "type": "array",
+      "description": "Navigation to sales order items",
+      "items": {
+        "$ref": "#/components/schemas/SalesOrderItem"
+      },
+      "example": []
+    },
+    "to_Partner": {
+      "type": "array",
+      "description": "Navigation to header partner functions",
+      "items": {
+        "$ref": "#/components/schemas/SalesOrderHeaderPartner"
+      },
+      "example": []
+    },
+    "to_PricingElement": {
+      "type": "array",
+      "description": "Navigation to header pricing elements",
+      "items": {
+        "$ref": "#/components/schemas/SalesOrderHeaderPrcgElmnt"
+      },
+      "example": []
+    },
+    "to_Text": {
+      "type": "array",
+      "description": "Navigation to header text records",
+      "items": {
+        "$ref": "#/components/schemas/SalesOrderText"
+      },
+      "example": []
+    }
+  }
+}

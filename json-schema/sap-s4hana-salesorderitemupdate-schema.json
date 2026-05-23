@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SalesOrderItemUpdate",
+  "title": "SalesOrderItemUpdate",
+  "type": "object",
+  "description": "Request payload for updating sales order item fields",
+  "properties": {
+    "RequestedQuantity": {
+      "type": "string",
+      "example": "example_value"
+    },
+    "RequestedQuantityUnit": {
+      "type": "string",
+      "maxLength": 3,
+      "example": "example_value"
+    },
+    "Plant": {
+      "type": "string",
+      "maxLength": 4,
+      "example": "example_value"
+    },
+    "SalesOrderItemText": {
+      "type": "string",
+      "maxLength": 40,
+      "example": "example_value"
+    },
+    "PricingDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2026-01-15"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string",
+      "maxLength": 4,
+      "example": "example_value"
+    },
+    "ItemBillingBlockReason": {
+      "type": "string",
+      "maxLength": 2,
+      "example": "example_value"
+    },
+    "SalesDocumentRjcnReason": {
+      "type": "string",
+      "maxLength": 2,
+      "example": "example_value"
+    },
+    "DeliveryPriority": {
+      "type": "string",
+      "maxLength": 2,
+      "example": "example_value"
+    },
+    "IncotermsClassification": {
+      "type": "string",
+      "maxLength": 3,
+      "example": "example_value"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string",
+      "maxLength": 28,
+      "example": "example_value"
+    }
+  }
+}

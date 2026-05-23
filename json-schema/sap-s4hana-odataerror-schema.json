@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/ODataError",
+  "title": "ODataError",
+  "type": "object",
+  "description": "OData error response envelope",
+  "properties": {
+    "error": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "SAP error code"
+        },
+        "message": {
+          "type": "object",
+          "properties": {
+            "lang": {
+              "type": "string",
+              "description": "Language of the error message"
+            },
+            "value": {
+              "type": "string",
+              "description": "Human-readable error message"
+            }
+          }
+        },
+        "innererror": {
+          "type": "object",
+          "description": "Additional error details",
+          "properties": {
+            "application": {
+              "type": "object",
+              "properties": {
+                "component_id": {
+                  "type": "string"
+                },
+                "service_namespace": {
+                  "type": "string"
+                },
+                "service_id": {
+                  "type": "string"
+                },
+                "service_version": {
+                  "type": "string"
+                }
+              }
+            },
+            "transactionid": {
+              "type": "string"
+            },
+            "timestamp": {
+              "type": "string"
+            },
+            "errordetails": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "code": {
+                    "type": "string"
+                  },
+                  "message": {
+                    "type": "string"
+                  },
+                  "severity": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "example": "example_value"
+    }
+  }
+}

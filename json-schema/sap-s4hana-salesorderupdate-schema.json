@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "#/components/schemas/SalesOrderUpdate",
+  "title": "SalesOrderUpdate",
+  "type": "object",
+  "description": "Request payload for updating sales order header fields",
+  "properties": {
+    "PurchaseOrderByCustomer": {
+      "type": "string",
+      "maxLength": 35,
+      "example": "example_value"
+    },
+    "RequestedDeliveryDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2026-01-15"
+    },
+    "CustomerPaymentTerms": {
+      "type": "string",
+      "maxLength": 4,
+      "example": "example_value"
+    },
+    "ShippingCondition": {
+      "type": "string",
+      "maxLength": 2,
+      "example": "example_value"
+    },
+    "CompleteDeliveryIsDefined": {
+      "type": "boolean",
+      "example": true
+    },
+    "HeaderBillingBlockReason": {
+      "type": "string",
+      "maxLength": 2,
+      "example": "example_value"
+    },
+    "DeliveryBlockReason": {
+      "type": "string",
+      "maxLength": 2,
+      "example": "example_value"
+    },
+    "IncotermsClassification": {
+      "type": "string",
+      "maxLength": 3,
+      "example": "example_value"
+    },
+    "IncotermsTransferLocation": {
+      "type": "string",
+      "maxLength": 28,
+      "example": "example_value"
+    },
+    "PricingDate": {
+      "type": "string",
+      "format": "date",
+      "example": "2026-01-15"
+    },
+    "SDDocumentReason": {
+      "type": "string",
+      "maxLength": 3,
+      "example": "example_value"
+    }
+  }
+}
