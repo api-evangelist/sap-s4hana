@@ -1,0 +1,25 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/sap-s4hana-sales-order-openapi.yml
+summary:
+  types:
+  - http
+  - oauth2
+  oauth2_flows:
+  - clientCredentials
+schemes:
+- name: basicAuth
+  type: http
+  scheme: basic
+  description: Basic authentication using SAP user credentials
+  sources:
+  - openapi/sap-s4hana-sales-order-openapi.yml
+- name: oauth2
+  type: oauth2
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://{tenant}.authentication.{region}.hana.ondemand.com/oauth/token
+    scopes: 1
+  description: OAuth 2.0 authentication for SAP S/4HANA Cloud
+  sources:
+  - openapi/sap-s4hana-sales-order-openapi.yml
