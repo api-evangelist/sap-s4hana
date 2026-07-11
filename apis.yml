@@ -474,6 +474,10 @@ apis:
       - type: Support
         url: https://support.sap.com
 common:
+  - type: Authentication
+    url: authentication/sap-s4hana-authentication.yml
+  - type: OAuthScopes
+    url: scopes/sap-s4hana-scopes.yml
   - type: GitHubOrganization
     url: https://github.com/SAP
   - type: LinkedIn

@@ -1,0 +1,17 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/sap-s4hana-sales-order-openapi.yml
+schemes:
+- name: oauth2
+  source: openapi/sap-s4hana-sales-order-openapi.yml
+  flows:
+  - flow: clientCredentials
+    tokenUrl: https://{tenant}.authentication.{region}.hana.ondemand.com/oauth/token
+  description: OAuth 2.0 authentication for SAP S/4HANA Cloud
+scopes:
+- scope: API_SALES_ORDER_SRV_0001
+  description: Access to Sales Order API
+  flows:
+  - clientCredentials
+  sources:
+  - openapi/sap-s4hana-sales-order-openapi.yml
