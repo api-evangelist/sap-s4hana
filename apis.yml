@@ -474,6 +474,8 @@ apis:
       - type: Support
         url: https://support.sap.com
 common:
+  - type: AgenticAccess
+    url: agentic-access/sap-s4hana-agentic-access.yml
   - type: VulnerabilityDisclosure
     url: security/sap-s4hana-vulnerability-disclosure.yml
   - type: DomainSecurity
