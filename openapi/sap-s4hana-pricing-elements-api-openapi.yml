@@ -1,0 +1,433 @@
+openapi: 3.1.0
+info:
+  title: SAP S/4HANA Sales Order Partners Pricing Elements API
+  description: The SAP S/4HANA Sales Order API (API_SALES_ORDER_SRV) enables you to create, read, update, and delete sales orders in SAP S/4HANA. This OData V2-based service provides access to complete sales order documents including header data, line items, pricing elements, schedule lines, partners, and text records. It supports deep insert operations for creating a sales order header with its dependent entities in a single request. The API covers the full sales order lifecycle from creation through to completion and rejection.
+  version: 1.0.0
+  termsOfService: https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html
+  contact:
+    name: SAP API Support
+    url: https://support.sap.com
+  license:
+    name: SAP Developer License
+    url: https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html
+  x-sap-api-type: OData V2
+  x-sap-shortText: Manage sales orders in SAP S/4HANA
+servers:
+- url: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV
+  description: SAP S/4HANA Cloud sandbox environment
+- url: https://{host}:{port}/sap/opu/odata/sap/API_SALES_ORDER_SRV
+  description: SAP S/4HANA on-premise or private cloud
+  variables:
+    host:
+      default: my-s4hana-host.example.com
+      description: SAP S/4HANA server hostname
+    port:
+      default: '443'
+      description: SAP S/4HANA server port
+security:
+- basicAuth: []
+- oauth2: []
+tags:
+- name: Pricing Elements
+  description: Operations on header and item pricing elements
+paths:
+  /A_SalesOrder('{SalesOrder}')/to_PricingElement:
+    get:
+      operationId: listSalesOrderPricingElements
+      summary: Sap S/4hana Retrieve Header Pricing Elements for a Sales Order
+      description: Returns the header-level pricing condition records for a sales order, including prices, discounts, surcharges, taxes, and freight charges.
+      tags:
+      - Pricing Elements
+      parameters:
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Pricing elements retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/SalesOrderHeaderPrcgElmnt'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}')/to_PricingElement:
+    get:
+      operationId: listSalesOrderItemPricingElements
+      summary: Sap S/4hana Retrieve Pricing Elements for a Sales Order Item
+      description: Returns the item-level pricing condition records for a sales order item, including item prices, discounts, surcharges, and tax amounts.
+      tags:
+      - Pricing Elements
+      parameters:
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/salesOrderItemKey'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Pricing elements retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/SalesOrderItemPrcgElmnt'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  parameters:
+    salesOrderItemKey:
+      name: SalesOrderItem
+      in: path
+      required: true
+      description: Sales order item number (6-character string, e.g., '000010')
+      schema:
+        type: string
+        maxLength: 6
+    salesOrderKey:
+      name: SalesOrder
+      in: path
+      required: true
+      description: Sales order number (10-character string, e.g., '0000000001')
+      schema:
+        type: string
+        maxLength: 10
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+  schemas:
+    ODataError:
+      type: object
+      description: OData error response envelope
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: SAP error code
+            message:
+              type: object
+              properties:
+                lang:
+                  type: string
+                  description: Language of the error message
+                value:
+                  type: string
+                  description: Human-readable error message
+            innererror:
+              type: object
+              description: Additional error details
+              properties:
+                application:
+                  type: object
+                  properties:
+                    component_id:
+                      type: string
+                    service_namespace:
+                      type: string
+                    service_id:
+                      type: string
+                    service_version:
+                      type: string
+                transactionid:
+                  type: string
+                timestamp:
+                  type: string
+                errordetails:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      message:
+                        type: string
+                      severity:
+                        type: string
+          example: example_value
+    SalesOrderItemPrcgElmnt:
+      type: object
+      description: Sales order item pricing element entity (A_SalesOrderItemPrcgElmnt) representing a pricing condition at the item level.
+      properties:
+        SalesOrder:
+          type: string
+          maxLength: 10
+          description: Sales order number
+          example: example_value
+        SalesOrderItem:
+          type: string
+          maxLength: 6
+          description: Sales order item number
+          example: example_value
+        PricingProcedureStep:
+          type: string
+          maxLength: 3
+          description: Step number in the pricing procedure
+          example: example_value
+        PricingProcedureCounter:
+          type: string
+          maxLength: 3
+          description: Counter for condition within a step
+          example: example_value
+        ConditionType:
+          type: string
+          maxLength: 4
+          description: Condition type
+          example: example_value
+        ConditionRateValue:
+          type: string
+          description: Condition rate
+          example: example_value
+        ConditionCurrency:
+          type: string
+          maxLength: 5
+          description: Condition currency
+          example: example_value
+        ConditionQuantity:
+          type: string
+          description: Condition quantity
+          example: example_value
+        ConditionQuantityUnit:
+          type: string
+          maxLength: 3
+          description: Condition quantity unit
+          example: example_value
+        ConditionAmount:
+          type: string
+          description: Condition value
+          example: example_value
+        TransactionCurrency:
+          type: string
+          maxLength: 5
+          description: Document currency
+          example: example_value
+        ConditionCategory:
+          type: string
+          maxLength: 1
+          description: Condition category
+          example: example_value
+        ConditionIsForStatistics:
+          type: boolean
+          description: Statistical condition
+          example: true
+        ConditionOrigin:
+          type: string
+          maxLength: 1
+          description: Origin of the condition
+          example: example_value
+        IsGroupCondition:
+          type: string
+          maxLength: 1
+          description: Group condition indicator
+          example: example_value
+        ConditionControl:
+          type: string
+          maxLength: 1
+          description: Condition control
+          example: example_value
+        ConditionInactiveReason:
+          type: string
+          maxLength: 1
+          description: Reason for inactivity
+          example: example_value
+        ConditionClass:
+          type: string
+          maxLength: 1
+          description: Condition class
+          example: example_value
+        ConditionIsManuallyChanged:
+          type: boolean
+          description: Manually changed indicator
+          example: true
+    SalesOrderHeaderPrcgElmnt:
+      type: object
+      description: Sales order header pricing element entity (A_SalesOrderHeaderPrcgElmnt) representing a pricing condition at the header level, such as overall discounts, surcharges, or freight.
+      properties:
+        SalesOrder:
+          type: string
+          maxLength: 10
+          description: Sales order number
+          example: example_value
+        PricingProcedureStep:
+          type: string
+          maxLength: 3
+          description: Step number in the pricing procedure
+          example: example_value
+        PricingProcedureCounter:
+          type: string
+          maxLength: 3
+          description: Counter for condition within a step
+          example: example_value
+        ConditionType:
+          type: string
+          maxLength: 4
+          description: Condition type (e.g., PR00 for price, K004 for discount, MWST for tax)
+          examples:
+          - PR00
+        ConditionRateValue:
+          type: string
+          description: Condition rate or amount per pricing unit
+          example: example_value
+        ConditionCurrency:
+          type: string
+          maxLength: 5
+          description: Currency for the condition
+          example: example_value
+        ConditionQuantity:
+          type: string
+          description: Condition pricing quantity
+          example: example_value
+        ConditionQuantityUnit:
+          type: string
+          maxLength: 3
+          description: Condition quantity unit
+          example: example_value
+        ConditionCategory:
+          type: string
+          maxLength: 1
+          description: Condition category
+          example: example_value
+        ConditionIsForStatistics:
+          type: boolean
+          description: Statistical condition indicator
+          example: true
+        PricingScaleType:
+          type: string
+          maxLength: 1
+          description: Scale type
+          example: example_value
+        IsRelevantForAccrual:
+          type: boolean
+          description: Accrual indicator
+          example: true
+        ConditionOrigin:
+          type: string
+          maxLength: 1
+          description: Origin of the condition
+          example: example_value
+        IsGroupCondition:
+          type: string
+          maxLength: 1
+          description: Group condition indicator
+          example: example_value
+        ConditionAmount:
+          type: string
+          description: Condition value (total amount for the condition)
+          example: example_value
+        TransactionCurrency:
+          type: string
+          maxLength: 5
+          description: Document currency
+          example: example_value
+        ConditionControl:
+          type: string
+          maxLength: 1
+          description: Condition control
+          example: example_value
+        ConditionInactiveReason:
+          type: string
+          maxLength: 1
+          description: Reason the condition is inactive
+          example: example_value
+        ConditionClass:
+          type: string
+          maxLength: 1
+          description: Condition class (A=discount, B=surcharge)
+          example: example_value
+        PrcgProcedureCounterForHeader:
+          type: string
+          maxLength: 3
+          description: Procedure counter for header conditions
+          example: example_value
+        FactorForConditionBasisValue:
+          type: string
+          description: Factor for condition basis value
+          example: example_value
+        StructureCondition:
+          type: string
+          maxLength: 1
+          description: Structure condition
+          example: example_value
+        PeriodFactorForCndnBasisValue:
+          type: string
+          description: Period factor for condition basis value
+          example: example_value
+        PricingScaleBasis:
+          type: string
+          maxLength: 3
+          description: Scale basis indicator
+          example: example_value
+        ConditionScaleBasisValue:
+          type: string
+          description: Scale basis value
+          example: example_value
+        ConditionScaleBasisUnit:
+          type: string
+          maxLength: 3
+          description: Condition scale basis unit
+          example: example_value
+        ConditionScaleBasisCurrency:
+          type: string
+          maxLength: 5
+          description: Scale basis currency
+          example: example_value
+        CndnIsRelevantForIntcoBilling:
+          type: boolean
+          description: Relevant for intercompany billing
+          example: true
+        ConditionIsManuallyChanged:
+          type: boolean
+          description: Indicator that the condition was manually changed
+          example: true
+  responses:
+    NotFound:
+      description: Resource not found - the specified sales order or item does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Authentication required - valid credentials must be provided
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Basic authentication using SAP user credentials
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for SAP S/4HANA Cloud
+      flows:
+        clientCredentials:
+          tokenUrl: https://{tenant}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes:
+            API_SALES_ORDER_SRV_0001: Access to Sales Order API

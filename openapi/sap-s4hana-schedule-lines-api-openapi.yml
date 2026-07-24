@@ -1,0 +1,231 @@
+openapi: 3.1.0
+info:
+  title: SAP S/4HANA Sales Order Partners Schedule Lines API
+  description: The SAP S/4HANA Sales Order API (API_SALES_ORDER_SRV) enables you to create, read, update, and delete sales orders in SAP S/4HANA. This OData V2-based service provides access to complete sales order documents including header data, line items, pricing elements, schedule lines, partners, and text records. It supports deep insert operations for creating a sales order header with its dependent entities in a single request. The API covers the full sales order lifecycle from creation through to completion and rejection.
+  version: 1.0.0
+  termsOfService: https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html
+  contact:
+    name: SAP API Support
+    url: https://support.sap.com
+  license:
+    name: SAP Developer License
+    url: https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html
+  x-sap-api-type: OData V2
+  x-sap-shortText: Manage sales orders in SAP S/4HANA
+servers:
+- url: https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV
+  description: SAP S/4HANA Cloud sandbox environment
+- url: https://{host}:{port}/sap/opu/odata/sap/API_SALES_ORDER_SRV
+  description: SAP S/4HANA on-premise or private cloud
+  variables:
+    host:
+      default: my-s4hana-host.example.com
+      description: SAP S/4HANA server hostname
+    port:
+      default: '443'
+      description: SAP S/4HANA server port
+security:
+- basicAuth: []
+- oauth2: []
+tags:
+- name: Schedule Lines
+  description: Operations on item schedule lines for delivery scheduling
+paths:
+  /A_SalesOrderItem(SalesOrder='{SalesOrder}',SalesOrderItem='{SalesOrderItem}')/to_ScheduleLine:
+    get:
+      operationId: listSalesOrderItemScheduleLines
+      summary: Sap S/4hana Retrieve Schedule Lines for a Sales Order Item
+      description: Returns the schedule lines for a specific sales order item, containing confirmed quantities and delivery dates.
+      tags:
+      - Schedule Lines
+      parameters:
+      - $ref: '#/components/parameters/salesOrderKey'
+      - $ref: '#/components/parameters/salesOrderItemKey'
+      - $ref: '#/components/parameters/select'
+      responses:
+        '200':
+          description: Schedule lines retrieved successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      results:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/SalesOrderScheduleLine'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    SalesOrderScheduleLine:
+      type: object
+      description: Sales order schedule line entity (A_SalesOrderScheduleLine) representing a delivery schedule for a sales order item with confirmed quantities and dates from availability check (ATP).
+      properties:
+        SalesOrder:
+          type: string
+          maxLength: 10
+          description: Sales order number
+          example: example_value
+        SalesOrderItem:
+          type: string
+          maxLength: 6
+          description: Sales order item number
+          example: example_value
+        ScheduleLine:
+          type: string
+          maxLength: 4
+          description: Schedule line number
+          example: example_value
+        RequestedDeliveryDate:
+          type: string
+          format: date
+          description: Requested delivery date
+          example: '2026-01-15'
+        ConfirmedDeliveryDate:
+          type: string
+          format: date
+          description: Confirmed delivery date from ATP check
+          example: '2026-01-15'
+        OrderQuantityUnit:
+          type: string
+          maxLength: 3
+          description: Order quantity unit
+          example: example_value
+        OrderQuantitySAPUnit:
+          type: string
+          maxLength: 3
+          description: SAP internal unit of measure
+          example: example_value
+        ScheduleLineOrderQuantity:
+          type: string
+          description: Ordered quantity on the schedule line
+          example: example_value
+        ConfdOrderQtyByMatlAvailCheck:
+          type: string
+          description: Confirmed quantity from material availability check
+          example: example_value
+        DeliveredQtyInOrderQtyUnit:
+          type: string
+          description: Delivered quantity in order unit
+          example: example_value
+        OpenConfdDelivQtyInOrdQtyUnit:
+          type: string
+          description: Open confirmed delivery quantity
+          example: example_value
+        CorrectedQtyInOrderQtyUnit:
+          type: string
+          description: Corrected quantity
+          example: example_value
+        DelivBlockReasonForSchedLine:
+          type: string
+          maxLength: 2
+          description: Delivery block for the schedule line
+          example: example_value
+    ODataError:
+      type: object
+      description: OData error response envelope
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: SAP error code
+            message:
+              type: object
+              properties:
+                lang:
+                  type: string
+                  description: Language of the error message
+                value:
+                  type: string
+                  description: Human-readable error message
+            innererror:
+              type: object
+              description: Additional error details
+              properties:
+                application:
+                  type: object
+                  properties:
+                    component_id:
+                      type: string
+                    service_namespace:
+                      type: string
+                    service_id:
+                      type: string
+                    service_version:
+                      type: string
+                transactionid:
+                  type: string
+                timestamp:
+                  type: string
+                errordetails:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      message:
+                        type: string
+                      severity:
+                        type: string
+          example: example_value
+  parameters:
+    salesOrderItemKey:
+      name: SalesOrderItem
+      in: path
+      required: true
+      description: Sales order item number (6-character string, e.g., '000010')
+      schema:
+        type: string
+        maxLength: 6
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    salesOrderKey:
+      name: SalesOrder
+      in: path
+      required: true
+      description: Sales order number (10-character string, e.g., '0000000001')
+      schema:
+        type: string
+        maxLength: 10
+  responses:
+    NotFound:
+      description: Resource not found - the specified sales order or item does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Authentication required - valid credentials must be provided
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+  securitySchemes:
+    basicAuth:
+      type: http
+      scheme: basic
+      description: Basic authentication using SAP user credentials
+    oauth2:
+      type: oauth2
+      description: OAuth 2.0 authentication for SAP S/4HANA Cloud
+      flows:
+        clientCredentials:
+          tokenUrl: https://{tenant}.authentication.{region}.hana.ondemand.com/oauth/token
+          scopes:
+            API_SALES_ORDER_SRV_0001: Access to Sales Order API
