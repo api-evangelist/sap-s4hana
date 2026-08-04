@@ -1,0 +1,24 @@
+{
+  "provider": "sap-s4hana",
+  "sources": [
+    "sap-s4hana-partners-api-openapi.yml",
+    "sap-s4hana-pricing-elements-api-openapi.yml",
+    "sap-s4hana-sales-order-items-api-openapi.yml",
+    "sap-s4hana-sales-orders-api-openapi.yml",
+    "sap-s4hana-schedule-lines-api-openapi.yml",
+    "sap-s4hana-text-api-openapi.yml"
+  ],
+  "outputs": [
+    "sap-s4hana-partners-api-openapi.yml",
+    "sap-s4hana-pricing-elements-api-openapi.yml",
+    "sap-s4hana-sales-order-items-api-openapi.yml",
+    "sap-s4hana-sales-orders-api-openapi.yml",
+    "sap-s4hana-schedule-lines-api-openapi.yml",
+    "sap-s4hana-text-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
