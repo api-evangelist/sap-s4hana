@@ -1,0 +1,200 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "SAP S/4HANA Sales Order Partners Sales Order Items API",
+    "version": "1.0.0"
+  },
+  "request": {
+    "auth": {
+      "type": "basic",
+      "username": "{{username}}",
+      "password": "{{password}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Sales Order Items",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Sap S/4hana Retrieve Items for a Sales Order",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV/A_SalesOrder(':SalesOrder')/to_Item",
+            "params": [
+              {
+                "name": "SalesOrder",
+                "value": "",
+                "type": "path",
+                "description": "Sales order number (10-character string, e.g., '0000000001')"
+              },
+              {
+                "name": "$top",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of entities to return"
+              },
+              {
+                "name": "$skip",
+                "value": "",
+                "type": "query",
+                "description": "Number of entities to skip"
+              },
+              {
+                "name": "$filter",
+                "value": "",
+                "type": "query",
+                "description": "OData filter expression"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of navigation properties to expand"
+              }
+            ]
+          },
+          "docs": "Returns the line items belonging to a specific sales order. Use $expand to include related entities such as to_PricingElement, to_ScheduleLine, and to_Partner."
+        },
+        {
+          "info": {
+            "name": "Sap S/4hana Create a New Sales Order Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV/A_SalesOrder(':SalesOrder')/to_Item",
+            "params": [
+              {
+                "name": "SalesOrder",
+                "value": "",
+                "type": "path",
+                "description": "Sales order number (10-character string, e.g., '0000000001')"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Creates a new line item within an existing sales order. The Material field is typically required. Supports deep insert for creating pricing elements, schedule lines, partners, and text along with the item."
+        },
+        {
+          "info": {
+            "name": "Sap S/4hana Retrieve a Single Sales Order Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV/A_SalesOrderItem(SalesOrder=':SalesOrder',SalesOrderItem=':SalesOrderItem')",
+            "params": [
+              {
+                "name": "SalesOrder",
+                "value": "",
+                "type": "path",
+                "description": "Sales order number (10-character string, e.g., '0000000001')"
+              },
+              {
+                "name": "SalesOrderItem",
+                "value": "",
+                "type": "path",
+                "description": "Sales order item number (6-character string, e.g., '000010')"
+              },
+              {
+                "name": "$select",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of properties to include in the response"
+              },
+              {
+                "name": "$expand",
+                "value": "",
+                "type": "query",
+                "description": "Comma-separated list of navigation properties to expand"
+              }
+            ]
+          },
+          "docs": "Returns a single sales order item identified by the composite key of SalesOrder and SalesOrderItem numbers."
+        },
+        {
+          "info": {
+            "name": "Sap S/4hana Update a Sales Order Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV/A_SalesOrderItem(SalesOrder=':SalesOrder',SalesOrderItem=':SalesOrderItem')",
+            "headers": [
+              {
+                "name": "If-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "SalesOrder",
+                "value": "",
+                "type": "path",
+                "description": "Sales order number (10-character string, e.g., '0000000001')"
+              },
+              {
+                "name": "SalesOrderItem",
+                "value": "",
+                "type": "path",
+                "description": "Sales order item number (6-character string, e.g., '000010')"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Performs a partial update on an existing sales order item. Only the fields provided in the request body are updated. Requires an If-Match header with the entity ETag for optimistic concurrency control."
+        },
+        {
+          "info": {
+            "name": "Sap S/4hana Delete a Sales Order Item",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV/A_SalesOrderItem(SalesOrder=':SalesOrder',SalesOrderItem=':SalesOrderItem')",
+            "headers": [
+              {
+                "name": "If-Match",
+                "value": ""
+              }
+            ],
+            "params": [
+              {
+                "name": "SalesOrder",
+                "value": "",
+                "type": "path",
+                "description": "Sales order number (10-character string, e.g., '0000000001')"
+              },
+              {
+                "name": "SalesOrderItem",
+                "value": "",
+                "type": "path",
+                "description": "Sales order item number (6-character string, e.g., '000010')"
+              }
+            ]
+          },
+          "docs": "Deletes an existing sales order item. Requires an If-Match header with the entity ETag."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

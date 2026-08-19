@@ -1,0 +1,445 @@
+{
+  "item": [
+    {
+      "id": "002cd0f9-df08-4f1f-b6bd-4753b63104d6",
+      "name": "Pricing Elements",
+      "description": {
+        "content": "Operations on header and item pricing elements",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4918aabc-d6d0-47f1-af3b-89522d8b5256",
+          "name": "Sap S/4hana Retrieve Header Pricing Elements for a Sales Order",
+          "request": {
+            "name": "Sap S/4hana Retrieve Header Pricing Elements for a Sales Order",
+            "description": {
+              "content": "Returns the header-level pricing condition records for a sales order, including prices, discounts, surcharges, taxes, and freight charges.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_SalesOrder('{{SalesOrder}}')",
+                "to_PricingElement"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "710d090a-43f9-4439-9e5f-fedf4395bef4",
+              "name": "Pricing elements retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')",
+                    "to_PricingElement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"SalesOrder\": \"string\",\n        \"PricingProcedureStep\": \"str\",\n        \"PricingProcedureCounter\": \"str\",\n        \"ConditionType\": \"PR00\",\n        \"ConditionRateValue\": \"example_value\",\n        \"ConditionCurrency\": \"strin\",\n        \"ConditionQuantity\": \"example_value\",\n        \"ConditionQuantityUnit\": \"str\",\n        \"ConditionCategory\": \"s\",\n        \"ConditionIsForStatistics\": true,\n        \"PricingScaleType\": \"s\",\n        \"IsRelevantForAccrual\": true,\n        \"ConditionOrigin\": \"s\",\n        \"IsGroupCondition\": \"s\",\n        \"ConditionAmount\": \"example_value\",\n        \"TransactionCurrency\": \"strin\",\n        \"ConditionControl\": \"s\",\n        \"ConditionInactiveReason\": \"s\",\n        \"ConditionClass\": \"s\",\n        \"PrcgProcedureCounterForHeader\": \"str\",\n        \"FactorForConditionBasisValue\": \"example_value\",\n        \"StructureCondition\": \"s\",\n        \"PeriodFactorForCndnBasisValue\": \"example_value\",\n        \"PricingScaleBasis\": \"str\",\n        \"ConditionScaleBasisValue\": \"example_value\",\n        \"ConditionScaleBasisUnit\": \"str\",\n        \"ConditionScaleBasisCurrency\": \"strin\",\n        \"CndnIsRelevantForIntcoBilling\": true,\n        \"ConditionIsManuallyChanged\": true\n      },\n      {\n        \"SalesOrder\": \"string\",\n        \"PricingProcedureStep\": \"str\",\n        \"PricingProcedureCounter\": \"str\",\n        \"ConditionType\": \"PR00\",\n        \"ConditionRateValue\": \"example_value\",\n        \"ConditionCurrency\": \"strin\",\n        \"ConditionQuantity\": \"example_value\",\n        \"ConditionQuantityUnit\": \"str\",\n        \"ConditionCategory\": \"s\",\n        \"ConditionIsForStatistics\": true,\n        \"PricingScaleType\": \"s\",\n        \"IsRelevantForAccrual\": true,\n        \"ConditionOrigin\": \"s\",\n        \"IsGroupCondition\": \"s\",\n        \"ConditionAmount\": \"example_value\",\n        \"TransactionCurrency\": \"strin\",\n        \"ConditionControl\": \"s\",\n        \"ConditionInactiveReason\": \"s\",\n        \"ConditionClass\": \"s\",\n        \"PrcgProcedureCounterForHeader\": \"str\",\n        \"FactorForConditionBasisValue\": \"example_value\",\n        \"StructureCondition\": \"s\",\n        \"PeriodFactorForCndnBasisValue\": \"example_value\",\n        \"PricingScaleBasis\": \"str\",\n        \"ConditionScaleBasisValue\": \"example_value\",\n        \"ConditionScaleBasisUnit\": \"str\",\n        \"ConditionScaleBasisCurrency\": \"strin\",\n        \"CndnIsRelevantForIntcoBilling\": true,\n        \"ConditionIsManuallyChanged\": true\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e485a445-0f72-4901-b38c-a8f1a789e3a6",
+              "name": "Authentication required - valid credentials must be provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')",
+                    "to_PricingElement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "537c5d24-6966-499a-a9bf-c84913d6bbdf",
+              "name": "Resource not found - the specified sales order or item does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')",
+                    "to_PricingElement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b9107c1c-ef18-4b5c-a3dc-f8b97f5b2728",
+          "name": "Sap S/4hana Retrieve Pricing Elements for a Sales Order Item",
+          "request": {
+            "name": "Sap S/4hana Retrieve Pricing Elements for a Sales Order Item",
+            "description": {
+              "content": "Returns the item-level pricing condition records for a sales order item, including item prices, discounts, surcharges, and tax amounts.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_SalesOrderItem(SalesOrder='{{SalesOrder}}',SalesOrderItem='{{SalesOrderItem}}')",
+                "to_PricingElement"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1a6bbcd3-733e-48bf-8129-b8c651e785bf",
+              "name": "Pricing elements retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrderItem(SalesOrder='{{SalesOrder}}',SalesOrderItem='{{SalesOrderItem}}')",
+                    "to_PricingElement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"SalesOrder\": \"string\",\n        \"SalesOrderItem\": \"string\",\n        \"PricingProcedureStep\": \"str\",\n        \"PricingProcedureCounter\": \"str\",\n        \"ConditionType\": \"stri\",\n        \"ConditionRateValue\": \"example_value\",\n        \"ConditionCurrency\": \"strin\",\n        \"ConditionQuantity\": \"example_value\",\n        \"ConditionQuantityUnit\": \"str\",\n        \"ConditionAmount\": \"example_value\",\n        \"TransactionCurrency\": \"strin\",\n        \"ConditionCategory\": \"s\",\n        \"ConditionIsForStatistics\": true,\n        \"ConditionOrigin\": \"s\",\n        \"IsGroupCondition\": \"s\",\n        \"ConditionControl\": \"s\",\n        \"ConditionInactiveReason\": \"s\",\n        \"ConditionClass\": \"s\",\n        \"ConditionIsManuallyChanged\": true\n      },\n      {\n        \"SalesOrder\": \"string\",\n        \"SalesOrderItem\": \"string\",\n        \"PricingProcedureStep\": \"str\",\n        \"PricingProcedureCounter\": \"str\",\n        \"ConditionType\": \"stri\",\n        \"ConditionRateValue\": \"example_value\",\n        \"ConditionCurrency\": \"strin\",\n        \"ConditionQuantity\": \"example_value\",\n        \"ConditionQuantityUnit\": \"str\",\n        \"ConditionAmount\": \"example_value\",\n        \"TransactionCurrency\": \"strin\",\n        \"ConditionCategory\": \"s\",\n        \"ConditionIsForStatistics\": true,\n        \"ConditionOrigin\": \"s\",\n        \"IsGroupCondition\": \"s\",\n        \"ConditionControl\": \"s\",\n        \"ConditionInactiveReason\": \"s\",\n        \"ConditionClass\": \"s\",\n        \"ConditionIsManuallyChanged\": true\n      }\n    ]\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e13333bd-f7df-490b-b33c-e9ed3e82b43c",
+              "name": "Authentication required - valid credentials must be provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrderItem(SalesOrder='{{SalesOrder}}',SalesOrderItem='{{SalesOrderItem}}')",
+                    "to_PricingElement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fd8b02fd-09aa-4e3b-a956-67063ceaebcb",
+              "name": "Resource not found - the specified sales order or item does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrderItem(SalesOrder='{{SalesOrder}}',SalesOrderItem='{{SalesOrderItem}}')",
+                    "to_PricingElement"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Sales order number (10-character string, e.g., '0000000001')",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "SalesOrder"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Sales order item number (6-character string, e.g., '000010')",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "SalesOrderItem"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "97d2f6c0-a067-472a-8025-6f2408e1162f",
+    "name": "SAP S/4HANA Sales Order Partners Pricing Elements API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SAP S/4HANA Sales Order API (API_SALES_ORDER_SRV) enables you to create, read, update, and delete sales orders in SAP S/4HANA. This OData V2-based service provides access to complete sales order documents including header data, line items, pricing elements, schedule lines, partners, and text records. It supports deep insert operations for creating a sales order header with its dependent entities in a single request. The API covers the full sales order lifecycle from creation through to completion and rejection.\n\nContact Support:\n Name: SAP API Support",
+      "type": "text/plain"
+    }
+  }
+}

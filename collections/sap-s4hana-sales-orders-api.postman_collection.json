@@ -1,0 +1,1425 @@
+{
+  "item": [
+    {
+      "id": "0c711955-d539-4938-82c5-2ad5a36a9045",
+      "name": "Sales Orders",
+      "description": {
+        "content": "Operations on sales order header records",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a0aec1b4-b46d-4acb-a0e7-6099abe81bbb",
+          "name": "Sap S/4hana Retrieve a List of Sales Orders",
+          "request": {
+            "name": "Sap S/4hana Retrieve a List of Sales Orders",
+            "description": {
+              "content": "Returns a collection of sales order header records. Supports OData system query options including $filter, $select, $expand, $orderby, $top, $skip, and $inlinecount for pagination. Use $expand to include related entities such as items, partners, and pricing elements in the response.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_SalesOrder"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$top",
+                  "value": "<integer>",
+                  "description": "Maximum number of entities to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "$skip",
+                  "value": "<integer>",
+                  "description": "Number of entities to skip"
+                },
+                {
+                  "disabled": false,
+                  "key": "$filter",
+                  "value": "<string>",
+                  "description": "OData filter expression"
+                },
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Comma-separated list of navigation properties to expand"
+                },
+                {
+                  "disabled": false,
+                  "key": "$orderby",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties for sorting (e.g., 'CreationDate desc')"
+                },
+                {
+                  "disabled": false,
+                  "key": "$inlinecount",
+                  "value": "<string>",
+                  "description": "Include total count of matching entities"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "03cb23cd-aa04-468e-ae25-fdd71cfd1c4b",
+              "name": "Sales orders retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$inlinecount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"SalesOrder\": \"0000000001\",\n        \"SalesOrderType\": \"OR\",\n        \"SalesOrganization\": \"1710\",\n        \"DistributionChannel\": \"10\",\n        \"OrganizationDivision\": \"00\",\n        \"SalesGroup\": \"str\",\n        \"SalesOffice\": \"stri\",\n        \"SalesDistrict\": \"string\",\n        \"SoldToParty\": \"10100001\",\n        \"CreationDate\": \"2026-01-15\",\n        \"CreatedByUser\": \"string\",\n        \"LastChangeDate\": \"2026-01-15\",\n        \"LastChangeDateTime\": \"2026-01-15T10:30:00Z\",\n        \"PurchaseOrderByCustomer\": \"example_value\",\n        \"CustomerPurchaseOrderType\": \"stri\",\n        \"CustomerPurchaseOrderDate\": \"2026-01-15\",\n        \"SalesOrderDate\": \"2026-01-15\",\n        \"TotalNetAmount\": \"15000.00\",\n        \"TransactionCurrency\": \"USD\",\n        \"SDDocumentReason\": \"str\",\n        \"PricingDate\": \"2026-01-15\",\n        \"RequestedDeliveryDate\": \"2026-01-15\",\n        \"ShippingCondition\": \"st\",\n        \"CompleteDeliveryIsDefined\": true,\n        \"ShippingType\": \"st\",\n        \"HeaderBillingBlockReason\": \"st\",\n        \"DeliveryBlockReason\": \"st\",\n        \"IncotermsClassification\": \"EXW\",\n        \"IncotermsTransferLocation\": \"example_value\",\n        \"IncotermsLocation1\": \"example_value\",\n        \"IncotermsLocation2\": \"example_value\",\n        \"IncotermsVersion\": \"stri\",\n        \"CustomerPaymentTerms\": \"0001\",\n        \"PaymentMethod\": \"s\",\n        \"AssignmentReference\": \"example_value\",\n        \"ReferenceSDDocument\": \"string\",\n        \"ReferenceSDDocumentCategory\": \"stri\",\n        \"AccountingExchangeRate\": \"example_value\",\n        \"OverallSDProcessStatus\": \"A\",\n        \"TotalCreditCheckStatus\": \"s\",\n        \"OverallTotalDeliveryStatus\": \"s\",\n        \"OverallSDDocumentRejectionSts\": \"s\",\n        \"BillingDocumentDate\": \"2026-01-15\",\n        \"ContractAccount\": \"string\",\n        \"AdditionalCustomerGroup1\": \"str\",\n        \"AdditionalCustomerGroup2\": \"str\",\n        \"AdditionalCustomerGroup3\": \"str\",\n        \"AdditionalCustomerGroup4\": \"str\",\n        \"AdditionalCustomerGroup5\": \"str\",\n        \"SlsDocIsRlvtForProofOfDeliv\": true,\n        \"CustomerTaxClassification1\": \"s\",\n        \"CustomerTaxClassification2\": \"s\",\n        \"CustomerTaxClassification3\": \"s\",\n        \"CustomerTaxClassification4\": \"s\",\n        \"CustomerAccountGroup\": \"stri\"\n      },\n      {\n        \"SalesOrder\": \"0000000001\",\n        \"SalesOrderType\": \"OR\",\n        \"SalesOrganization\": \"1710\",\n        \"DistributionChannel\": \"10\",\n        \"OrganizationDivision\": \"00\",\n        \"SalesGroup\": \"str\",\n        \"SalesOffice\": \"stri\",\n        \"SalesDistrict\": \"string\",\n        \"SoldToParty\": \"10100001\",\n        \"CreationDate\": \"2026-01-15\",\n        \"CreatedByUser\": \"string\",\n        \"LastChangeDate\": \"2026-01-15\",\n        \"LastChangeDateTime\": \"2026-01-15T10:30:00Z\",\n        \"PurchaseOrderByCustomer\": \"example_value\",\n        \"CustomerPurchaseOrderType\": \"stri\",\n        \"CustomerPurchaseOrderDate\": \"2026-01-15\",\n        \"SalesOrderDate\": \"2026-01-15\",\n        \"TotalNetAmount\": \"15000.00\",\n        \"TransactionCurrency\": \"USD\",\n        \"SDDocumentReason\": \"str\",\n        \"PricingDate\": \"2026-01-15\",\n        \"RequestedDeliveryDate\": \"2026-01-15\",\n        \"ShippingCondition\": \"st\",\n        \"CompleteDeliveryIsDefined\": true,\n        \"ShippingType\": \"st\",\n        \"HeaderBillingBlockReason\": \"st\",\n        \"DeliveryBlockReason\": \"st\",\n        \"IncotermsClassification\": \"EXW\",\n        \"IncotermsTransferLocation\": \"example_value\",\n        \"IncotermsLocation1\": \"example_value\",\n        \"IncotermsLocation2\": \"example_value\",\n        \"IncotermsVersion\": \"stri\",\n        \"CustomerPaymentTerms\": \"0001\",\n        \"PaymentMethod\": \"s\",\n        \"AssignmentReference\": \"example_value\",\n        \"ReferenceSDDocument\": \"string\",\n        \"ReferenceSDDocumentCategory\": \"stri\",\n        \"AccountingExchangeRate\": \"example_value\",\n        \"OverallSDProcessStatus\": \"A\",\n        \"TotalCreditCheckStatus\": \"s\",\n        \"OverallTotalDeliveryStatus\": \"s\",\n        \"OverallSDDocumentRejectionSts\": \"s\",\n        \"BillingDocumentDate\": \"2026-01-15\",\n        \"ContractAccount\": \"string\",\n        \"AdditionalCustomerGroup1\": \"str\",\n        \"AdditionalCustomerGroup2\": \"str\",\n        \"AdditionalCustomerGroup3\": \"str\",\n        \"AdditionalCustomerGroup4\": \"str\",\n        \"AdditionalCustomerGroup5\": \"str\",\n        \"SlsDocIsRlvtForProofOfDeliv\": true,\n        \"CustomerTaxClassification1\": \"s\",\n        \"CustomerTaxClassification2\": \"s\",\n        \"CustomerTaxClassification3\": \"s\",\n        \"CustomerTaxClassification4\": \"s\",\n        \"CustomerAccountGroup\": \"stri\"\n      }\n    ],\n    \"__count\": \"string\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "d8245c4f-a401-434c-9155-9dd3638b51f7",
+              "name": "Authentication required - valid credentials must be provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$inlinecount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "be2c25f5-7d0a-41e3-87cb-c5f98c1cb636",
+              "name": "Insufficient authorization - the user lacks required permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$top",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$skip",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "$filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$orderby",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$inlinecount",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "577f7c80-e75c-473b-8702-d96c42f74d43",
+          "name": "Sap S/4hana Create a New Sales Order",
+          "request": {
+            "name": "Sap S/4hana Create a New Sales Order",
+            "description": {
+              "content": "Creates a new sales order in SAP S/4HANA. Supports deep insert, allowing you to create a header along with items, partners, pricing elements, schedule lines, billing plans, and text records in a single request. The SalesOrderType, SalesOrganization, DistributionChannel, and OrganizationDivision are required for creation.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_SalesOrder"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"SalesOrderType\": \"<string>\",\n  \"SalesOrganization\": \"<string>\",\n  \"DistributionChannel\": \"<string>\",\n  \"OrganizationDivision\": \"<string>\",\n  \"SoldToParty\": \"<string>\",\n  \"PurchaseOrderByCustomer\": \"<string>\",\n  \"SalesOrderDate\": \"<date>\",\n  \"RequestedDeliveryDate\": \"<date>\",\n  \"CustomerPaymentTerms\": \"<string>\",\n  \"TransactionCurrency\": \"<string>\",\n  \"PricingDate\": \"<date>\",\n  \"IncotermsClassification\": \"<string>\",\n  \"IncotermsTransferLocation\": \"<string>\",\n  \"ShippingCondition\": \"<string>\",\n  \"CompleteDeliveryIsDefined\": \"<boolean>\",\n  \"SDDocumentReason\": \"<string>\",\n  \"to_Item\": [\n    {\n      \"Material\": \"<string>\",\n      \"RequestedQuantity\": \"<string>\",\n      \"RequestedQuantityUnit\": \"<string>\",\n      \"Plant\": \"<string>\",\n      \"SalesOrderItemCategory\": \"<string>\",\n      \"SalesOrderItemText\": \"<string>\",\n      \"PurchaseOrderByCustomer\": \"<string>\",\n      \"PricingDate\": \"<date>\",\n      \"CustomerPaymentTerms\": \"<string>\",\n      \"MaterialByCustomer\": \"<string>\",\n      \"Batch\": \"<string>\",\n      \"ProductionPlant\": \"<string>\",\n      \"StorageLocation\": \"<string>\",\n      \"DeliveryPriority\": \"<string>\",\n      \"IncotermsClassification\": \"<string>\",\n      \"IncotermsTransferLocation\": \"<string>\",\n      \"to_PricingElement\": [\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"PricingProcedureStep\": \"<string>\",\n          \"PricingProcedureCounter\": \"<string>\",\n          \"ConditionType\": \"<string>\",\n          \"ConditionRateValue\": \"<string>\",\n          \"ConditionCurrency\": \"<string>\",\n          \"ConditionQuantity\": \"<string>\",\n          \"ConditionQuantityUnit\": \"<string>\",\n          \"ConditionAmount\": \"<string>\",\n          \"TransactionCurrency\": \"<string>\",\n          \"ConditionCategory\": \"<string>\",\n          \"ConditionIsForStatistics\": \"<boolean>\",\n          \"ConditionOrigin\": \"<string>\",\n          \"IsGroupCondition\": \"<string>\",\n          \"ConditionControl\": \"<string>\",\n          \"ConditionInactiveReason\": \"<string>\",\n          \"ConditionClass\": \"<string>\",\n          \"ConditionIsManuallyChanged\": \"<boolean>\"\n        },\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"PricingProcedureStep\": \"<string>\",\n          \"PricingProcedureCounter\": \"<string>\",\n          \"ConditionType\": \"<string>\",\n          \"ConditionRateValue\": \"<string>\",\n          \"ConditionCurrency\": \"<string>\",\n          \"ConditionQuantity\": \"<string>\",\n          \"ConditionQuantityUnit\": \"<string>\",\n          \"ConditionAmount\": \"<string>\",\n          \"TransactionCurrency\": \"<string>\",\n          \"ConditionCategory\": \"<string>\",\n          \"ConditionIsForStatistics\": \"<boolean>\",\n          \"ConditionOrigin\": \"<string>\",\n          \"IsGroupCondition\": \"<string>\",\n          \"ConditionControl\": \"<string>\",\n          \"ConditionInactiveReason\": \"<string>\",\n          \"ConditionClass\": \"<string>\",\n          \"ConditionIsManuallyChanged\": \"<boolean>\"\n        }\n      ],\n      \"to_ScheduleLine\": [\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"ScheduleLine\": \"<string>\",\n          \"RequestedDeliveryDate\": \"<date>\",\n          \"ConfirmedDeliveryDate\": \"<date>\",\n          \"OrderQuantityUnit\": \"<string>\",\n          \"OrderQuantitySAPUnit\": \"<string>\",\n          \"ScheduleLineOrderQuantity\": \"<string>\",\n          \"ConfdOrderQtyByMatlAvailCheck\": \"<string>\",\n          \"DeliveredQtyInOrderQtyUnit\": \"<string>\",\n          \"OpenConfdDelivQtyInOrdQtyUnit\": \"<string>\",\n          \"CorrectedQtyInOrderQtyUnit\": \"<string>\",\n          \"DelivBlockReasonForSchedLine\": \"<string>\"\n        },\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"ScheduleLine\": \"<string>\",\n          \"RequestedDeliveryDate\": \"<date>\",\n          \"ConfirmedDeliveryDate\": \"<date>\",\n          \"OrderQuantityUnit\": \"<string>\",\n          \"OrderQuantitySAPUnit\": \"<string>\",\n          \"ScheduleLineOrderQuantity\": \"<string>\",\n          \"ConfdOrderQtyByMatlAvailCheck\": \"<string>\",\n          \"DeliveredQtyInOrderQtyUnit\": \"<string>\",\n          \"OpenConfdDelivQtyInOrdQtyUnit\": \"<string>\",\n          \"CorrectedQtyInOrderQtyUnit\": \"<string>\",\n          \"DelivBlockReasonForSchedLine\": \"<string>\"\n        }\n      ],\n      \"to_Partner\": [\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"PartnerFunction\": \"<string>\",\n          \"Customer\": \"<string>\",\n          \"Supplier\": \"<string>\"\n        },\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"PartnerFunction\": \"<string>\",\n          \"Customer\": \"<string>\",\n          \"Supplier\": \"<string>\"\n        }\n      ],\n      \"to_Text\": [\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"LongTextID\": \"<string>\",\n          \"LongText\": \"<string>\"\n        },\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"LongTextID\": \"<string>\",\n          \"LongText\": \"<string>\"\n        }\n      ]\n    },\n    {\n      \"Material\": \"<string>\",\n      \"RequestedQuantity\": \"<string>\",\n      \"RequestedQuantityUnit\": \"<string>\",\n      \"Plant\": \"<string>\",\n      \"SalesOrderItemCategory\": \"<string>\",\n      \"SalesOrderItemText\": \"<string>\",\n      \"PurchaseOrderByCustomer\": \"<string>\",\n      \"PricingDate\": \"<date>\",\n      \"CustomerPaymentTerms\": \"<string>\",\n      \"MaterialByCustomer\": \"<string>\",\n      \"Batch\": \"<string>\",\n      \"ProductionPlant\": \"<string>\",\n      \"StorageLocation\": \"<string>\",\n      \"DeliveryPriority\": \"<string>\",\n      \"IncotermsClassification\": \"<string>\",\n      \"IncotermsTransferLocation\": \"<string>\",\n      \"to_PricingElement\": [\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"PricingProcedureStep\": \"<string>\",\n          \"PricingProcedureCounter\": \"<string>\",\n          \"ConditionType\": \"<string>\",\n          \"ConditionRateValue\": \"<string>\",\n          \"ConditionCurrency\": \"<string>\",\n          \"ConditionQuantity\": \"<string>\",\n          \"ConditionQuantityUnit\": \"<string>\",\n          \"ConditionAmount\": \"<string>\",\n          \"TransactionCurrency\": \"<string>\",\n          \"ConditionCategory\": \"<string>\",\n          \"ConditionIsForStatistics\": \"<boolean>\",\n          \"ConditionOrigin\": \"<string>\",\n          \"IsGroupCondition\": \"<string>\",\n          \"ConditionControl\": \"<string>\",\n          \"ConditionInactiveReason\": \"<string>\",\n          \"ConditionClass\": \"<string>\",\n          \"ConditionIsManuallyChanged\": \"<boolean>\"\n        },\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"PricingProcedureStep\": \"<string>\",\n          \"PricingProcedureCounter\": \"<string>\",\n          \"ConditionType\": \"<string>\",\n          \"ConditionRateValue\": \"<string>\",\n          \"ConditionCurrency\": \"<string>\",\n          \"ConditionQuantity\": \"<string>\",\n          \"ConditionQuantityUnit\": \"<string>\",\n          \"ConditionAmount\": \"<string>\",\n          \"TransactionCurrency\": \"<string>\",\n          \"ConditionCategory\": \"<string>\",\n          \"ConditionIsForStatistics\": \"<boolean>\",\n          \"ConditionOrigin\": \"<string>\",\n          \"IsGroupCondition\": \"<string>\",\n          \"ConditionControl\": \"<string>\",\n          \"ConditionInactiveReason\": \"<string>\",\n          \"ConditionClass\": \"<string>\",\n          \"ConditionIsManuallyChanged\": \"<boolean>\"\n        }\n      ],\n      \"to_ScheduleLine\": [\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"ScheduleLine\": \"<string>\",\n          \"RequestedDeliveryDate\": \"<date>\",\n          \"ConfirmedDeliveryDate\": \"<date>\",\n          \"OrderQuantityUnit\": \"<string>\",\n          \"OrderQuantitySAPUnit\": \"<string>\",\n          \"ScheduleLineOrderQuantity\": \"<string>\",\n          \"ConfdOrderQtyByMatlAvailCheck\": \"<string>\",\n          \"DeliveredQtyInOrderQtyUnit\": \"<string>\",\n          \"OpenConfdDelivQtyInOrdQtyUnit\": \"<string>\",\n          \"CorrectedQtyInOrderQtyUnit\": \"<string>\",\n          \"DelivBlockReasonForSchedLine\": \"<string>\"\n        },\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"ScheduleLine\": \"<string>\",\n          \"RequestedDeliveryDate\": \"<date>\",\n          \"ConfirmedDeliveryDate\": \"<date>\",\n          \"OrderQuantityUnit\": \"<string>\",\n          \"OrderQuantitySAPUnit\": \"<string>\",\n          \"ScheduleLineOrderQuantity\": \"<string>\",\n          \"ConfdOrderQtyByMatlAvailCheck\": \"<string>\",\n          \"DeliveredQtyInOrderQtyUnit\": \"<string>\",\n          \"OpenConfdDelivQtyInOrdQtyUnit\": \"<string>\",\n          \"CorrectedQtyInOrderQtyUnit\": \"<string>\",\n          \"DelivBlockReasonForSchedLine\": \"<string>\"\n        }\n      ],\n      \"to_Partner\": [\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"PartnerFunction\": \"<string>\",\n          \"Customer\": \"<string>\",\n          \"Supplier\": \"<string>\"\n        },\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"PartnerFunction\": \"<string>\",\n          \"Customer\": \"<string>\",\n          \"Supplier\": \"<string>\"\n        }\n      ],\n      \"to_Text\": [\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"LongTextID\": \"<string>\",\n          \"LongText\": \"<string>\"\n        },\n        {\n          \"SalesOrder\": \"<string>\",\n          \"SalesOrderItem\": \"<string>\",\n          \"Language\": \"<string>\",\n          \"LongTextID\": \"<string>\",\n          \"LongText\": \"<string>\"\n        }\n      ]\n    }\n  ],\n  \"to_Partner\": [\n    {\n      \"SalesOrder\": \"<string>\",\n      \"PartnerFunction\": \"<string>\",\n      \"Customer\": \"<string>\",\n      \"Supplier\": \"<string>\",\n      \"Personnel\": \"<string>\",\n      \"ContactPerson\": \"<string>\"\n    },\n    {\n      \"SalesOrder\": \"<string>\",\n      \"PartnerFunction\": \"<string>\",\n      \"Customer\": \"<string>\",\n      \"Supplier\": \"<string>\",\n      \"Personnel\": \"<string>\",\n      \"ContactPerson\": \"<string>\"\n    }\n  ],\n  \"to_PricingElement\": [\n    {\n      \"SalesOrder\": \"<string>\",\n      \"PricingProcedureStep\": \"<string>\",\n      \"PricingProcedureCounter\": \"<string>\",\n      \"ConditionType\": \"<string>\",\n      \"ConditionRateValue\": \"<string>\",\n      \"ConditionCurrency\": \"<string>\",\n      \"ConditionQuantity\": \"<string>\",\n      \"ConditionQuantityUnit\": \"<string>\",\n      \"ConditionCategory\": \"<string>\",\n      \"ConditionIsForStatistics\": \"<boolean>\",\n      \"PricingScaleType\": \"<string>\",\n      \"IsRelevantForAccrual\": \"<boolean>\",\n      \"ConditionOrigin\": \"<string>\",\n      \"IsGroupCondition\": \"<string>\",\n      \"ConditionAmount\": \"<string>\",\n      \"TransactionCurrency\": \"<string>\",\n      \"ConditionControl\": \"<string>\",\n      \"ConditionInactiveReason\": \"<string>\",\n      \"ConditionClass\": \"<string>\",\n      \"PrcgProcedureCounterForHeader\": \"<string>\",\n      \"FactorForConditionBasisValue\": \"<string>\",\n      \"StructureCondition\": \"<string>\",\n      \"PeriodFactorForCndnBasisValue\": \"<string>\",\n      \"PricingScaleBasis\": \"<string>\",\n      \"ConditionScaleBasisValue\": \"<string>\",\n      \"ConditionScaleBasisUnit\": \"<string>\",\n      \"ConditionScaleBasisCurrency\": \"<string>\",\n      \"CndnIsRelevantForIntcoBilling\": \"<boolean>\",\n      \"ConditionIsManuallyChanged\": \"<boolean>\"\n    },\n    {\n      \"SalesOrder\": \"<string>\",\n      \"PricingProcedureStep\": \"<string>\",\n      \"PricingProcedureCounter\": \"<string>\",\n      \"ConditionType\": \"<string>\",\n      \"ConditionRateValue\": \"<string>\",\n      \"ConditionCurrency\": \"<string>\",\n      \"ConditionQuantity\": \"<string>\",\n      \"ConditionQuantityUnit\": \"<string>\",\n      \"ConditionCategory\": \"<string>\",\n      \"ConditionIsForStatistics\": \"<boolean>\",\n      \"PricingScaleType\": \"<string>\",\n      \"IsRelevantForAccrual\": \"<boolean>\",\n      \"ConditionOrigin\": \"<string>\",\n      \"IsGroupCondition\": \"<string>\",\n      \"ConditionAmount\": \"<string>\",\n      \"TransactionCurrency\": \"<string>\",\n      \"ConditionControl\": \"<string>\",\n      \"ConditionInactiveReason\": \"<string>\",\n      \"ConditionClass\": \"<string>\",\n      \"PrcgProcedureCounterForHeader\": \"<string>\",\n      \"FactorForConditionBasisValue\": \"<string>\",\n      \"StructureCondition\": \"<string>\",\n      \"PeriodFactorForCndnBasisValue\": \"<string>\",\n      \"PricingScaleBasis\": \"<string>\",\n      \"ConditionScaleBasisValue\": \"<string>\",\n      \"ConditionScaleBasisUnit\": \"<string>\",\n      \"ConditionScaleBasisCurrency\": \"<string>\",\n      \"CndnIsRelevantForIntcoBilling\": \"<boolean>\",\n      \"ConditionIsManuallyChanged\": \"<boolean>\"\n    }\n  ],\n  \"to_Text\": [\n    {\n      \"SalesOrder\": \"<string>\",\n      \"Language\": \"<string>\",\n      \"LongTextID\": \"<string>\",\n      \"LongText\": \"<string>\"\n    },\n    {\n      \"SalesOrder\": \"<string>\",\n      \"Language\": \"<string>\",\n      \"LongTextID\": \"<string>\",\n      \"LongText\": \"<string>\"\n    }\n  ]\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "17c3d104-17a7-4241-9093-672c74f7e112",
+              "name": "Sales order created successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SalesOrderType\": \"<string>\",\n  \"SalesOrganization\": \"<string>\",\n  \"DistributionChannel\": \"<string>\",\n  \"OrganizationDivision\": \"<string>\",\n  \"SoldToParty\": \"<string>\",\n  \"PurchaseOrderByCustomer\": \"example_value\",\n  \"SalesOrderDate\": \"2026-01-15\",\n  \"RequestedDeliveryDate\": \"2026-01-15\",\n  \"CustomerPaymentTerms\": \"<string>\",\n  \"TransactionCurrency\": \"<string>\",\n  \"PricingDate\": \"2026-01-15\",\n  \"IncotermsClassification\": \"<string>\",\n  \"IncotermsTransferLocation\": \"example_value\",\n  \"ShippingCondition\": \"<string>\",\n  \"CompleteDeliveryIsDefined\": true,\n  \"SDDocumentReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Created",
+              "code": 201,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"SalesOrder\": \"0000000001\",\n    \"SalesOrderType\": \"OR\",\n    \"SalesOrganization\": \"1710\",\n    \"DistributionChannel\": \"10\",\n    \"OrganizationDivision\": \"00\",\n    \"SalesGroup\": \"str\",\n    \"SalesOffice\": \"stri\",\n    \"SalesDistrict\": \"string\",\n    \"SoldToParty\": \"10100001\",\n    \"CreationDate\": \"2026-01-15\",\n    \"CreatedByUser\": \"string\",\n    \"LastChangeDate\": \"2026-01-15\",\n    \"LastChangeDateTime\": \"2026-01-15T10:30:00Z\",\n    \"PurchaseOrderByCustomer\": \"example_value\",\n    \"CustomerPurchaseOrderType\": \"stri\",\n    \"CustomerPurchaseOrderDate\": \"2026-01-15\",\n    \"SalesOrderDate\": \"2026-01-15\",\n    \"TotalNetAmount\": \"15000.00\",\n    \"TransactionCurrency\": \"USD\",\n    \"SDDocumentReason\": \"str\",\n    \"PricingDate\": \"2026-01-15\",\n    \"RequestedDeliveryDate\": \"2026-01-15\",\n    \"ShippingCondition\": \"st\",\n    \"CompleteDeliveryIsDefined\": true,\n    \"ShippingType\": \"st\",\n    \"HeaderBillingBlockReason\": \"st\",\n    \"DeliveryBlockReason\": \"st\",\n    \"IncotermsClassification\": \"EXW\",\n    \"IncotermsTransferLocation\": \"example_value\",\n    \"IncotermsLocation1\": \"example_value\",\n    \"IncotermsLocation2\": \"example_value\",\n    \"IncotermsVersion\": \"stri\",\n    \"CustomerPaymentTerms\": \"0001\",\n    \"PaymentMethod\": \"s\",\n    \"AssignmentReference\": \"example_value\",\n    \"ReferenceSDDocument\": \"string\",\n    \"ReferenceSDDocumentCategory\": \"stri\",\n    \"AccountingExchangeRate\": \"example_value\",\n    \"OverallSDProcessStatus\": \"A\",\n    \"TotalCreditCheckStatus\": \"s\",\n    \"OverallTotalDeliveryStatus\": \"s\",\n    \"OverallSDDocumentRejectionSts\": \"s\",\n    \"BillingDocumentDate\": \"2026-01-15\",\n    \"ContractAccount\": \"string\",\n    \"AdditionalCustomerGroup1\": \"str\",\n    \"AdditionalCustomerGroup2\": \"str\",\n    \"AdditionalCustomerGroup3\": \"str\",\n    \"AdditionalCustomerGroup4\": \"str\",\n    \"AdditionalCustomerGroup5\": \"str\",\n    \"SlsDocIsRlvtForProofOfDeliv\": true,\n    \"CustomerTaxClassification1\": \"s\",\n    \"CustomerTaxClassification2\": \"s\",\n    \"CustomerTaxClassification3\": \"s\",\n    \"CustomerTaxClassification4\": \"s\",\n    \"CustomerAccountGroup\": \"stri\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "98993a72-9f70-4865-9222-d673c2dc0eb3",
+              "name": "Invalid request - the request body or parameters are malformed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SalesOrderType\": \"<string>\",\n  \"SalesOrganization\": \"<string>\",\n  \"DistributionChannel\": \"<string>\",\n  \"OrganizationDivision\": \"<string>\",\n  \"SoldToParty\": \"<string>\",\n  \"PurchaseOrderByCustomer\": \"example_value\",\n  \"SalesOrderDate\": \"2026-01-15\",\n  \"RequestedDeliveryDate\": \"2026-01-15\",\n  \"CustomerPaymentTerms\": \"<string>\",\n  \"TransactionCurrency\": \"<string>\",\n  \"PricingDate\": \"2026-01-15\",\n  \"IncotermsClassification\": \"<string>\",\n  \"IncotermsTransferLocation\": \"example_value\",\n  \"ShippingCondition\": \"<string>\",\n  \"CompleteDeliveryIsDefined\": true,\n  \"SDDocumentReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "415df470-a0da-44b4-97db-0890494464d7",
+              "name": "Authentication required - valid credentials must be provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SalesOrderType\": \"<string>\",\n  \"SalesOrganization\": \"<string>\",\n  \"DistributionChannel\": \"<string>\",\n  \"OrganizationDivision\": \"<string>\",\n  \"SoldToParty\": \"<string>\",\n  \"PurchaseOrderByCustomer\": \"example_value\",\n  \"SalesOrderDate\": \"2026-01-15\",\n  \"RequestedDeliveryDate\": \"2026-01-15\",\n  \"CustomerPaymentTerms\": \"<string>\",\n  \"TransactionCurrency\": \"<string>\",\n  \"PricingDate\": \"2026-01-15\",\n  \"IncotermsClassification\": \"<string>\",\n  \"IncotermsTransferLocation\": \"example_value\",\n  \"ShippingCondition\": \"<string>\",\n  \"CompleteDeliveryIsDefined\": true,\n  \"SDDocumentReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc07ac5d-51e2-42b6-b352-a31f3db2c272",
+              "name": "Insufficient authorization - the user lacks required permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"SalesOrderType\": \"<string>\",\n  \"SalesOrganization\": \"<string>\",\n  \"DistributionChannel\": \"<string>\",\n  \"OrganizationDivision\": \"<string>\",\n  \"SoldToParty\": \"<string>\",\n  \"PurchaseOrderByCustomer\": \"example_value\",\n  \"SalesOrderDate\": \"2026-01-15\",\n  \"RequestedDeliveryDate\": \"2026-01-15\",\n  \"CustomerPaymentTerms\": \"<string>\",\n  \"TransactionCurrency\": \"<string>\",\n  \"PricingDate\": \"2026-01-15\",\n  \"IncotermsClassification\": \"<string>\",\n  \"IncotermsTransferLocation\": \"example_value\",\n  \"ShippingCondition\": \"<string>\",\n  \"CompleteDeliveryIsDefined\": true,\n  \"SDDocumentReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "265946ca-2e58-47af-ac1b-f12eb0f0db0d",
+          "name": "Sap S/4hana Retrieve a Single Sales Order by Key",
+          "request": {
+            "name": "Sap S/4hana Retrieve a Single Sales Order by Key",
+            "description": {
+              "content": "Returns a single sales order header record identified by its sales order number. Use $expand to include related entities such as to_Item, to_Partner, and to_PricingElement.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_SalesOrder('{{SalesOrder}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "$select",
+                  "value": "<string>",
+                  "description": "Comma-separated list of properties to include in the response"
+                },
+                {
+                  "disabled": false,
+                  "key": "$expand",
+                  "value": "<string>",
+                  "description": "Comma-separated list of navigation properties to expand"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "1218a002-aab3-47e4-80b8-4fbe86592ff2",
+              "name": "Sales order retrieved successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"d\": {\n    \"SalesOrder\": \"0000000001\",\n    \"SalesOrderType\": \"OR\",\n    \"SalesOrganization\": \"1710\",\n    \"DistributionChannel\": \"10\",\n    \"OrganizationDivision\": \"00\",\n    \"SalesGroup\": \"str\",\n    \"SalesOffice\": \"stri\",\n    \"SalesDistrict\": \"string\",\n    \"SoldToParty\": \"10100001\",\n    \"CreationDate\": \"2026-01-15\",\n    \"CreatedByUser\": \"string\",\n    \"LastChangeDate\": \"2026-01-15\",\n    \"LastChangeDateTime\": \"2026-01-15T10:30:00Z\",\n    \"PurchaseOrderByCustomer\": \"example_value\",\n    \"CustomerPurchaseOrderType\": \"stri\",\n    \"CustomerPurchaseOrderDate\": \"2026-01-15\",\n    \"SalesOrderDate\": \"2026-01-15\",\n    \"TotalNetAmount\": \"15000.00\",\n    \"TransactionCurrency\": \"USD\",\n    \"SDDocumentReason\": \"str\",\n    \"PricingDate\": \"2026-01-15\",\n    \"RequestedDeliveryDate\": \"2026-01-15\",\n    \"ShippingCondition\": \"st\",\n    \"CompleteDeliveryIsDefined\": true,\n    \"ShippingType\": \"st\",\n    \"HeaderBillingBlockReason\": \"st\",\n    \"DeliveryBlockReason\": \"st\",\n    \"IncotermsClassification\": \"EXW\",\n    \"IncotermsTransferLocation\": \"example_value\",\n    \"IncotermsLocation1\": \"example_value\",\n    \"IncotermsLocation2\": \"example_value\",\n    \"IncotermsVersion\": \"stri\",\n    \"CustomerPaymentTerms\": \"0001\",\n    \"PaymentMethod\": \"s\",\n    \"AssignmentReference\": \"example_value\",\n    \"ReferenceSDDocument\": \"string\",\n    \"ReferenceSDDocumentCategory\": \"stri\",\n    \"AccountingExchangeRate\": \"example_value\",\n    \"OverallSDProcessStatus\": \"A\",\n    \"TotalCreditCheckStatus\": \"s\",\n    \"OverallTotalDeliveryStatus\": \"s\",\n    \"OverallSDDocumentRejectionSts\": \"s\",\n    \"BillingDocumentDate\": \"2026-01-15\",\n    \"ContractAccount\": \"string\",\n    \"AdditionalCustomerGroup1\": \"str\",\n    \"AdditionalCustomerGroup2\": \"str\",\n    \"AdditionalCustomerGroup3\": \"str\",\n    \"AdditionalCustomerGroup4\": \"str\",\n    \"AdditionalCustomerGroup5\": \"str\",\n    \"SlsDocIsRlvtForProofOfDeliv\": true,\n    \"CustomerTaxClassification1\": \"s\",\n    \"CustomerTaxClassification2\": \"s\",\n    \"CustomerTaxClassification3\": \"s\",\n    \"CustomerTaxClassification4\": \"s\",\n    \"CustomerAccountGroup\": \"stri\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "200a9bff-9ac1-4c22-a510-aa655d40be52",
+              "name": "Authentication required - valid credentials must be provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "b3be7e5f-4238-4181-88f9-5d35932c8c1a",
+              "name": "Insufficient authorization - the user lacks required permissions",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "bd791e66-e158-4ec4-8ed7-dd9b004360e8",
+              "name": "Resource not found - the specified sales order or item does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "$select",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "$expand",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20842a6e-e14e-4368-9516-1e4d62630418",
+          "name": "Sap S/4hana Update a Sales Order Header",
+          "request": {
+            "name": "Sap S/4hana Update a Sales Order Header",
+            "description": {
+              "content": "Performs a partial update (MERGE/PATCH) on an existing sales order header. Only the fields provided in the request body are updated. Requires an If-Match header with the entity ETag for optimistic concurrency control.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_SalesOrder('{{SalesOrder}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ETag value for optimistic concurrency control",
+                "key": "If-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"PurchaseOrderByCustomer\": \"<string>\",\n  \"RequestedDeliveryDate\": \"<date>\",\n  \"CustomerPaymentTerms\": \"<string>\",\n  \"ShippingCondition\": \"<string>\",\n  \"CompleteDeliveryIsDefined\": \"<boolean>\",\n  \"HeaderBillingBlockReason\": \"<string>\",\n  \"DeliveryBlockReason\": \"<string>\",\n  \"IncotermsClassification\": \"<string>\",\n  \"IncotermsTransferLocation\": \"<string>\",\n  \"PricingDate\": \"<date>\",\n  \"SDDocumentReason\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9cac3bde-bb78-4803-a60c-4880ca3bf17c",
+              "name": "Sales order updated successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ETag value for optimistic concurrency control",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PurchaseOrderByCustomer\": \"example_value\",\n  \"RequestedDeliveryDate\": \"2026-01-15\",\n  \"CustomerPaymentTerms\": \"<string>\",\n  \"ShippingCondition\": \"<string>\",\n  \"CompleteDeliveryIsDefined\": true,\n  \"HeaderBillingBlockReason\": \"<string>\",\n  \"DeliveryBlockReason\": \"<string>\",\n  \"IncotermsClassification\": \"<string>\",\n  \"IncotermsTransferLocation\": \"example_value\",\n  \"PricingDate\": \"2026-01-15\",\n  \"SDDocumentReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "3079a200-61af-453d-b475-1aa4946e51b4",
+              "name": "Invalid request - the request body or parameters are malformed",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ETag value for optimistic concurrency control",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PurchaseOrderByCustomer\": \"example_value\",\n  \"RequestedDeliveryDate\": \"2026-01-15\",\n  \"CustomerPaymentTerms\": \"<string>\",\n  \"ShippingCondition\": \"<string>\",\n  \"CompleteDeliveryIsDefined\": true,\n  \"HeaderBillingBlockReason\": \"<string>\",\n  \"DeliveryBlockReason\": \"<string>\",\n  \"IncotermsClassification\": \"<string>\",\n  \"IncotermsTransferLocation\": \"example_value\",\n  \"PricingDate\": \"2026-01-15\",\n  \"SDDocumentReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "5372714f-c1ec-4d26-b09a-65c9ee3bf022",
+              "name": "Authentication required - valid credentials must be provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ETag value for optimistic concurrency control",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PurchaseOrderByCustomer\": \"example_value\",\n  \"RequestedDeliveryDate\": \"2026-01-15\",\n  \"CustomerPaymentTerms\": \"<string>\",\n  \"ShippingCondition\": \"<string>\",\n  \"CompleteDeliveryIsDefined\": true,\n  \"HeaderBillingBlockReason\": \"<string>\",\n  \"DeliveryBlockReason\": \"<string>\",\n  \"IncotermsClassification\": \"<string>\",\n  \"IncotermsTransferLocation\": \"example_value\",\n  \"PricingDate\": \"2026-01-15\",\n  \"SDDocumentReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "de9472cb-9a29-465a-8116-02d0b60431aa",
+              "name": "Resource not found - the specified sales order or item does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ETag value for optimistic concurrency control",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PurchaseOrderByCustomer\": \"example_value\",\n  \"RequestedDeliveryDate\": \"2026-01-15\",\n  \"CustomerPaymentTerms\": \"<string>\",\n  \"ShippingCondition\": \"<string>\",\n  \"CompleteDeliveryIsDefined\": true,\n  \"HeaderBillingBlockReason\": \"<string>\",\n  \"DeliveryBlockReason\": \"<string>\",\n  \"IncotermsClassification\": \"<string>\",\n  \"IncotermsTransferLocation\": \"example_value\",\n  \"PricingDate\": \"2026-01-15\",\n  \"SDDocumentReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "aecf8dc2-c745-4003-af19-0f9da916ba8c",
+              "name": "ETag mismatch - the entity has been modified since it was last read",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ETag value for optimistic concurrency control",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"PurchaseOrderByCustomer\": \"example_value\",\n  \"RequestedDeliveryDate\": \"2026-01-15\",\n  \"CustomerPaymentTerms\": \"<string>\",\n  \"ShippingCondition\": \"<string>\",\n  \"CompleteDeliveryIsDefined\": true,\n  \"HeaderBillingBlockReason\": \"<string>\",\n  \"DeliveryBlockReason\": \"<string>\",\n  \"IncotermsClassification\": \"<string>\",\n  \"IncotermsTransferLocation\": \"example_value\",\n  \"PricingDate\": \"2026-01-15\",\n  \"SDDocumentReason\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Precondition Failed",
+              "code": 412,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "613bbb2f-b264-4903-9051-e5ad47a8ccbc",
+          "name": "Sap S/4hana Delete a Sales Order",
+          "request": {
+            "name": "Sap S/4hana Delete a Sales Order",
+            "description": {
+              "content": "Deletes an existing sales order. Requires an If-Match header with the entity ETag for optimistic concurrency control. A sales order can only be deleted if its processing status permits deletion.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                "A_SalesOrder('{{SalesOrder}}')"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "disabled": false,
+                "description": "(Required) ETag value for optimistic concurrency control",
+                "key": "If-Match",
+                "value": "<string>"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3caf692-e36b-4f3c-8581-22b4ae04c5ef",
+              "name": "Sales order deleted successfully",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ETag value for optimistic concurrency control",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "5bb10e88-d9fa-4eb0-a6c5-4368113d93fe",
+              "name": "Authentication required - valid credentials must be provided",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ETag value for optimistic concurrency control",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "e20c031a-0cdc-4256-b98b-6b1406418fc2",
+              "name": "Resource not found - the specified sales order or item does not exist",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ETag value for optimistic concurrency control",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Not Found",
+              "code": 404,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "fc5fcaec-392d-4388-a7c6-992bb04b0dc6",
+              "name": "ETag mismatch - the entity has been modified since it was last read",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "A_SalesOrder('{{SalesOrder}}')"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: basic",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Basic <credentials>"
+                  },
+                  {
+                    "disabled": false,
+                    "description": "(Required) ETag value for optimistic concurrency control",
+                    "key": "If-Match",
+                    "value": "<string>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "Precondition Failed",
+              "code": 412,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV",
+      "key": "baseUrl"
+    },
+    {
+      "disabled": false,
+      "description": {
+        "content": "(Required) Sales order number (10-character string, e.g., '0000000001')",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "<string>",
+      "key": "SalesOrder"
+    }
+  ],
+  "auth": {
+    "type": "basic",
+    "basic": [
+      {
+        "key": "username",
+        "value": "{{basicAuthUsername}}"
+      },
+      {
+        "key": "password",
+        "value": "{{basicAuthPassword}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "1a0c0c96-f28c-42f3-9df1-4bb495cd9b3c",
+    "name": "SAP S/4HANA Sales Order Partners Sales Orders API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The SAP S/4HANA Sales Order API (API_SALES_ORDER_SRV) enables you to create, read, update, and delete sales orders in SAP S/4HANA. This OData V2-based service provides access to complete sales order documents including header data, line items, pricing elements, schedule lines, partners, and text records. It supports deep insert operations for creating a sales order header with its dependent entities in a single request. The API covers the full sales order lifecycle from creation through to completion and rejection.\n\nContact Support:\n Name: SAP API Support",
+      "type": "text/plain"
+    }
+  }
+}
