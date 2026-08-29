@@ -1,0 +1,26 @@
+slug: sap-s4hana
+provider: SAP S/4HANA
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Transportation & Logistics
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 1
+edges:
+- tag: Sales Orders
+  spec_file: sap-s4hana-sales-orders-api-openapi.yml
+  capability_id: BC-520.40
+  capability_id_l1: BC-520
+  capability_name: Order Fulfilment Management
+  confidence: 0.7
+  evidence: 'POST /A_SalesOrder createSalesOrder ''Create a New Sales Order''; description: ''covers the
+    full sales order lifecycle from creation through to completion and rejection'''
+  reason: Complete sales order document lifecycle in ERP — order capture, change and cancellation driving
+    fulfilment. Order Fulfilment Management is the closest candidate, though Sales Management is a plausible
+    alternative reading.

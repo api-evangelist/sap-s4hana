@@ -1040,6 +1040,9 @@ apis:
   - type: JSONSchema
     url: https://api.sap.com/api/API_MANAGE_WORKFORCE_TIMESHEET/schema
 common:
+  - type: CapabilityMap
+    url: capabilities/sap-s4hana-capability-edges.yml
+    name: SAP S/4HANA Business Capability Map
   - type: AgenticAccess
     url: agentic-access/sap-s4hana-agentic-access.yml
   - type: VulnerabilityDisclosure
