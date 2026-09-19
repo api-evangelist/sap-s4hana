@@ -1035,6 +1035,20 @@ maintainers:
 tags:
 - Business Applications
 - Cloud
+- ERP
+- Finance
+- Human Resources
+- Inventory
+- Logistics
+- Manufacturing
+- Plant Maintenance
+- Procurement
+- S/4HANA
+- Sales
+- SAP
+tags_raw:
+- Business Applications
+- Cloud
 - Enterprise Resource Planning
 - ERP
 - Finance
