@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: SAP S/4HANA Sales Order Partners Sales Order Items API
-  description: The SAP S/4HANA Sales Order API (API_SALES_ORDER_SRV) enables you to create, read, update, and delete sales orders in SAP S/4HANA. This OData V2-based service provides access to complete sales order documents including header data, line items, pricing elements, schedule lines, partners, and text records. It supports deep insert operations for creating a sales order header with its dependent entities in a single request. The API covers the full sales order lifecycle from creation through to completion and rejection.
+  title: SAP S/4HANA Sales Order Sales Order Items API
+  description: The SAP S/4HANA Sales Order API (API_SALES_ORDER_SRV) enables you to create, read, update, and delete sales orders in SAP S/4HANA.
   version: 1.0.0
   termsOfService: https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html
   contact:
@@ -183,18 +183,6 @@ paths:
         dispatcher: FALLBACK
 components:
   parameters:
-    expand:
-      name: $expand
-      in: query
-      description: Comma-separated list of navigation properties to expand
-      schema:
-        type: string
-    filter:
-      name: $filter
-      in: query
-      description: OData filter expression
-      schema:
-        type: string
     ifMatch:
       name: If-Match
       in: header
@@ -202,17 +190,10 @@ components:
       description: ETag value for optimistic concurrency control
       schema:
         type: string
-    top:
-      name: $top
+    filter:
+      name: $filter
       in: query
-      description: Maximum number of entities to return
-      schema:
-        type: integer
-        minimum: 0
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include in the response
+      description: OData filter expression
       schema:
         type: string
     salesOrderKey:
@@ -223,6 +204,25 @@ components:
       schema:
         type: string
         maxLength: 10
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    top:
+      name: $top
+      in: query
+      description: Maximum number of entities to return
+      schema:
+        type: integer
+        minimum: 0
+    expand:
+      name: $expand
+      in: query
+      description: Comma-separated list of navigation properties to expand
+      schema:
+        type: string
     salesOrderItemKey:
       name: SalesOrderItem
       in: path
@@ -238,6 +238,31 @@ components:
       schema:
         type: integer
         minimum: 0
+  responses:
+    NotFound:
+      description: Resource not found - the specified sales order or item does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    PreconditionFailed:
+      description: ETag mismatch - the entity has been modified since it was last read
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    BadRequest:
+      description: Invalid request - the request body or parameters are malformed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Authentication required - valid credentials must be provided
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
   schemas:
     ODataError:
       type: object
@@ -289,6 +314,164 @@ components:
                       severity:
                         type: string
           example: example_value
+    SalesOrderScheduleLine:
+      type: object
+      description: Sales order schedule line entity (A_SalesOrderScheduleLine) representing a delivery schedule for a sales order item with confirmed quantities and dates from availability check (ATP).
+      properties:
+        SalesOrder:
+          type: string
+          maxLength: 10
+          description: Sales order number
+          example: example_value
+        SalesOrderItem:
+          type: string
+          maxLength: 6
+          description: Sales order item number
+          example: example_value
+        ScheduleLine:
+          type: string
+          maxLength: 4
+          description: Schedule line number
+          example: example_value
+        RequestedDeliveryDate:
+          type: string
+          format: date
+          description: Requested delivery date
+          example: '2026-01-15'
+        ConfirmedDeliveryDate:
+          type: string
+          format: date
+          description: Confirmed delivery date from ATP check
+          example: '2026-01-15'
+        OrderQuantityUnit:
+          type: string
+          maxLength: 3
+          description: Order quantity unit
+          example: example_value
+        OrderQuantitySAPUnit:
+          type: string
+          maxLength: 3
+          description: SAP internal unit of measure
+          example: example_value
+        ScheduleLineOrderQuantity:
+          type: string
+          description: Ordered quantity on the schedule line
+          example: example_value
+        ConfdOrderQtyByMatlAvailCheck:
+          type: string
+          description: Confirmed quantity from material availability check
+          example: example_value
+        DeliveredQtyInOrderQtyUnit:
+          type: string
+          description: Delivered quantity in order unit
+          example: example_value
+        OpenConfdDelivQtyInOrdQtyUnit:
+          type: string
+          description: Open confirmed delivery quantity
+          example: example_value
+        CorrectedQtyInOrderQtyUnit:
+          type: string
+          description: Corrected quantity
+          example: example_value
+        DelivBlockReasonForSchedLine:
+          type: string
+          maxLength: 2
+          description: Delivery block for the schedule line
+          example: example_value
+    SalesOrderItemPrcgElmnt:
+      type: object
+      description: Sales order item pricing element entity (A_SalesOrderItemPrcgElmnt) representing a pricing condition at the item level.
+      properties:
+        SalesOrder:
+          type: string
+          maxLength: 10
+          description: Sales order number
+          example: example_value
+        SalesOrderItem:
+          type: string
+          maxLength: 6
+          description: Sales order item number
+          example: example_value
+        PricingProcedureStep:
+          type: string
+          maxLength: 3
+          description: Step number in the pricing procedure
+          example: example_value
+        PricingProcedureCounter:
+          type: string
+          maxLength: 3
+          description: Counter for condition within a step
+          example: example_value
+        ConditionType:
+          type: string
+          maxLength: 4
+          description: Condition type
+          example: example_value
+        ConditionRateValue:
+          type: string
+          description: Condition rate
+          example: example_value
+        ConditionCurrency:
+          type: string
+          maxLength: 5
+          description: Condition currency
+          example: example_value
+        ConditionQuantity:
+          type: string
+          description: Condition quantity
+          example: example_value
+        ConditionQuantityUnit:
+          type: string
+          maxLength: 3
+          description: Condition quantity unit
+          example: example_value
+        ConditionAmount:
+          type: string
+          description: Condition value
+          example: example_value
+        TransactionCurrency:
+          type: string
+          maxLength: 5
+          description: Document currency
+          example: example_value
+        ConditionCategory:
+          type: string
+          maxLength: 1
+          description: Condition category
+          example: example_value
+        ConditionIsForStatistics:
+          type: boolean
+          description: Statistical condition
+          example: true
+        ConditionOrigin:
+          type: string
+          maxLength: 1
+          description: Origin of the condition
+          example: example_value
+        IsGroupCondition:
+          type: string
+          maxLength: 1
+          description: Group condition indicator
+          example: example_value
+        ConditionControl:
+          type: string
+          maxLength: 1
+          description: Condition control
+          example: example_value
+        ConditionInactiveReason:
+          type: string
+          maxLength: 1
+          description: Reason for inactivity
+          example: example_value
+        ConditionClass:
+          type: string
+          maxLength: 1
+          description: Condition class
+          example: example_value
+        ConditionIsManuallyChanged:
+          type: boolean
+          description: Manually changed indicator
+          example: true
     SalesOrderItemCreate:
       type: object
       description: Request payload for creating a new sales order item
@@ -396,100 +579,6 @@ components:
           items:
             $ref: '#/components/schemas/SalesOrderItemText'
           example: []
-    SalesOrderItemPrcgElmnt:
-      type: object
-      description: Sales order item pricing element entity (A_SalesOrderItemPrcgElmnt) representing a pricing condition at the item level.
-      properties:
-        SalesOrder:
-          type: string
-          maxLength: 10
-          description: Sales order number
-          example: example_value
-        SalesOrderItem:
-          type: string
-          maxLength: 6
-          description: Sales order item number
-          example: example_value
-        PricingProcedureStep:
-          type: string
-          maxLength: 3
-          description: Step number in the pricing procedure
-          example: example_value
-        PricingProcedureCounter:
-          type: string
-          maxLength: 3
-          description: Counter for condition within a step
-          example: example_value
-        ConditionType:
-          type: string
-          maxLength: 4
-          description: Condition type
-          example: example_value
-        ConditionRateValue:
-          type: string
-          description: Condition rate
-          example: example_value
-        ConditionCurrency:
-          type: string
-          maxLength: 5
-          description: Condition currency
-          example: example_value
-        ConditionQuantity:
-          type: string
-          description: Condition quantity
-          example: example_value
-        ConditionQuantityUnit:
-          type: string
-          maxLength: 3
-          description: Condition quantity unit
-          example: example_value
-        ConditionAmount:
-          type: string
-          description: Condition value
-          example: example_value
-        TransactionCurrency:
-          type: string
-          maxLength: 5
-          description: Document currency
-          example: example_value
-        ConditionCategory:
-          type: string
-          maxLength: 1
-          description: Condition category
-          example: example_value
-        ConditionIsForStatistics:
-          type: boolean
-          description: Statistical condition
-          example: true
-        ConditionOrigin:
-          type: string
-          maxLength: 1
-          description: Origin of the condition
-          example: example_value
-        IsGroupCondition:
-          type: string
-          maxLength: 1
-          description: Group condition indicator
-          example: example_value
-        ConditionControl:
-          type: string
-          maxLength: 1
-          description: Condition control
-          example: example_value
-        ConditionInactiveReason:
-          type: string
-          maxLength: 1
-          description: Reason for inactivity
-          example: example_value
-        ConditionClass:
-          type: string
-          maxLength: 1
-          description: Condition class
-          example: example_value
-        ConditionIsManuallyChanged:
-          type: boolean
-          description: Manually changed indicator
-          example: true
     SalesOrderItemUpdate:
       type: object
       description: Request payload for updating sales order item fields
@@ -593,70 +682,6 @@ components:
           type: string
           maxLength: 10
           description: Supplier number
-          example: example_value
-    SalesOrderScheduleLine:
-      type: object
-      description: Sales order schedule line entity (A_SalesOrderScheduleLine) representing a delivery schedule for a sales order item with confirmed quantities and dates from availability check (ATP).
-      properties:
-        SalesOrder:
-          type: string
-          maxLength: 10
-          description: Sales order number
-          example: example_value
-        SalesOrderItem:
-          type: string
-          maxLength: 6
-          description: Sales order item number
-          example: example_value
-        ScheduleLine:
-          type: string
-          maxLength: 4
-          description: Schedule line number
-          example: example_value
-        RequestedDeliveryDate:
-          type: string
-          format: date
-          description: Requested delivery date
-          example: '2026-01-15'
-        ConfirmedDeliveryDate:
-          type: string
-          format: date
-          description: Confirmed delivery date from ATP check
-          example: '2026-01-15'
-        OrderQuantityUnit:
-          type: string
-          maxLength: 3
-          description: Order quantity unit
-          example: example_value
-        OrderQuantitySAPUnit:
-          type: string
-          maxLength: 3
-          description: SAP internal unit of measure
-          example: example_value
-        ScheduleLineOrderQuantity:
-          type: string
-          description: Ordered quantity on the schedule line
-          example: example_value
-        ConfdOrderQtyByMatlAvailCheck:
-          type: string
-          description: Confirmed quantity from material availability check
-          example: example_value
-        DeliveredQtyInOrderQtyUnit:
-          type: string
-          description: Delivered quantity in order unit
-          example: example_value
-        OpenConfdDelivQtyInOrdQtyUnit:
-          type: string
-          description: Open confirmed delivery quantity
-          example: example_value
-        CorrectedQtyInOrderQtyUnit:
-          type: string
-          description: Corrected quantity
-          example: example_value
-        DelivBlockReasonForSchedLine:
-          type: string
-          maxLength: 2
-          description: Delivery block for the schedule line
           example: example_value
     SalesOrderItem:
       type: object
@@ -941,31 +966,6 @@ components:
           items:
             $ref: '#/components/schemas/SalesOrderItemText'
           example: []
-  responses:
-    PreconditionFailed:
-      description: ETag mismatch - the entity has been modified since it was last read
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    NotFound:
-      description: Resource not found - the specified sales order or item does not exist
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    Unauthorized:
-      description: Authentication required - valid credentials must be provided
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    BadRequest:
-      description: Invalid request - the request body or parameters are malformed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
   securitySchemes:
     basicAuth:
       type: http
