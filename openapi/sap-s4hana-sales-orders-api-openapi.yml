@@ -183,20 +183,66 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
+  responses:
+    PreconditionFailed:
+      description: ETag mismatch - the entity has been modified since it was last read
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Forbidden:
+      description: Insufficient authorization - the user lacks required permissions
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    NotFound:
+      description: Resource not found - the specified sales order or item does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    BadRequest:
+      description: Invalid request - the request body or parameters are malformed
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Authentication required - valid credentials must be provided
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
   parameters:
-    ifMatch:
-      name: If-Match
-      in: header
-      required: true
-      description: ETag value for optimistic concurrency control
-      schema:
-        type: string
-    filter:
-      name: $filter
+    expand:
+      name: $expand
       in: query
-      description: OData filter expression
+      description: Comma-separated list of navigation properties to expand
       schema:
         type: string
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
+    inlinecount:
+      name: $inlinecount
+      in: query
+      description: Include total count of matching entities
+      schema:
+        type: string
+        enum:
+        - allpages
+        - none
+    top:
+      name: $top
+      in: query
+      description: Maximum number of entities to return
+      schema:
+        type: integer
+        minimum: 0
     orderby:
       name: $orderby
       in: query
@@ -211,32 +257,10 @@ components:
       schema:
         type: string
         maxLength: 10
-    inlinecount:
-      name: $inlinecount
+    filter:
+      name: $filter
       in: query
-      description: Include total count of matching entities
-      schema:
-        type: string
-        enum:
-        - allpages
-        - none
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    top:
-      name: $top
-      in: query
-      description: Maximum number of entities to return
-      schema:
-        type: integer
-        minimum: 0
-    expand:
-      name: $expand
-      in: query
-      description: Comma-separated list of navigation properties to expand
+      description: OData filter expression
       schema:
         type: string
     skip:
@@ -246,110 +270,48 @@ components:
       schema:
         type: integer
         minimum: 0
-  responses:
-    NotFound:
-      description: Resource not found - the specified sales order or item does not exist
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    PreconditionFailed:
-      description: ETag mismatch - the entity has been modified since it was last read
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    BadRequest:
-      description: Invalid request - the request body or parameters are malformed
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    Forbidden:
-      description: Insufficient authorization - the user lacks required permissions
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    Unauthorized:
-      description: Authentication required - valid credentials must be provided
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
+    ifMatch:
+      name: If-Match
+      in: header
+      required: true
+      description: ETag value for optimistic concurrency control
+      schema:
+        type: string
   schemas:
-    ODataError:
+    SalesOrderHeaderPartner:
       type: object
-      description: OData error response envelope
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: SAP error code
-            message:
-              type: object
-              properties:
-                lang:
-                  type: string
-                  description: Language of the error message
-                value:
-                  type: string
-                  description: Human-readable error message
-            innererror:
-              type: object
-              description: Additional error details
-              properties:
-                application:
-                  type: object
-                  properties:
-                    component_id:
-                      type: string
-                    service_namespace:
-                      type: string
-                    service_id:
-                      type: string
-                    service_version:
-                      type: string
-                transactionid:
-                  type: string
-                timestamp:
-                  type: string
-                errordetails:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      code:
-                        type: string
-                      message:
-                        type: string
-                      severity:
-                        type: string
-          example: example_value
-    SalesOrderText:
-      type: object
-      description: Sales order header text entity (A_SalesOrderText) for long texts associated with the sales order header.
+      description: Sales order header partner entity (A_SalesOrderHeaderPartner) representing a business partner in a specific partner function role at the header level.
       properties:
         SalesOrder:
           type: string
           maxLength: 10
           description: Sales order number
           example: example_value
-        Language:
+        PartnerFunction:
           type: string
           maxLength: 2
-          description: Language key (ISO 639-1)
+          description: Partner function code (e.g., AG=Sold-to, WE=Ship-to, RE=Bill-to, RG=Payer)
+          examples:
+          - AG
+        Customer:
+          type: string
+          maxLength: 10
+          description: Customer number
           example: example_value
-        LongTextID:
+        Supplier:
           type: string
-          maxLength: 4
-          description: Text ID (e.g., 0001 for header note)
-          example: '500123'
-        LongText:
+          maxLength: 10
+          description: Supplier number
+          example: example_value
+        Personnel:
           type: string
-          description: Text content
+          maxLength: 8
+          description: Personnel number
+          example: example_value
+        ContactPerson:
+          type: string
+          maxLength: 10
+          description: Contact person number
           example: example_value
     SalesOrderHeaderPrcgElmnt:
       type: object
@@ -491,70 +453,6 @@ components:
           type: boolean
           description: Indicator that the condition was manually changed
           example: true
-    SalesOrderScheduleLine:
-      type: object
-      description: Sales order schedule line entity (A_SalesOrderScheduleLine) representing a delivery schedule for a sales order item with confirmed quantities and dates from availability check (ATP).
-      properties:
-        SalesOrder:
-          type: string
-          maxLength: 10
-          description: Sales order number
-          example: example_value
-        SalesOrderItem:
-          type: string
-          maxLength: 6
-          description: Sales order item number
-          example: example_value
-        ScheduleLine:
-          type: string
-          maxLength: 4
-          description: Schedule line number
-          example: example_value
-        RequestedDeliveryDate:
-          type: string
-          format: date
-          description: Requested delivery date
-          example: '2026-01-15'
-        ConfirmedDeliveryDate:
-          type: string
-          format: date
-          description: Confirmed delivery date from ATP check
-          example: '2026-01-15'
-        OrderQuantityUnit:
-          type: string
-          maxLength: 3
-          description: Order quantity unit
-          example: example_value
-        OrderQuantitySAPUnit:
-          type: string
-          maxLength: 3
-          description: SAP internal unit of measure
-          example: example_value
-        ScheduleLineOrderQuantity:
-          type: string
-          description: Ordered quantity on the schedule line
-          example: example_value
-        ConfdOrderQtyByMatlAvailCheck:
-          type: string
-          description: Confirmed quantity from material availability check
-          example: example_value
-        DeliveredQtyInOrderQtyUnit:
-          type: string
-          description: Delivered quantity in order unit
-          example: example_value
-        OpenConfdDelivQtyInOrdQtyUnit:
-          type: string
-          description: Open confirmed delivery quantity
-          example: example_value
-        CorrectedQtyInOrderQtyUnit:
-          type: string
-          description: Corrected quantity
-          example: example_value
-        DelivBlockReasonForSchedLine:
-          type: string
-          maxLength: 2
-          description: Delivery block for the schedule line
-          example: example_value
     SalesOrder:
       type: object
       description: Sales order header entity (A_SalesOrder) representing a complete sales document in SAP S/4HANA. Contains organizational data, customer references, pricing totals, and processing status information.
@@ -865,9 +763,168 @@ components:
           items:
             $ref: '#/components/schemas/SalesOrderText'
           example: []
-    SalesOrderItemPrcgElmnt:
+    SalesOrderCreate:
       type: object
-      description: Sales order item pricing element entity (A_SalesOrderItemPrcgElmnt) representing a pricing condition at the item level.
+      description: Request payload for creating a new sales order with optional deep insert
+      required:
+      - SalesOrderType
+      - SalesOrganization
+      - DistributionChannel
+      - OrganizationDivision
+      properties:
+        SalesOrderType:
+          type: string
+          maxLength: 4
+          description: Sales document type
+          example: example_value
+        SalesOrganization:
+          type: string
+          maxLength: 4
+          description: Sales organization
+          example: example_value
+        DistributionChannel:
+          type: string
+          maxLength: 2
+          description: Distribution channel
+          example: example_value
+        OrganizationDivision:
+          type: string
+          maxLength: 2
+          description: Organization division
+          example: example_value
+        SoldToParty:
+          type: string
+          maxLength: 10
+          description: Sold-to party customer number
+          example: example_value
+        PurchaseOrderByCustomer:
+          type: string
+          maxLength: 35
+          description: Customer purchase order number
+          example: example_value
+        SalesOrderDate:
+          type: string
+          format: date
+          description: Document date
+          example: '2026-01-15'
+        RequestedDeliveryDate:
+          type: string
+          format: date
+          description: Requested delivery date
+          example: '2026-01-15'
+        CustomerPaymentTerms:
+          type: string
+          maxLength: 4
+          description: Payment terms key
+          example: example_value
+        TransactionCurrency:
+          type: string
+          maxLength: 5
+          description: Currency key (ISO 4217)
+          example: example_value
+        PricingDate:
+          type: string
+          format: date
+          description: Pricing date
+          example: '2026-01-15'
+        IncotermsClassification:
+          type: string
+          maxLength: 3
+          description: Incoterms classification
+          example: example_value
+        IncotermsTransferLocation:
+          type: string
+          maxLength: 28
+          description: Incoterms location
+          example: example_value
+        ShippingCondition:
+          type: string
+          maxLength: 2
+          description: Shipping condition
+          example: example_value
+        CompleteDeliveryIsDefined:
+          type: boolean
+          description: Complete delivery indicator
+          example: true
+        SDDocumentReason:
+          type: string
+          maxLength: 3
+          description: Order reason
+          example: example_value
+        to_Item:
+          type: array
+          description: Items to create (deep insert)
+          items:
+            $ref: '#/components/schemas/SalesOrderItemCreate'
+          example: []
+        to_Partner:
+          type: array
+          description: Partners to create (deep insert)
+          items:
+            $ref: '#/components/schemas/SalesOrderHeaderPartner'
+          example: []
+        to_PricingElement:
+          type: array
+          description: Pricing elements to create (deep insert)
+          items:
+            $ref: '#/components/schemas/SalesOrderHeaderPrcgElmnt'
+          example: []
+        to_Text:
+          type: array
+          description: Text records to create (deep insert)
+          items:
+            $ref: '#/components/schemas/SalesOrderText'
+          example: []
+    SalesOrderUpdate:
+      type: object
+      description: Request payload for updating sales order header fields
+      properties:
+        PurchaseOrderByCustomer:
+          type: string
+          maxLength: 35
+          example: example_value
+        RequestedDeliveryDate:
+          type: string
+          format: date
+          example: '2026-01-15'
+        CustomerPaymentTerms:
+          type: string
+          maxLength: 4
+          example: example_value
+        ShippingCondition:
+          type: string
+          maxLength: 2
+          example: example_value
+        CompleteDeliveryIsDefined:
+          type: boolean
+          example: true
+        HeaderBillingBlockReason:
+          type: string
+          maxLength: 2
+          example: example_value
+        DeliveryBlockReason:
+          type: string
+          maxLength: 2
+          example: example_value
+        IncotermsClassification:
+          type: string
+          maxLength: 3
+          example: example_value
+        IncotermsTransferLocation:
+          type: string
+          maxLength: 28
+          example: example_value
+        PricingDate:
+          type: string
+          format: date
+          example: '2026-01-15'
+        SDDocumentReason:
+          type: string
+          maxLength: 3
+          example: example_value
+    SalesOrderScheduleLine:
+      type: object
+      description: Sales order schedule line entity (A_SalesOrderScheduleLine) representing a delivery schedule for a sales order item with confirmed quantities and dates from availability check (ATP).
       properties:
         SalesOrder:
           type: string
@@ -879,86 +936,56 @@ components:
           maxLength: 6
           description: Sales order item number
           example: example_value
-        PricingProcedureStep:
-          type: string
-          maxLength: 3
-          description: Step number in the pricing procedure
-          example: example_value
-        PricingProcedureCounter:
-          type: string
-          maxLength: 3
-          description: Counter for condition within a step
-          example: example_value
-        ConditionType:
+        ScheduleLine:
           type: string
           maxLength: 4
-          description: Condition type
+          description: Schedule line number
           example: example_value
-        ConditionRateValue:
+        RequestedDeliveryDate:
           type: string
-          description: Condition rate
-          example: example_value
-        ConditionCurrency:
+          format: date
+          description: Requested delivery date
+          example: '2026-01-15'
+        ConfirmedDeliveryDate:
           type: string
-          maxLength: 5
-          description: Condition currency
-          example: example_value
-        ConditionQuantity:
-          type: string
-          description: Condition quantity
-          example: example_value
-        ConditionQuantityUnit:
+          format: date
+          description: Confirmed delivery date from ATP check
+          example: '2026-01-15'
+        OrderQuantityUnit:
           type: string
           maxLength: 3
-          description: Condition quantity unit
+          description: Order quantity unit
           example: example_value
-        ConditionAmount:
+        OrderQuantitySAPUnit:
           type: string
-          description: Condition value
+          maxLength: 3
+          description: SAP internal unit of measure
           example: example_value
-        TransactionCurrency:
+        ScheduleLineOrderQuantity:
           type: string
-          maxLength: 5
-          description: Document currency
+          description: Ordered quantity on the schedule line
           example: example_value
-        ConditionCategory:
+        ConfdOrderQtyByMatlAvailCheck:
           type: string
-          maxLength: 1
-          description: Condition category
+          description: Confirmed quantity from material availability check
           example: example_value
-        ConditionIsForStatistics:
-          type: boolean
-          description: Statistical condition
-          example: true
-        ConditionOrigin:
+        DeliveredQtyInOrderQtyUnit:
           type: string
-          maxLength: 1
-          description: Origin of the condition
+          description: Delivered quantity in order unit
           example: example_value
-        IsGroupCondition:
+        OpenConfdDelivQtyInOrdQtyUnit:
           type: string
-          maxLength: 1
-          description: Group condition indicator
+          description: Open confirmed delivery quantity
           example: example_value
-        ConditionControl:
+        CorrectedQtyInOrderQtyUnit:
           type: string
-          maxLength: 1
-          description: Condition control
+          description: Corrected quantity
           example: example_value
-        ConditionInactiveReason:
+        DelivBlockReasonForSchedLine:
           type: string
-          maxLength: 1
-          description: Reason for inactivity
+          maxLength: 2
+          description: Delivery block for the schedule line
           example: example_value
-        ConditionClass:
-          type: string
-          maxLength: 1
-          description: Condition class
-          example: example_value
-        ConditionIsManuallyChanged:
-          type: boolean
-          description: Manually changed indicator
-          example: true
     SalesOrderItemCreate:
       type: object
       description: Request payload for creating a new sales order item
@@ -1066,63 +1093,6 @@ components:
           items:
             $ref: '#/components/schemas/SalesOrderItemText'
           example: []
-    SalesOrderItemText:
-      type: object
-      description: Sales order item text entity (A_SalesOrderItemText) for long texts associated with a sales order item.
-      properties:
-        SalesOrder:
-          type: string
-          maxLength: 10
-          description: Sales order number
-          example: example_value
-        SalesOrderItem:
-          type: string
-          maxLength: 6
-          description: Sales order item number
-          example: example_value
-        Language:
-          type: string
-          maxLength: 2
-          description: Language key (ISO 639-1)
-          example: example_value
-        LongTextID:
-          type: string
-          maxLength: 4
-          description: Text ID
-          example: '500123'
-        LongText:
-          type: string
-          description: Text content
-          example: example_value
-    SalesOrderItemPartner:
-      type: object
-      description: Sales order item partner entity (A_SalesOrderItemPartner) representing a business partner in a specific function role at the item level.
-      properties:
-        SalesOrder:
-          type: string
-          maxLength: 10
-          description: Sales order number
-          example: example_value
-        SalesOrderItem:
-          type: string
-          maxLength: 6
-          description: Sales order item number
-          example: example_value
-        PartnerFunction:
-          type: string
-          maxLength: 2
-          description: Partner function code
-          example: example_value
-        Customer:
-          type: string
-          maxLength: 10
-          description: Customer number
-          example: example_value
-        Supplier:
-          type: string
-          maxLength: 10
-          description: Supplier number
-          example: example_value
     SalesOrderItem:
       type: object
       description: Sales order item entity (A_SalesOrderItem) representing a line item in a sales order. Contains material, quantity, pricing, plant assignment, and item-level processing status.
@@ -1406,133 +1376,126 @@ components:
           items:
             $ref: '#/components/schemas/SalesOrderItemText'
           example: []
-    SalesOrderCreate:
+    ODataError:
       type: object
-      description: Request payload for creating a new sales order with optional deep insert
-      required:
-      - SalesOrderType
-      - SalesOrganization
-      - DistributionChannel
-      - OrganizationDivision
+      description: OData error response envelope
       properties:
-        SalesOrderType:
-          type: string
-          maxLength: 4
-          description: Sales document type
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: SAP error code
+            message:
+              type: object
+              properties:
+                lang:
+                  type: string
+                  description: Language of the error message
+                value:
+                  type: string
+                  description: Human-readable error message
+            innererror:
+              type: object
+              description: Additional error details
+              properties:
+                application:
+                  type: object
+                  properties:
+                    component_id:
+                      type: string
+                    service_namespace:
+                      type: string
+                    service_id:
+                      type: string
+                    service_version:
+                      type: string
+                transactionid:
+                  type: string
+                timestamp:
+                  type: string
+                errordetails:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      message:
+                        type: string
+                      severity:
+                        type: string
           example: example_value
-        SalesOrganization:
-          type: string
-          maxLength: 4
-          description: Sales organization
-          example: example_value
-        DistributionChannel:
-          type: string
-          maxLength: 2
-          description: Distribution channel
-          example: example_value
-        OrganizationDivision:
-          type: string
-          maxLength: 2
-          description: Organization division
-          example: example_value
-        SoldToParty:
-          type: string
-          maxLength: 10
-          description: Sold-to party customer number
-          example: example_value
-        PurchaseOrderByCustomer:
-          type: string
-          maxLength: 35
-          description: Customer purchase order number
-          example: example_value
-        SalesOrderDate:
-          type: string
-          format: date
-          description: Document date
-          example: '2026-01-15'
-        RequestedDeliveryDate:
-          type: string
-          format: date
-          description: Requested delivery date
-          example: '2026-01-15'
-        CustomerPaymentTerms:
-          type: string
-          maxLength: 4
-          description: Payment terms key
-          example: example_value
-        TransactionCurrency:
-          type: string
-          maxLength: 5
-          description: Currency key (ISO 4217)
-          example: example_value
-        PricingDate:
-          type: string
-          format: date
-          description: Pricing date
-          example: '2026-01-15'
-        IncotermsClassification:
-          type: string
-          maxLength: 3
-          description: Incoterms classification
-          example: example_value
-        IncotermsTransferLocation:
-          type: string
-          maxLength: 28
-          description: Incoterms location
-          example: example_value
-        ShippingCondition:
-          type: string
-          maxLength: 2
-          description: Shipping condition
-          example: example_value
-        CompleteDeliveryIsDefined:
-          type: boolean
-          description: Complete delivery indicator
-          example: true
-        SDDocumentReason:
-          type: string
-          maxLength: 3
-          description: Order reason
-          example: example_value
-        to_Item:
-          type: array
-          description: Items to create (deep insert)
-          items:
-            $ref: '#/components/schemas/SalesOrderItemCreate'
-          example: []
-        to_Partner:
-          type: array
-          description: Partners to create (deep insert)
-          items:
-            $ref: '#/components/schemas/SalesOrderHeaderPartner'
-          example: []
-        to_PricingElement:
-          type: array
-          description: Pricing elements to create (deep insert)
-          items:
-            $ref: '#/components/schemas/SalesOrderHeaderPrcgElmnt'
-          example: []
-        to_Text:
-          type: array
-          description: Text records to create (deep insert)
-          items:
-            $ref: '#/components/schemas/SalesOrderText'
-          example: []
-    SalesOrderHeaderPartner:
+    SalesOrderText:
       type: object
-      description: Sales order header partner entity (A_SalesOrderHeaderPartner) representing a business partner in a specific partner function role at the header level.
+      description: Sales order header text entity (A_SalesOrderText) for long texts associated with the sales order header.
       properties:
         SalesOrder:
           type: string
           maxLength: 10
           description: Sales order number
           example: example_value
+        Language:
+          type: string
+          maxLength: 2
+          description: Language key (ISO 639-1)
+          example: example_value
+        LongTextID:
+          type: string
+          maxLength: 4
+          description: Text ID (e.g., 0001 for header note)
+          example: '500123'
+        LongText:
+          type: string
+          description: Text content
+          example: example_value
+    SalesOrderItemText:
+      type: object
+      description: Sales order item text entity (A_SalesOrderItemText) for long texts associated with a sales order item.
+      properties:
+        SalesOrder:
+          type: string
+          maxLength: 10
+          description: Sales order number
+          example: example_value
+        SalesOrderItem:
+          type: string
+          maxLength: 6
+          description: Sales order item number
+          example: example_value
+        Language:
+          type: string
+          maxLength: 2
+          description: Language key (ISO 639-1)
+          example: example_value
+        LongTextID:
+          type: string
+          maxLength: 4
+          description: Text ID
+          example: '500123'
+        LongText:
+          type: string
+          description: Text content
+          example: example_value
+    SalesOrderItemPartner:
+      type: object
+      description: Sales order item partner entity (A_SalesOrderItemPartner) representing a business partner in a specific function role at the item level.
+      properties:
+        SalesOrder:
+          type: string
+          maxLength: 10
+          description: Sales order number
+          example: example_value
+        SalesOrderItem:
+          type: string
+          maxLength: 6
+          description: Sales order item number
+          example: example_value
         PartnerFunction:
           type: string
           maxLength: 2
-          description: Partner function code (e.g., AG=Sold-to, WE=Ship-to, RE=Bill-to, RG=Payer)
-          examples:
-          - AG
+          description: Partner function code
+          example: example_value
         Customer:
           type: string
           maxLength: 10
@@ -1543,63 +1506,100 @@ components:
           maxLength: 10
           description: Supplier number
           example: example_value
-        Personnel:
-          type: string
-          maxLength: 8
-          description: Personnel number
-          example: example_value
-        ContactPerson:
+    SalesOrderItemPrcgElmnt:
+      type: object
+      description: Sales order item pricing element entity (A_SalesOrderItemPrcgElmnt) representing a pricing condition at the item level.
+      properties:
+        SalesOrder:
           type: string
           maxLength: 10
-          description: Contact person number
+          description: Sales order number
           example: example_value
-    SalesOrderUpdate:
-      type: object
-      description: Request payload for updating sales order header fields
-      properties:
-        PurchaseOrderByCustomer:
+        SalesOrderItem:
           type: string
-          maxLength: 35
+          maxLength: 6
+          description: Sales order item number
           example: example_value
-        RequestedDeliveryDate:
+        PricingProcedureStep:
           type: string
-          format: date
-          example: '2026-01-15'
-        CustomerPaymentTerms:
+          maxLength: 3
+          description: Step number in the pricing procedure
+          example: example_value
+        PricingProcedureCounter:
+          type: string
+          maxLength: 3
+          description: Counter for condition within a step
+          example: example_value
+        ConditionType:
           type: string
           maxLength: 4
+          description: Condition type
           example: example_value
-        ShippingCondition:
+        ConditionRateValue:
           type: string
-          maxLength: 2
+          description: Condition rate
           example: example_value
-        CompleteDeliveryIsDefined:
+        ConditionCurrency:
+          type: string
+          maxLength: 5
+          description: Condition currency
+          example: example_value
+        ConditionQuantity:
+          type: string
+          description: Condition quantity
+          example: example_value
+        ConditionQuantityUnit:
+          type: string
+          maxLength: 3
+          description: Condition quantity unit
+          example: example_value
+        ConditionAmount:
+          type: string
+          description: Condition value
+          example: example_value
+        TransactionCurrency:
+          type: string
+          maxLength: 5
+          description: Document currency
+          example: example_value
+        ConditionCategory:
+          type: string
+          maxLength: 1
+          description: Condition category
+          example: example_value
+        ConditionIsForStatistics:
           type: boolean
+          description: Statistical condition
           example: true
-        HeaderBillingBlockReason:
+        ConditionOrigin:
           type: string
-          maxLength: 2
+          maxLength: 1
+          description: Origin of the condition
           example: example_value
-        DeliveryBlockReason:
+        IsGroupCondition:
           type: string
-          maxLength: 2
+          maxLength: 1
+          description: Group condition indicator
           example: example_value
-        IncotermsClassification:
+        ConditionControl:
           type: string
-          maxLength: 3
+          maxLength: 1
+          description: Condition control
           example: example_value
-        IncotermsTransferLocation:
+        ConditionInactiveReason:
           type: string
-          maxLength: 28
+          maxLength: 1
+          description: Reason for inactivity
           example: example_value
-        PricingDate:
+        ConditionClass:
           type: string
-          format: date
-          example: '2026-01-15'
-        SDDocumentReason:
-          type: string
-          maxLength: 3
+          maxLength: 1
+          description: Condition class
           example: example_value
+        ConditionIsManuallyChanged:
+          type: boolean
+          description: Manually changed indicator
+          example: true
   securitySchemes:
     basicAuth:
       type: http

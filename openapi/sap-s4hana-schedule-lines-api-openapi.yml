@@ -72,14 +72,6 @@ components:
       description: Comma-separated list of properties to include in the response
       schema:
         type: string
-    salesOrderItemKey:
-      name: SalesOrderItem
-      in: path
-      required: true
-      description: Sales order item number (6-character string, e.g., '000010')
-      schema:
-        type: string
-        maxLength: 6
     salesOrderKey:
       name: SalesOrder
       in: path
@@ -88,19 +80,14 @@ components:
       schema:
         type: string
         maxLength: 10
-  responses:
-    NotFound:
-      description: Resource not found - the specified sales order or item does not exist
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    Unauthorized:
-      description: Authentication required - valid credentials must be provided
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
+    salesOrderItemKey:
+      name: SalesOrderItem
+      in: path
+      required: true
+      description: Sales order item number (6-character string, e.g., '000010')
+      schema:
+        type: string
+        maxLength: 6
   schemas:
     SalesOrderScheduleLine:
       type: object
@@ -216,6 +203,19 @@ components:
                       severity:
                         type: string
           example: example_value
+  responses:
+    NotFound:
+      description: Resource not found - the specified sales order or item does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Authentication required - valid credentials must be provided
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
   securitySchemes:
     basicAuth:
       type: http
