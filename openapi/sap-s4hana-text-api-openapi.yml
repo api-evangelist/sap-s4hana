@@ -64,19 +64,21 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  responses:
-    NotFound:
-      description: Resource not found - the specified sales order or item does not exist
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    Unauthorized:
-      description: Authentication required - valid credentials must be provided
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
+  parameters:
+    salesOrderKey:
+      name: SalesOrder
+      in: path
+      required: true
+      description: Sales order number (10-character string, e.g., '0000000001')
+      schema:
+        type: string
+        maxLength: 10
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
   schemas:
     ODataError:
       type: object
@@ -151,21 +153,19 @@ components:
           type: string
           description: Text content
           example: example_value
-  parameters:
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    salesOrderKey:
-      name: SalesOrder
-      in: path
-      required: true
-      description: Sales order number (10-character string, e.g., '0000000001')
-      schema:
-        type: string
-        maxLength: 10
+  responses:
+    NotFound:
+      description: Resource not found - the specified sales order or item does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Authentication required - valid credentials must be provided
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
   securitySchemes:
     basicAuth:
       type: http

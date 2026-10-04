@@ -65,70 +65,30 @@ paths:
         delay: 0
         dispatcher: FALLBACK
 components:
-  responses:
-    NotFound:
-      description: Resource not found - the specified sales order or item does not exist
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
-    Unauthorized:
-      description: Authentication required - valid credentials must be provided
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/ODataError'
+  parameters:
+    salesOrderKey:
+      name: SalesOrder
+      in: path
+      required: true
+      description: Sales order number (10-character string, e.g., '0000000001')
+      schema:
+        type: string
+        maxLength: 10
+    salesOrderItemKey:
+      name: SalesOrderItem
+      in: path
+      required: true
+      description: Sales order item number (6-character string, e.g., '000010')
+      schema:
+        type: string
+        maxLength: 6
+    select:
+      name: $select
+      in: query
+      description: Comma-separated list of properties to include in the response
+      schema:
+        type: string
   schemas:
-    ODataError:
-      type: object
-      description: OData error response envelope
-      properties:
-        error:
-          type: object
-          properties:
-            code:
-              type: string
-              description: SAP error code
-            message:
-              type: object
-              properties:
-                lang:
-                  type: string
-                  description: Language of the error message
-                value:
-                  type: string
-                  description: Human-readable error message
-            innererror:
-              type: object
-              description: Additional error details
-              properties:
-                application:
-                  type: object
-                  properties:
-                    component_id:
-                      type: string
-                    service_namespace:
-                      type: string
-                    service_id:
-                      type: string
-                    service_version:
-                      type: string
-                transactionid:
-                  type: string
-                timestamp:
-                  type: string
-                errordetails:
-                  type: array
-                  items:
-                    type: object
-                    properties:
-                      code:
-                        type: string
-                      message:
-                        type: string
-                      severity:
-                        type: string
-          example: example_value
     SalesOrderScheduleLine:
       type: object
       description: Sales order schedule line entity (A_SalesOrderScheduleLine) representing a delivery schedule for a sales order item with confirmed quantities and dates from availability check (ATP).
@@ -193,29 +153,69 @@ components:
           maxLength: 2
           description: Delivery block for the schedule line
           example: example_value
-  parameters:
-    salesOrderItemKey:
-      name: SalesOrderItem
-      in: path
-      required: true
-      description: Sales order item number (6-character string, e.g., '000010')
-      schema:
-        type: string
-        maxLength: 6
-    select:
-      name: $select
-      in: query
-      description: Comma-separated list of properties to include in the response
-      schema:
-        type: string
-    salesOrderKey:
-      name: SalesOrder
-      in: path
-      required: true
-      description: Sales order number (10-character string, e.g., '0000000001')
-      schema:
-        type: string
-        maxLength: 10
+    ODataError:
+      type: object
+      description: OData error response envelope
+      properties:
+        error:
+          type: object
+          properties:
+            code:
+              type: string
+              description: SAP error code
+            message:
+              type: object
+              properties:
+                lang:
+                  type: string
+                  description: Language of the error message
+                value:
+                  type: string
+                  description: Human-readable error message
+            innererror:
+              type: object
+              description: Additional error details
+              properties:
+                application:
+                  type: object
+                  properties:
+                    component_id:
+                      type: string
+                    service_namespace:
+                      type: string
+                    service_id:
+                      type: string
+                    service_version:
+                      type: string
+                transactionid:
+                  type: string
+                timestamp:
+                  type: string
+                errordetails:
+                  type: array
+                  items:
+                    type: object
+                    properties:
+                      code:
+                        type: string
+                      message:
+                        type: string
+                      severity:
+                        type: string
+          example: example_value
+  responses:
+    NotFound:
+      description: Resource not found - the specified sales order or item does not exist
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
+    Unauthorized:
+      description: Authentication required - valid credentials must be provided
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ODataError'
   securitySchemes:
     basicAuth:
       type: http
