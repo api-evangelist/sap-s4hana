@@ -944,6 +944,8 @@ apis:
   - type: JSONSchema
     url: https://api.sap.com/api/API_MANAGE_WORKFORCE_TIMESHEET/schema
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/sap-s4hana/overview
 - type: Plans
   url: plans/sap-s4hana-plans-pricing.yml
 - type: RateLimits
