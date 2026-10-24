@@ -1,223 +1,221 @@
 {
+  "info": {
+    "_postman_id": "adf833ad-f11a-4ea6-9caf-e8c5d1400eab",
+    "name": "SAP S/4HANA Sales Order Partners API",
+    "description": "The SAP S/4HANA Sales Order API (API_SALES_ORDER_SRV) enables you to create, read, update, and delete sales orders in SAP S/4HANA.\n\nContact Support:\n Name: SAP API Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:24:53.000Z",
+    "updatedAt": "2026-10-21T20:24:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-adf833ad-f11a-4ea6-9caf-e8c5d1400eab"
+  },
   "item": [
     {
-      "id": "d80c9b7e-b262-4053-9fa8-e3d17a3d2253",
-      "name": "Partners",
-      "description": {
-        "content": "Operations on header and item partner functions",
-        "type": "text/plain"
-      },
+      "name": "A_SalesOrder('{SalesOrder}')",
       "item": [
         {
-          "id": "9ca9679b-880c-4ebe-9cbe-c5e179902233",
-          "name": "Sap S/4hana Retrieve Partners for a Sales Order",
-          "request": {
-            "name": "Sap S/4hana Retrieve Partners for a Sales Order",
-            "description": {
-              "content": "Returns the header-level partner functions for a sales order, such as sold-to party, ship-to party, bill-to party, and payer.",
-              "type": "text/plain"
-            },
-            "url": {
-              "path": [
-                "A_SalesOrder('{{SalesOrder}}')",
-                "to_Partner"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "$select",
-                  "value": "<string>",
-                  "description": "Comma-separated list of properties to include in the response"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "to_Partner",
+          "item": [
             {
-              "id": "517fbceb-c0e2-4cca-a7a8-d475aa5a8b4d",
-              "name": "Sales order partners retrieved successfully",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "A_SalesOrder('{{SalesOrder}}')",
-                    "to_Partner"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "$select",
-                      "value": "<string>"
-                    }
-                  ],
-                  "variable": []
-                },
+              "name": "Sap S/4hana Retrieve Partners for a Sales Order",
+              "id": "0ad89fdd-8949-4ce0-9b9d-7baf2c9579b7",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "method": "GET",
                 "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
                   {
                     "key": "Accept",
                     "value": "application/json"
                   }
                 ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"SalesOrder\": \"string\",\n        \"PartnerFunction\": \"AG\",\n        \"Customer\": \"string\",\n        \"Supplier\": \"string\",\n        \"Personnel\": \"string\",\n        \"ContactPerson\": \"string\"\n      },\n      {\n        \"SalesOrder\": \"string\",\n        \"PartnerFunction\": \"AG\",\n        \"Customer\": \"string\",\n        \"Supplier\": \"string\",\n        \"Personnel\": \"string\",\n        \"ContactPerson\": \"string\"\n      }\n    ]\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "ace0394c-bae1-4c6b-ad81-b87a1ffb33f8",
-              "name": "Authentication required - valid credentials must be provided",
-              "originalRequest": {
                 "url": {
+                  "raw": "{{baseUrl}}/A_SalesOrder('{{SalesOrder}}')/to_Partner?$select=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
                   "path": [
                     "A_SalesOrder('{{SalesOrder}}')",
                     "to_Partner"
                   ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
                   "query": [
                     {
+                      "description": "Comma-separated list of properties to include in the response",
                       "key": "$select",
                       "value": "<string>"
                     }
-                  ],
-                  "variable": []
+                  ]
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
+                "description": "Returns the header-level partner functions for a sales order, such as sold-to party, ship-to party, bill-to party, and payer."
               },
-              "status": "Unauthorized",
-              "code": 401,
-              "header": [
+              "response": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            },
-            {
-              "id": "aa2365cd-4e56-4b37-9124-49a3089ed12b",
-              "name": "Resource not found - the specified sales order or item does not exist",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "A_SalesOrder('{{SalesOrder}}')",
-                    "to_Partner"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "id": "be639f4c-8c35-4e0e-a18b-4ba4c14d6994",
+                  "name": "Sales order partners retrieved successfully",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/A_SalesOrder('{{SalesOrder}}')/to_Partner?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "A_SalesOrder('{{SalesOrder}}')",
+                        "to_Partner"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "OK",
+                  "code": 200,
+                  "_postman_previewlanguage": "json",
+                  "header": [
                     {
-                      "key": "$select",
-                      "value": "<string>"
+                      "key": "Content-Type",
+                      "value": "application/json"
                     }
                   ],
-                  "variable": []
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"d\": {\n    \"results\": [\n      {\n        \"SalesOrder\": \"<string>\",\n        \"PartnerFunction\": \"<string>\",\n        \"Customer\": \"<string>\",\n        \"Supplier\": \"<string>\",\n        \"Personnel\": \"<string>\",\n        \"ContactPerson\": \"<string>\"\n      },\n      {\n        \"SalesOrder\": \"<string>\",\n        \"PartnerFunction\": \"<string>\",\n        \"Customer\": \"<string>\",\n        \"Supplier\": \"<string>\",\n        \"Personnel\": \"<string>\",\n        \"ContactPerson\": \"<string>\"\n      }\n    ]\n  }\n}",
+                  "createdAt": "2026-10-21T20:24:53.000Z",
+                  "updatedAt": "2026-10-21T20:24:53.000Z",
+                  "uid": "35240-be639f4c-8c35-4e0e-a18b-4ba4c14d6994"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: basic",
-                      "type": "text/plain"
-                    },
-                    "key": "Authorization",
-                    "value": "Basic <credentials>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "Not Found",
-              "code": 404,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "459ef34f-be0e-4663-ad8d-9695b53ce9df",
+                  "name": "Authentication required - valid credentials must be provided",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/A_SalesOrder('{{SalesOrder}}')/to_Partner?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "A_SalesOrder('{{SalesOrder}}')",
+                        "to_Partner"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Unauthorized",
+                  "code": 401,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": {\n      \"lang\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"<string>\",\n        \"service_namespace\": \"<string>\",\n        \"service_id\": \"<string>\",\n        \"service_version\": \"<string>\"\n      },\n      \"transactionid\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"errordetails\": [\n        {\n          \"code\": \"<string>\",\n          \"message\": \"<string>\",\n          \"severity\": \"<string>\"\n        },\n        {\n          \"code\": \"<string>\",\n          \"message\": \"<string>\",\n          \"severity\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+                  "createdAt": "2026-10-21T20:24:53.000Z",
+                  "updatedAt": "2026-10-21T20:24:53.000Z",
+                  "uid": "35240-459ef34f-be0e-4663-ad8d-9695b53ce9df"
+                },
+                {
+                  "id": "8601aad9-919b-40e7-9c7c-4eb114018fb0",
+                  "name": "Resource not found - the specified sales order or item does not exist",
+                  "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      },
+                      {
+                        "description": "Added as a part of security scheme: basic",
+                        "key": "Authorization",
+                        "value": "Basic <credentials>"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/A_SalesOrder('{{SalesOrder}}')/to_Partner?$select=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "A_SalesOrder('{{SalesOrder}}')",
+                        "to_Partner"
+                      ],
+                      "query": [
+                        {
+                          "description": "Comma-separated list of properties to include in the response",
+                          "key": "$select",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "status": "Not Found",
+                  "code": 404,
+                  "_postman_previewlanguage": "json",
+                  "header": [
+                    {
+                      "key": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "cookie": [],
+                  "responseTime": null,
+                  "body": "{\n  \"error\": {\n    \"code\": \"<string>\",\n    \"message\": {\n      \"lang\": \"<string>\",\n      \"value\": \"<string>\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"<string>\",\n        \"service_namespace\": \"<string>\",\n        \"service_id\": \"<string>\",\n        \"service_version\": \"<string>\"\n      },\n      \"transactionid\": \"<string>\",\n      \"timestamp\": \"<string>\",\n      \"errordetails\": [\n        {\n          \"code\": \"<string>\",\n          \"message\": \"<string>\",\n          \"severity\": \"<string>\"\n        },\n        {\n          \"code\": \"<string>\",\n          \"message\": \"<string>\",\n          \"severity\": \"<string>\"\n        }\n      ]\n    }\n  }\n}",
+                  "createdAt": "2026-10-21T20:24:53.000Z",
+                  "updatedAt": "2026-10-21T20:24:53.000Z",
+                  "uid": "35240-8601aad9-919b-40e7-9c7c-4eb114018fb0"
                 }
               ],
-              "body": "{\n  \"error\": {\n    \"code\": \"string\",\n    \"message\": {\n      \"lang\": \"string\",\n      \"value\": \"string\"\n    },\n    \"innererror\": {\n      \"application\": {\n        \"component_id\": \"string\",\n        \"service_namespace\": \"string\",\n        \"service_id\": \"string\",\n        \"service_version\": \"string\"\n      },\n      \"transactionid\": \"string\",\n      \"timestamp\": \"string\",\n      \"errordetails\": [\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        },\n        {\n          \"code\": \"string\",\n          \"message\": \"string\",\n          \"severity\": \"string\"\n        }\n      ]\n    }\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "createdAt": "2026-10-21T20:24:53.000Z",
+              "updatedAt": "2026-10-21T20:24:53.000Z",
+              "uid": "35240-0ad89fdd-8949-4ce0-9b9d-7baf2c9579b7"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "6147dd1c-af6a-45b8-9361-bc8c8ff9cd48",
+          "createdAt": "2026-10-21T20:24:53.000Z",
+          "updatedAt": "2026-10-21T20:24:53.000Z",
+          "uid": "35240-6147dd1c-af6a-45b8-9361-bc8c8ff9cd48"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV",
-      "key": "baseUrl"
-    },
-    {
-      "disabled": false,
-      "description": {
-        "content": "(Required) Sales order number (10-character string, e.g., '0000000001')",
-        "type": "text/plain"
-      },
-      "type": "any",
-      "value": "<string>",
-      "key": "SalesOrder"
+      "id": "5da9ddd6-a482-4218-9cdd-344c37c28f59",
+      "createdAt": "2026-10-21T20:24:53.000Z",
+      "updatedAt": "2026-10-21T20:24:53.000Z",
+      "uid": "35240-5da9ddd6-a482-4218-9cdd-344c37c28f59"
     }
   ],
   "auth": {
@@ -225,21 +223,24 @@
     "basic": [
       {
         "key": "username",
-        "value": "{{basicAuthUsername}}"
+        "value": "{{basicAuthUsername}}",
+        "type": "string"
       },
       {
         "key": "password",
-        "value": "{{basicAuthPassword}}"
+        "value": "{{basicAuthPassword}}",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "707f5952-9c5a-4ed2-90d4-ab6f76afe734",
-    "name": "SAP S/4HANA Sales Order Partners API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The SAP S/4HANA Sales Order API (API_SALES_ORDER_SRV) enables you to create, read, update, and delete sales orders in SAP S/4HANA. This OData V2-based service provides access to complete sales order documents including header data, line items, pricing elements, schedule lines, partners, and text records. It supports deep insert operations for creating a sales order header with its dependent entities in a single request. The API covers the full sales order lifecycle from creation through to completion and rejection.\n\nContact Support:\n Name: SAP API Support",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_SALES_ORDER_SRV"
+    },
+    {
+      "key": "SalesOrder",
+      "value": "<string>"
     }
-  }
+  ]
 }
