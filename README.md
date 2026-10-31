@@ -1,4 +1,4 @@
-# SAP S/4HANA (sap-s4hana)
+# SAP S/4HANA
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,449 +66,227 @@
 
 Collection of SAP S/4HANA Cloud and On-Premise APIs for enterprise resource planning.
 
-**APIs.json:** [https://api.sap.com/apis.json](https://api.sap.com/apis.json)
+**Areas:** Business Applications · Cloud · ERP · Finance · Human Resources · Inventory · Logistics · Manufacturing · Plant Maintenance · Procurement · S/4HANA · Sales
+
+## SAP S/4HANA on APIs.io
+
+Everything profiled for SAP S/4HANA is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/sap-s4hana/](https://apis.io/providers/sap-s4hana/)** — or go straight to one of the APIs or properties below.
+
+### APIs (6)
+
+- [SAP S/4HANA Partners API](https://apis.io/apis/sap-s4hana/sap-s4hana-partners-api/) — Operations on header and item partner functions
+- [SAP S/4HANA Pricing Elements API](https://apis.io/apis/sap-s4hana/sap-s4hana-pricing-elements-api/) — Operations on header and item pricing elements
+- [SAP S/4HANA Sales Order Items API](https://apis.io/apis/sap-s4hana/sap-s4hana-sales-order-items-api/) — Operations on sales order line items
+- [SAP S/4HANA Sales Orders API](https://apis.io/apis/sap-s4hana/sap-s4hana-sales-orders-api/) — Operations on sales order header records
+- [SAP S/4HANA Schedule Lines API](https://apis.io/apis/sap-s4hana/sap-s4hana-schedule-lines-api/) — Operations on item schedule lines for delivery scheduling
+- [SAP S/4HANA Text API](https://apis.io/apis/sap-s4hana/sap-s4hana-text-api/) — Operations on header and item text records
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Sap S4Hana Agentic Access](https://apis.io/agentic-access/sap-s4hana/sap-s4hana-agentic-access/)
+
+#### JSON Schema (29)
+
+The data models the API reads and writes.
+
+- [ODataError](https://apis.io/schemas/sap-s4hana/sap-s4hana-odataerror/)
+- [SAP S/4HANA Sales Order](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order/)
+- [ODataError](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-o-data-error/)
+- [SalesOrder](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-sales-order/)
+- [SalesOrderCreate](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-sales-order-create/)
+- [SalesOrderHeaderPartner](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-sales-order-header-partner/)
+- [SalesOrderHeaderPrcgElmnt](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-sales-order-header-prcg-elmnt/)
+- [SalesOrderItem](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-sales-order-item/)
+- [SalesOrderItemCreate](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-sales-order-item-create/)
+- [SalesOrderItemPartner](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-sales-order-item-partner/)
+- [SalesOrderItemPrcgElmnt](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-sales-order-item-prcg-elmnt/)
+- [SalesOrderItemText](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-sales-order-item-text/)
+- [SalesOrderItemUpdate](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-sales-order-item-update/)
+- [SalesOrderScheduleLine](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-sales-order-schedule-line/)
+- [SalesOrderText](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-sales-order-text/)
+- [SalesOrderUpdate](https://apis.io/schemas/sap-s4hana/sap-s4hana-sales-order-sales-order-update/)
+- [SalesOrder](https://apis.io/schemas/sap-s4hana/sap-s4hana-salesorder/)
+- [SalesOrderCreate](https://apis.io/schemas/sap-s4hana/sap-s4hana-salesordercreate/)
+- [SalesOrderHeaderPartner](https://apis.io/schemas/sap-s4hana/sap-s4hana-salesorderheaderpartner/)
+- [SalesOrderHeaderPrcgElmnt](https://apis.io/schemas/sap-s4hana/sap-s4hana-salesorderheaderprcgelmnt/)
+- [SalesOrderItem](https://apis.io/schemas/sap-s4hana/sap-s4hana-salesorderitem/)
+- [SalesOrderItemCreate](https://apis.io/schemas/sap-s4hana/sap-s4hana-salesorderitemcreate/)
+- [SalesOrderItemPartner](https://apis.io/schemas/sap-s4hana/sap-s4hana-salesorderitempartner/)
+- [SalesOrderItemPrcgElmnt](https://apis.io/schemas/sap-s4hana/sap-s4hana-salesorderitemprcgelmnt/)
+- [SalesOrderItemText](https://apis.io/schemas/sap-s4hana/sap-s4hana-salesorderitemtext/)
+- …and 4 more published on APIs.io
 
-## Tags
+#### JSON Structure (15)
 
-- Business Applications
-- Cloud
-- Enterprise Resource Planning
-- ERP
-- Finance
-- Human Resources
-- Inventory
-- Logistics
-- Manufacturing
-- Plant Maintenance
-- Procurement
-- S/4HANA
-- Sales
-- SAP
+Data models expressed in JSON Structure.
 
-## Timestamps
+- [Sap S4Hana Sales Order O Data Error Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-o-data-error-structure/)
+- [Sap S4Hana Sales Order Sales Order Create Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-sales-order-create-structure/)
+- [Sap S4Hana Sales Order Sales Order Header Partner Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-sales-order-header-partner-structure/)
+- [Sap S4Hana Sales Order Sales Order Header Prcg Elmnt Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-sales-order-header-prcg-elmnt-structure/)
+- [Sap S4Hana Sales Order Sales Order Item Create Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-sales-order-item-create-structure/)
+- [Sap S4Hana Sales Order Sales Order Item Partner Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-sales-order-item-partner-structure/)
+- [Sap S4Hana Sales Order Sales Order Item Prcg Elmnt Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-sales-order-item-prcg-elmnt-structure/)
+- [Sap S4Hana Sales Order Sales Order Item Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-sales-order-item-structure/)
+- [Sap S4Hana Sales Order Sales Order Item Text Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-sales-order-item-text-structure/)
+- [Sap S4Hana Sales Order Sales Order Item Update Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-sales-order-item-update-structure/)
+- [Sap S4Hana Sales Order Sales Order Schedule Line Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-sales-order-schedule-line-structure/)
+- [Sap S4Hana Sales Order Sales Order Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-sales-order-structure/)
+- [Sap S4Hana Sales Order Sales Order Text Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-sales-order-text-structure/)
+- [Sap S4Hana Sales Order Sales Order Update Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-sales-order-sales-order-update-structure/)
+- [Sap S4Hana Structure](https://apis.io/json-structure/sap-s4hana/sap-s4hana-structure/)
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-05-19
+#### JSON-LD (2)
 
-## APIs
+Linked-data contexts for the provider's vocabulary.
 
-### SAP S/4HANA Business Partner API
+- [Sap S4Hana Context](https://apis.io/jsonld/sap-s4hana/sap-s4hana-context/)
+- [Sap S4Hana Sales Order Context](https://apis.io/jsonld/sap-s4hana/sap-s4hana-sales-order-context/)
 
-API for creating, reading, updating, and deleting business partner master data.
+#### Vocabulary (1)
 
-#### Tags
+The provider's domain terms, defined.
 
-- Business Partner
-- Customer
-- ERP
-- Master Data
-- Supplier
+- [SAP S/4HANA Domain Vocabulary](https://apis.io/vocabularies/sap-s4hana/sap-s4hana-vocabulary/)
 
-#### Properties
+#### Examples (14)
 
-- [OpenAPI](https://api.sap.com/api/API_BUSINESS_PARTNER/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/873c58e32fa642eea4ffb53d80819fa3.html)
-- [Console](https://api.sap.com/api/API_BUSINESS_PARTNER/tryout)
-- [Authentication](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/26f2b5aa3f3a4019b7d08978095b9e6a.html)
-- [API Reference](https://api.sap.com/api/API_BUSINESS_PARTNER/resource)
-- [JSON Schema](https://api.sap.com/api/API_BUSINESS_PARTNER/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Example requests and responses.
 
-### SAP S/4HANA Sales Order API
+- [Sap S4Hana Sales Order O Data Error Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-o-data-error-example/)
+- [Sap S4Hana Sales Order Sales Order Create Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-sales-order-create-example/)
+- [Sap S4Hana Sales Order Sales Order Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-sales-order-example/)
+- [Sap S4Hana Sales Order Sales Order Header Partner Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-sales-order-header-partner-example/)
+- [Sap S4Hana Sales Order Sales Order Header Prcg Elmnt Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-sales-order-header-prcg-elmnt-example/)
+- [Sap S4Hana Sales Order Sales Order Item Create Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-sales-order-item-create-example/)
+- [Sap S4Hana Sales Order Sales Order Item Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-sales-order-item-example/)
+- [Sap S4Hana Sales Order Sales Order Item Partner Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-sales-order-item-partner-example/)
+- [Sap S4Hana Sales Order Sales Order Item Prcg Elmnt Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-sales-order-item-prcg-elmnt-example/)
+- [Sap S4Hana Sales Order Sales Order Item Text Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-sales-order-item-text-example/)
+- [Sap S4Hana Sales Order Sales Order Item Update Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-sales-order-item-update-example/)
+- [Sap S4Hana Sales Order Sales Order Schedule Line Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-sales-order-schedule-line-example/)
+- [Sap S4Hana Sales Order Sales Order Text Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-sales-order-text-example/)
+- [Sap S4Hana Sales Order Sales Order Update Example](https://apis.io/examples/sap-s4hana/sap-s4hana-sales-order-sales-order-update-example/)
 
-API for managing sales orders including creation, updates, and status changes.
+#### Collections (7)
 
-#### Tags
+Postman and Open Collection request collections.
 
-- ERP
-- Order Management
-- Sales
-- Sales Order
+- [SAP S/4HANA Sales Order Partners API](https://apis.io/collections/sap-s4hana/open-sap-s4hana-partners-api/)
+- [SAP S/4HANA Sales Order Partners Pricing Elements API](https://apis.io/collections/sap-s4hana/open-sap-s4hana-pricing-elements-api/)
+- [SAP S/4HANA Sales Order API](https://apis.io/collections/sap-s4hana/open-sap-s4hana-sales-order/)
+- [SAP S/4HANA Sales Order Partners Sales Order Items API](https://apis.io/collections/sap-s4hana/open-sap-s4hana-sales-order-items-api/)
+- [SAP S/4HANA Sales Order Partners Sales Orders API](https://apis.io/collections/sap-s4hana/open-sap-s4hana-sales-orders-api/)
+- [SAP S/4HANA Sales Order Partners Schedule Lines API](https://apis.io/collections/sap-s4hana/open-sap-s4hana-schedule-lines-api/)
+- [SAP S/4HANA Sales Order Partners Text API](https://apis.io/collections/sap-s4hana/open-sap-s4hana-text-api/)
 
-#### Properties
+#### Governance rules (2)
 
-- [OpenAPI](openapi/sap-s4hana-sales-order-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-- [JSON Schema](json-schema/sap-s4hana-sales-order-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/sap-s4hana-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [OpenAPI](https://api.sap.com/api/API_SALES_ORDER_SRV/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/cd99a61e5e3f45789c954055c1e31de0/46e2b3e1e0d44419b86e4f0f6e90a0c9.html)
-- [Console](https://api.sap.com/api/API_SALES_ORDER_SRV/tryout)
-- [API Reference](https://api.sap.com/api/API_SALES_ORDER_SRV/resource)
-- [JSON Schema](https://api.sap.com/api/API_SALES_ORDER_SRV/schema) — [JSON Schema](https://json-schema.org/specification)
+Spectral rulesets for the provider's contracts.
 
-### SAP S/4HANA Purchase Order API
+- [SAP S/4HANA — jsonschema rules](https://apis.io/rules/sap-s4hana/sap-s4hana-jsonschema-spectral-rules/)
+- [SAP S/4HANA API Rules](https://apis.io/rules/sap-s4hana/sap-s4hana-spectral-rules/)
 
-API for creating and managing purchase orders in procurement processes.
+#### Security (3)
 
-#### Tags
+Authentication, trust centre, and vulnerability disclosure.
 
-- ERP
-- Procurement
-- Purchase Order
-- Purchasing
+- [Sap S4Hana Authentication](https://apis.io/security/sap-s4hana/sap-s4hana-authentication/)
+- [Sap S4Hana Domain Security](https://apis.io/security/sap-s4hana/sap-s4hana-domain-security/)
+- [Sap S4Hana Vulnerability Disclosure](https://apis.io/security/sap-s4hana/sap-s4hana-vulnerability-disclosure/)
 
-#### Properties
+#### OAuth scopes (1)
 
-- [OpenAPI](https://api.sap.com/api/API_PURCHASEORDER_PROCESS_SRV/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/68bf513d4c6742ddb5c0268d46b48b7c/7e0da70d14b44e0cac79c2a29c21b695.html)
-- [Console](https://api.sap.com/api/API_PURCHASEORDER_PROCESS_SRV/tryout)
-- [API Reference](https://api.sap.com/api/API_PURCHASEORDER_PROCESS_SRV/resource)
-- [JSON Schema](https://api.sap.com/api/API_PURCHASEORDER_PROCESS_SRV/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+The permissions the API asks for.
 
-### SAP S/4HANA Material Document API
+- [Sap S4Hana Scopes](https://apis.io/scopes/sap-s4hana/sap-s4hana-scopes/)
 
-API for posting goods movements and managing inventory transactions.
+#### Plans and pricing (1)
 
-#### Tags
+Published plans, tiers and prices.
 
-- ERP
-- Goods Movement
-- Inventory
-- Material Document
-- Warehouse
+- [Sap S4Hana Plans Pricing](https://apis.io/plans/sap-s4hana/sap-s4hana-plans-pricing/)
 
-#### Properties
+#### Rate limits (1)
 
-- [OpenAPI](https://api.sap.com/api/API_MATERIAL_DOCUMENT_SRV/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0dd0e7f348b04fc7b4e6e63bc9e1db9f/e5ced76872764cbbb8d78e81e21e7f35.html)
-- [Console](https://api.sap.com/api/API_MATERIAL_DOCUMENT_SRV/tryout)
-- [API Reference](https://api.sap.com/api/API_MATERIAL_DOCUMENT_SRV/resource)
-- [JSON Schema](https://api.sap.com/api/API_MATERIAL_DOCUMENT_SRV/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Published request limits.
 
-### SAP S/4HANA Product Master API
+- [Sap S4Hana Rate Limits](https://apis.io/rate-limits/sap-s4hana/sap-s4hana-rate-limits/)
 
-API for managing product and material master data.
+#### FinOps (1)
 
-#### Tags
+What the API costs to run, by operation.
 
-- ERP
-- Master Data
-- Material
-- Product
+- [Sap S4Hana Finops](https://apis.io/finops/sap-s4hana/sap-s4hana-finops/)
 
-#### Properties
+## Where to find this API
 
-- [OpenAPI](https://api.sap.com/api/API_PRODUCT_SRV/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/48a7b615c24444a9b3a6f2810f88db71.html)
-- [Console](https://api.sap.com/api/API_PRODUCT_SRV/tryout)
-- [API Reference](https://api.sap.com/api/API_PRODUCT_SRV/resource)
-- [JSON Schema](https://api.sap.com/api/API_PRODUCT_SRV/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-### SAP S/4HANA Journal Entry API
-
-API for creating and managing financial journal entries.
-
-#### Tags
-
-- Accounting
-- ERP
-- Finance
-- General Ledger
-- Journal Entry
-
-#### Properties
-
-- [OpenAPI](https://api.sap.com/api/API_JOURNALENTRY_SRV/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/b8c083f8f1614da6bf6f7a6e06c4f9be/e0f6c2e84e214c8c8d77a24b40a11ae8.html)
-- [Console](https://api.sap.com/api/API_JOURNALENTRY_SRV/tryout)
-- [API Reference](https://api.sap.com/api/API_JOURNALENTRY_SRV/resource)
-- [JSON Schema](https://api.sap.com/api/API_JOURNALENTRY_SRV/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP S/4HANA Billing Document API
-
-API for reading, canceling, and retrieving PDFs of billing documents in sales and distribution.
-
-#### Tags
-
-- Billing
-- ERP
-- Finance
-- Invoice
-- Sales
-
-#### Properties
-
-- [OpenAPI](https://api.sap.com/api/API_BILLING_DOCUMENT_SRV/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/03c04db2a7434731b7fe21dca77440da/65680dabb62546029175655482f85edc.html)
-- [Console](https://api.sap.com/api/API_BILLING_DOCUMENT_SRV/tryout)
-- [API Reference](https://api.sap.com/api/API_BILLING_DOCUMENT_SRV/resource)
-- [JSON Schema](https://api.sap.com/api/API_BILLING_DOCUMENT_SRV/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP S/4HANA Supplier Invoice API
-
-API for creating and processing supplier invoices referenced to purchase orders.
-
-#### Tags
-
-- Accounts Payable
-- ERP
-- Finance
-- Procurement
-- Supplier Invoice
-
-#### Properties
-
-- [OpenAPI](https://api.sap.com/api/API_SUPPLIERINVOICE_PROCESS_SRV/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0864cb07010642b3bde45a20de4975bc/8ddf1d448ce74a799390a1706d90ca3d.html)
-- [Console](https://api.sap.com/api/API_SUPPLIERINVOICE_PROCESS_SRV/tryout)
-- [API Reference](https://api.sap.com/api/API_SUPPLIERINVOICE_PROCESS_SRV/resource)
-- [JSON Schema](https://api.sap.com/api/API_SUPPLIERINVOICE_PROCESS_SRV/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP S/4HANA Customer Return API
-
-API for integrating external applications with customer return processing including advanced returns management.
-
-#### Tags
-
-- Customer Return
-- ERP
-- Logistics
-- Returns Management
-- Sales
-
-#### Properties
-
-- [OpenAPI](https://api.sap.com/api/API_CUSTOMER_RETURN_SRV/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/03c04db2a7434731b7fe21dca77440da/69bd2e81cb394eb0b3d8eae85d6b4517.html)
-- [Console](https://api.sap.com/api/API_CUSTOMER_RETURN_SRV/tryout)
-- [API Reference](https://api.sap.com/api/API_CUSTOMER_RETURN_SRV/resource)
-- [JSON Schema](https://api.sap.com/api/API_CUSTOMER_RETURN_SRV/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP S/4HANA Purchase Requisition API
-
-API for creating, updating, and managing purchase requisitions in procurement workflows.
-
-#### Tags
-
-- ERP
-- Procurement
-- Purchase Requisition
-- Purchasing
-
-#### Properties
-
-- [OpenAPI](https://api.sap.com/api/API_PURCHASEREQ_PROCESS_SRV/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Console](https://api.sap.com/api/API_PURCHASEREQ_PROCESS_SRV/tryout)
-- [API Reference](https://api.sap.com/api/API_PURCHASEREQ_PROCESS_SRV/resource)
-- [JSON Schema](https://api.sap.com/api/API_PURCHASEREQ_PROCESS_SRV/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP S/4HANA Outbound Delivery API
-
-API for creating, reading, updating, and deleting outbound deliveries including goods issue and picking operations.
-
-#### Tags
-
-- ERP
-- Logistics
-- Outbound Delivery
-- Shipping
-- Warehouse
-
-#### Properties
-
-- [OpenAPI](https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/588780cab2774a7ab9fffca3a7f919fe/113abb06f3fe4e94987d35d5f86ba1ac.html)
-- [Console](https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/tryout)
-- [API Reference](https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/resource)
-- [JSON Schema](https://api.sap.com/api/API_OUTBOUND_DELIVERY_SRV_0002/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP S/4HANA Inbound Delivery API
-
-API for creating, reading, updating, and deleting inbound deliveries for procurement and logistics.
-
-#### Tags
-
-- ERP
-- Inbound Delivery
-- Logistics
-- Receiving
-- Warehouse
-
-#### Properties
-
-- [OpenAPI](https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/588780cab2774a7ab9fffca3a7f919fe/f3ff58c5e7ec43c7b55a503be6633567.html)
-- [Console](https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/tryout)
-- [API Reference](https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/resource)
-- [JSON Schema](https://api.sap.com/api/API_INBOUND_DELIVERY_SRV_0002/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP S/4HANA Cost Center API
-
-API for reading cost center master data used in controlling and cost management.
-
-#### Tags
-
-- Controlling
-- Cost Center
-- ERP
-- Finance
-- Master Data
-
-#### Properties
-
-- [OpenAPI](https://api.sap.com/api/API_COSTCENTER_SRV/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/6b39bd1d0e5e4099a5b65d835c29c696/5792333ddf3c47eaad4314b071dfd684.html)
-- [Console](https://api.sap.com/api/API_COSTCENTER_SRV/tryout)
-- [API Reference](https://api.sap.com/api/API_COSTCENTER_SRV/resource)
-- [JSON Schema](https://api.sap.com/api/API_COSTCENTER_SRV/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP S/4HANA GL Account API
-
-API for reading general ledger account master data in chart of accounts.
-
-#### Tags
-
-- Accounting
-- ERP
-- Finance
-- General Ledger
-- GL Account
-- Master Data
-
-#### Properties
-
-- [OpenAPI](https://api.sap.com/api/API_GLACCOUNTINCHARTOFACCOUNTS_SRV/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Console](https://api.sap.com/api/API_GLACCOUNTINCHARTOFACCOUNTS_SRV/tryout)
-- [API Reference](https://api.sap.com/api/API_GLACCOUNTINCHARTOFACCOUNTS_SRV/resource)
-- [JSON Schema](https://api.sap.com/api/API_GLACCOUNTINCHARTOFACCOUNTS_SRV/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP S/4HANA Bank Master API
-
-API for reading bank master data including bank keys, SWIFT codes, and bank details.
-
-#### Tags
-
-- Bank
-- ERP
-- Finance
-- Master Data
-- Payment
-
-#### Properties
-
-- [OpenAPI](https://api.sap.com/api/API_BANKDETAIL_SRV/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/e296651f454c4284ade361292c633d69/1de6770532554d43a1d026f57e7dd46e.html)
-- [Console](https://api.sap.com/api/API_BANKDETAIL_SRV/tryout)
-- [API Reference](https://api.sap.com/api/API_BANKDETAIL_SRV/resource)
-- [JSON Schema](https://api.sap.com/api/API_BANKDETAIL_SRV/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP S/4HANA Production Order API
-
-API for reading production order data including components, operations, and status information.
-
-#### Tags
-
-- ERP
-- Manufacturing
-- Production Order
-- Production Planning
-
-#### Properties
-
-- [OpenAPI](https://api.sap.com/api/API_PRODUCTION_ORDER_2_SRV/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Console](https://api.sap.com/api/API_PRODUCTION_ORDER_2_SRV/tryout)
-- [API Reference](https://api.sap.com/api/API_PRODUCTION_ORDER_2_SRV/resource)
-- [JSON Schema](https://api.sap.com/api/API_PRODUCTION_ORDER_2_SRV/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP S/4HANA Maintenance Order API
-
-API for reading maintenance order data used in plant maintenance and enterprise asset management.
-
-#### Tags
-
-- Asset Management
-- ERP
-- Maintenance Order
-- Plant Maintenance
-
-#### Properties
-
-- [OpenAPI](https://api.sap.com/api/API_MAINTENANCEORDER/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/2dfa044a255f49e89a3050daf3c61c11/ff951ebb44664d87b2a8db9290a41dc2.html)
-- [Console](https://api.sap.com/api/API_MAINTENANCEORDER/tryout)
-- [API Reference](https://api.sap.com/api/API_MAINTENANCEORDER/resource)
-- [JSON Schema](https://api.sap.com/api/API_MAINTENANCEORDER/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### SAP S/4HANA Workforce Timesheet API
-
-API for creating, reading, updating, and deleting workforce timesheet entries with automatic posting to controlling.
-
-#### Tags
-
-- ERP
-- Human Resources
-- Time Management
-- Timesheet
-- Workforce
-
-#### Properties
-
-- [OpenAPI](https://api.sap.com/api/API_MANAGE_WORKFORCE_TIMESHEET/overview) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [Documentation](https://help.sap.com/docs/SAP_S4HANA_CLOUD/b08cb360201544ec803330fefa59b0f7/fa198e62c6d24788bd1f82082feb3096.html)
-- [Console](https://api.sap.com/api/API_MANAGE_WORKFORCE_TIMESHEET/tryout)
-- [API Reference](https://api.sap.com/api/API_MANAGE_WORKFORCE_TIMESHEET/resource)
-- [JSON Schema](https://api.sap.com/api/API_MANAGE_WORKFORCE_TIMESHEET/schema) — [JSON Schema](https://json-schema.org/specification)
-- [Postman Collection](collections/sap-s4hana-sales-order.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/sap-s4hana-sales-order.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/SAP)
-- [LinkedIn](https://www.linkedin.com/showcase/sap-s-4hana)
-- [Portal](https://api.sap.com)
-- [Getting Started](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/1e45cfd73e814aa6b1a1118e2c1d3cec.html)
-- [Authentication](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/26f2b5aa3f3a4019b7d08978095b9e6a.html)
-- [Changelog](https://api.sap.com/releasenotes)
+- [Website](https://sap.com)
+- [Getting started](https://help.sap.com/docs/SAP_S4HANA_CLOUD/0f69f8fb28ac4bf48d2b57b9637e81fa/1e45cfd73e814aa6b1a1118e2c1d3cec.html)
 - [Support](https://support.sap.com)
-- [Terms of Service](https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html)
-- [Privacy Policy](https://www.sap.com/about/legal/privacy.html)
-- [A P I  Catalog](https://api.sap.com/products/SAPS4HANACloud/apis/all)
-- [A P I  Packages](https://api.sap.com/products/SAPS4HANACloud/apis/packages)
-- [O Data  V4  A P Is](https://api.sap.com/products/SAPS4HANACloud/apis/ODATAV4)
-- [R E S T  A P Is](https://api.sap.com/products/SAPS4HANACloud/apis/REST)
-- [On- Premise  A P I  Catalog](https://api.sap.com/products/SAPS4HANA/apis/all)
-- [On- Premise  A P I  Packages](https://api.sap.com/products/SAPS4HANA/apis/packages)
-- [Private  Edition  A P Is](https://api.sap.com/products/SAPS4HANACloudPrivateEdition/apis/packages)
-- [Community](https://community.sap.com/t5/enterprise-resource-planning-blog-posts-by-sap/sap-s-4hana-apis-and-where-to-find-them/ba-p/13723939)
-- [Status Page](https://www.sap.com/about/cloud-trust-center/cloud-service-status.html)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](undefined)
+- [Changelog](https://api.sap.com/releasenotes)
+- [Terms of service](https://www.sap.com/about/trust-center/agreements/cloud/cloud-services.html)
+- [Privacy policy](https://www.sap.com/about/legal/privacy.html)
+- [GitHub](https://github.com/SAP)
+- [Status](https://www.sap.com/about/cloud-trust-center/cloud-service-status.html)
 
-## Maintainers
+## API Evangelist rating
 
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 36.0** — thin · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 42.9 |
+| Contract quality | 65.6 |
+| Contract governance | 13.6 |
+| Operational transparency | 23.7 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 26.3 |
+
+**Agent readiness 20.8** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | negotiable (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 40.2** — Employment & Payroll
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/sap-s4hana/](https://apis.io/providers/sap-s4hana/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for SAP S/4HANA: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/sap-s4hana/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
